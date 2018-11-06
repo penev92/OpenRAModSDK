@@ -11,11 +11,11 @@ make command center to build UAV and radar planes from out side the map
 remove research from command centers
 fix f22 trail to fit the engine position
 add cranes to service depots that come from the ground and repair
-make new Drowning animation for infantry in the water, make new dummy unit that will replace infantry in the water after impact death, dummy unit will use the new animation and die over time (2 secs)(edited)
+make new Drowning animation for infantry in the water, make new dummy unit that will replace infantry in the water after impact death, dummy unit will use the new animation and die over time (2 secs)
 add animals: underwater shadow of shark (when dummy infantry in the water, nearby shark will attack) sheep, cow, eagle, seagull
 add selection sounds to buildings
 
-REDO outpost vehicle model
+RE DO outpost vehicle model
 
 edit sov barracks to look like an armory,  add a gdi version of allied tent with red cross on it (this will be the equevelent of nod armory)
 add fence crushing sound
@@ -23,15 +23,14 @@ make engineers to be able to crush fences
 make fences electro kill infantry
 add power off\on button
 add new overlays for offline power
-enlarge the minimap and build menu ingame
+enlarge the minimap ingame EVEN MORE
 add kanes wrath stats(health, damage, armor,weapon types, ect)
 add some music tracks from retaliation
 wait for the openra team to fix the problem with the navy turret AND add some temporary navy units.
 add break of sound visual and audio effect to f22 when it gets at CruiseAltitude also speed bonus.
-make engineers repair slowly buildings and disable abbility to enter for repair.
-add small bomb to f22 to hit ground targets.
-fix create shadow.
-add tooltip to creates.
+make engineers repair slowly buildings and disable abbility to enter for repair (maybe).
+fix crate shadow.
+add tooltip to crates.
 add "area" building, this building will shoot at the center of it allied units,and then change owner to the owner of the building.
 add background image of doctrine in the prudaction menu of each faction.
 add radar background of each faction (red nod logo, purple nod color ect)
@@ -42,7 +41,6 @@ add light effect for each type of tiberium TGD is above it
 add damage and dead animation to TGD
 add overlayidle animation to port
 add mouse over scqare show up in port building
-add renegate
 
 
 add civilians with some geverment pick or afiliation left right wind or center?

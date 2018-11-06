@@ -57,6 +57,16 @@ TRAN:
 	Selectable:
 		DecorationBounds: 41,41
 
+TRANNODDA:
+	Inherits@TRAN: TRAN
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: afldra
+		Queue: Aircraft.Nodda
+		Description: Infantry Transport Helicopter.\n  Unarmed
+	RenderSprites:
+		Image: tran
+
 OSPREY:
 	Inherits@1: ^Helicopter
 	Inherits@2: ^CapTran
@@ -178,34 +188,52 @@ F22:
 	RevealsShroud:
 		Range: 10c0
 		Type: CenterPosition
-	Armament@1:
-		Weapon: AirBomb
-		LocalOffset: 0,-640,0, 0,640,0
-		LocalYaw: -40, 24
-		PauseOnCondition: !ammo
-	Armament@2:
-		Weapon: F22Missiles
-		LocalOffset: 0,-640,0, 0,640,0
-		LocalYaw: -40, 24
-		PauseOnCondition: !ammo
 	AttackPlane:
 		FacingTolerance: 20
+		Armaments: primary, secondary, tertiary
+	Armament@PRIMARY:
+		Name: primary
+		Weapon: F22Missiles
+		LocalOffset: 0,-640,0, 0,640,0
+		PauseOnCondition: !f22missiles
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: HeavyMinigun
+		LocalOffset: 640,0,0
+		PauseOnCondition: !heavyminigun
+	Armament@TERTIARY:
+		Name: tertiary
+		Weapon: AirBomb
+		LocalOffset: 300,0,0
+		PauseOnCondition: !airbomb
+	AmmoPool@PRIMARY:
+		Name: primary
+		Armaments: primary
+		Ammo: 4
+		AmmoCondition: f22missiles
+		ReloadDelay: 100
+		SelfReloads: False
+	AmmoPool@SECONDARY:
+		Name: secondary
+		Armaments: secondary
+		Ammo: 8
+		AmmoCondition: heavyminigun
+		ReloadDelay: 50
+		SelfReloads: False
+	AmmoPool@TERTIARY:
+		Name: tertiary
+		Armaments: tertiary
+		Ammo: 1
+		AmmoCondition: airbomb
+		ReloadDelay: 400
+		PipType: Red
+		SelfReloads: False
 	Aircraft:
 		InitialFacing: 192
 		TurnSpeed: 5
 		Speed: 250
 		RepulsionSpeed: 40
 		MaximumPitch: 56
-	AmmoPool@1:
-		Ammo: 8
-		AmmoCondition: ammo
-	AmmoPool@2:
-		Ammo: 8
-		AmmoCondition: ammo
-	AmmoPool@3:
-		Ammo: 2
-		AmmoCondition: ammo
-		PipType: Red
 	Selectable:
 		Bounds: 36,28,0,2
 		DecorationBounds: 40,29,0,1
@@ -222,11 +250,11 @@ F22:
 		PlayerPalette: playerRA
 	JamsMissiles:
 		Range: 2c0
-		DeflectionStances: Neutral, Enemy
-		Chance: 50
+		DeflectionStances: Enemy
+		Chance: 30
 	AppearsOnRadar:
-		UseLocation: yes
-		ValidStances: Neutral, Ally
+		UseLocation: False
+		ValidStances: Ally
 
 HELI:
 	Inherits: ^Helicopter
@@ -260,15 +288,13 @@ HELI:
 		Weapon: HeliAGGun
 		LocalOffset: 128,-213,-85, 128,213,-85
 		MuzzleSequence: muzzle
-		AmmoPoolName: HeliAGGunA
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammoG
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: HeliMissiles
 		LocalOffset: 128,-213,-85, 128,213,-85
 		MuzzleSequence: muzzle
-		AmmoPoolName: HeliMissilesA
-		PauseOnCondition: !ammo
+		PauseOnCondition: !ammoM
 	AmmoPool@HeliAGGunA:
 		Name: HeliAGGunA
 		Ammo: 20
@@ -276,14 +302,14 @@ HELI:
 		SelfReloadDelay: 20
 		ReloadCount: 1
 		PipCount: 0
-		AmmoCondition: ammo
+		AmmoCondition: ammoG
 	AmmoPool@HeliMissilesA:
 		Name: HeliMissilesA
 		Ammo: 8
 		PipCount: 5
 		SelfReloads: False
 		ReloadCount: 8
-		AmmoCondition: ammo
+		AmmoCondition: ammoM
 	AttackHeli:
 		FacingTolerance: 20
 	WithIdleOverlay@ROTORAIR:

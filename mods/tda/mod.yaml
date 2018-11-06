@@ -78,6 +78,7 @@ Rules:
 	tda|rules/compatibility.yaml
 	tda|rules/lights.yaml
 	tda|rules/map_options.yaml
+	tda|rules/eg.yaml
 
 Sequences:
 	tda|sequences/structures.yaml

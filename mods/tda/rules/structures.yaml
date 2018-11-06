@@ -1693,6 +1693,56 @@ OBLI:
 	#	IsPlayerPalette: true
 	#this above crashes the game
 
+ATWR:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Advanced Guard Tower
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~anyhq, ~techlevel.medium
+		Queue: Defence.GDI
+		BuildDuration: 2880
+		BuildDurationModifier: 40
+		Description: All-purpose defensive structure.\n  Strong vs Aircraft, Tanks\n  Weak vs Infantry
+	Selectable:
+		Bounds: 24,24
+		DecorationBounds: 22,48,0,-12
+	SelectionDecorations:
+	Health:
+		HP: 800
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8c0
+	WithBuildingBib:
+		HasMinibib: Yes
+	Turreted:
+		TurnSpeed: 255
+		Offset: 128,128,384
+	Armament@PRIMARY:
+		Weapon: TowerMissle
+		LocalOffset: 256,128,0, 256,-128,0
+		LocalYaw: -100,100
+	Armament@SECONDARY:
+		Weapon: SAMMissile
+		LocalOffset: 256,128,0, 256,-128,0
+		LocalYaw: -100,100
+	AttackTurreted:
+		PauseOnCondition: disabled
+	BodyOrientation:
+		QuantizedFacings: 8
+	DetectCloaked:
+		Range: 5c0
+		RequiresCondition: !disabled
+	Power:
+		Amount: -50
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack, Defense, AItagAvoid
+
 GTWR:
 	Inherits: ^Defense
 	Inherits@AUTOTARGET: ^AutoTargetGround
@@ -1787,6 +1837,291 @@ PBOX:
 	DetectCloaked:
 		Range: 6c0
 	IgnoresDisguise:
+
+FTUR:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~barracks, ~!research_bio_nod
+		Queue: Defence.Nodda
+		BuildDuration: 1440
+		BuildDurationModifier: 40
+		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 800
+	Tooltip@CHEM:
+		Name: Chem Tower
+		RequiresCondition: bio_nod
+	Tooltip:
+		Name: Flame Tower
+		RequiresCondition: !bio_nod
+	Building:
+	Health:
+		HP: 600
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	WithBuildingBib:
+		HasMinibib: Yes
+	Turreted:
+		TurnSpeed: 255
+		Offset: 0,0,112
+	AttackTurreted:
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 8
+	Power:
+		Amount: -20
+	DetectCloaked:
+		Range: 5c0
+	GrantConditionOnPrerequisite:
+		Condition: bio_nod
+		Prerequisites: research_bio_nod
+	Armament@flame:
+		Weapon: FireballLauncher
+		LocalOffset: 512,0,0
+		RequiresCondition: !bio_nod
+	Armament@chem:
+		Weapon: ChemballLauncher
+		LocalOffset: 512,0,0
+		RequiresCondition: bio_nod
+	Explodes@ChemUpgradeOff:
+		Weapon: FlametankExplode
+		EmptyWeapon: FlametankExplode
+		RequiresCondition: !bio_nod
+	Explodes@ChemUpgradeOn:
+		Weapon: ChemtankExplode
+		EmptyWeapon: ChemtankExplode
+		RequiresCondition: bio_nod
+	WithIdleOverlay@ChemUpgradeOn:
+		RequiresCondition: bio_nod && !Damaged
+		Sequence: idle-chem
+		RenderBeforeBuildComplete: false
+	GrantConditionOnDamageState:
+		ValidDamageStates: Heavy, Critical
+		Condition: Damaged
+	WithIdleOverlay@ChemDamagedUpgradeOn:
+		Sequence: damaged-idle-chem
+		RequiresCondition: bio_nod && Damaged
+
+CTUR:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~barracks, ~research_bio_nod
+		Queue: Defence.Nodda
+		BuildDuration: 1440
+		BuildDurationModifier: 40
+		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Chem Tower
+	Building:
+	Health:
+		HP: 600
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	WithBuildingBib:
+		HasMinibib: Yes
+	Turreted:
+		TurnSpeed: 255
+		Offset: 0,0,112
+	Armament:
+		Weapon: ChemballLauncher
+		LocalOffset: 512,0,0
+	AttackTurreted:
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 8
+	Power:
+		Amount: -20
+	DetectCloaked:
+		Range: 5c0
+	Explodes:
+		Weapon: ChemtankExplode
+		EmptyWeapon: ChemtankExplode
+
+SBAG:
+	Inherits: ^Wall
+	Valued:
+		Cost: 100
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Sandbag Barrier
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~barracks
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
+	Armor:
+		Type: Light
+	LineBuild:
+		Range: 8
+		NodeTypes: sandbag
+	LineBuildNode:
+		Types: sandbag
+	WithWallSpriteBody:
+		Type: sandbag
+	ProximityExternalCondition@COVER:
+		Condition: Infantry.sandbag
+		Range: 1c255
+	ConditionManager:
+
+CYCL:
+	Inherits: ^Wall
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Chain Link Barrier
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~fact
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		Description: Stops infantry.\nCan be crushed by vehicles and tanks.
+	Armor:
+		Type: Light
+	Crushable:
+		CrushClasses: lightwall
+	LineBuild:
+		Range: 8
+		NodeTypes: chain
+	LineBuildNode:
+		Types: chain
+	WithWallSpriteBody:
+		Type: chain
+	#Immobile:
+	#	OccupiesSpace: false
+	#preserved for electric death
+
+BRIK:
+	Inherits: ^Wall
+	Valued:
+		Cost: 150
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Barrier
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~vehicleproduction
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		Description: Stops infantry and most tanks.\nBlocks some projectiles.
+	Health:
+		HP: 250
+	Armor:
+		Type: Heavy
+	BlocksProjectiles:
+	Crushable:
+		CrushClasses: heavywall
+		-CrushSound:
+	SoundOnDamageTransition:
+		DestroyedSounds: crumble.aud
+	LineBuild:
+		Range: 16
+		NodeTypes: concrete
+	LineBuildNode:
+		Types: concrete
+	WithWallSpriteBody:
+		Type: concrete
+	RenderSprites:
+		-Palette: staticterrain
+	SelfHealing:
+		Delay: 10
+		HealIfBelow: 50
+		DamageCooldown: 200
+
+VGATE:
+	Inherits: ^Gate
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -1536
+			BottomRight: 512, 1536
+	Building:
+		Footprint: x x x
+		Dimensions: 1,3
+	WithGateSpriteBody:
+		WallConnections: 0,-1, 0,3
+	LineBuildNode:
+		Connections: 0,-1, 0,1
+	Tooltip:
+		Name: Vertical Gate
+	Gate:
+
+HGATE:
+	Inherits: ^Gate
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 512
+	Building:
+		Footprint: xxx
+		Dimensions: 3,1
+	WithGateSpriteBody:
+		WallConnections: -1,0, 3,0
+	LineBuildNode:
+		Connections: -1,0, 1,0
+	Tooltip:
+		Name: Horizontal Gate
+	Gate:
+
+BARRACKS:
+	AlwaysVisible:
+	Tooltip:
+		Name: Infantry Production
+	Buildable:
+		Description: Infantry Production
+	Interactable:
+
+VEHICLEPRODUCTION:
+	AlwaysVisible:
+	Tooltip:
+		Name: Vehicle Production
+	Buildable:
+		Description: Vehicle Production
+	Interactable:
+
+ANYPOWER:
+	AlwaysVisible:
+	Tooltip:
+		Name: Power Plant
+	Buildable:
+		Description: Power Plant
+	Interactable:
+
+ANYHQ:
+	AlwaysVisible:
+	Tooltip:
+		Name: a communications center
+	Buildable:
+		Description: a communications center
+	Interactable:
+
+ANYTECH:
+	AlwaysVisible:
+	Tooltip:
+		Name: a Tech center
+	Buildable:
+		Description: a Tech center
+	Interactable:
+
+ANYFIX:
+	AlwaysVisible:
+	Tooltip:
+		Name: Repair Facility
+	Buildable:
+		Description: Repairs vehicles
+	Interactable:
 
 TGD:
 	Inherits: ^BaseBuilding
@@ -1977,338 +2312,3 @@ TGDBLUE:
 	-DamagedByTerrain:
 	CashTrickler:
 		Amount: 1400
-
-FTUR:
-	Inherits: ^Defense
-	Inherits@AUTOTARGET: ^AutoTargetGround
-	Buildable:
-		BuildPaletteOrder: 50
-		Prerequisites: ~barracks, ~!research_bio_nod
-		Queue: Defence.Nodda
-		BuildDuration: 1440
-		BuildDurationModifier: 40
-		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
-	Valued:
-		Cost: 800
-	Tooltip@CHEM:
-		Name: Chem Tower
-		RequiresCondition: bio_nod
-	Tooltip@FLAME:
-		Name: Flame Tower
-		RequiresCondition: !bio_nod
-	Building:
-	Health:
-		HP: 600
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 6c0
-	WithBuildingBib:
-		HasMinibib: Yes
-	Turreted:
-		TurnSpeed: 255
-		Offset: 0,0,112
-	AttackTurreted:
-	-QuantizeFacingsFromSequence:
-	BodyOrientation:
-		QuantizedFacings: 8
-	Power:
-		Amount: -20
-	DetectCloaked:
-		Range: 5c0
-	GrantConditionOnPrerequisite:
-		Condition: bio_nod
-		Prerequisites: research_bio_nod
-	Armament@flame:
-		Weapon: FireballLauncher
-		LocalOffset: 512,0,0
-		RequiresCondition: !bio_nod
-	Armament@chem:
-		Weapon: ChemballLauncher
-		LocalOffset: 512,0,0
-		RequiresCondition: bio_nod
-	Explodes@ChemUpgradeOff:
-		Weapon: FlametankExplode
-		EmptyWeapon: FlametankExplode
-		RequiresCondition: !bio_nod
-	Explodes@ChemUpgradeOn:
-		Weapon: ChemtankExplode
-		EmptyWeapon: ChemtankExplode
-		RequiresCondition: bio_nod
-	WithIdleOverlay@ChemUpgradeOn:
-		RequiresCondition: bio_nod && !Damaged
-		Sequence: idle-chem
-		RenderBeforeBuildComplete: false
-	GrantConditionOnDamageState:
-		ValidDamageStates: Heavy, Critical
-		Condition: Damaged
-	WithIdleOverlay@ChemDamagedUpgradeOn:
-		Sequence: damaged-idle-chem
-		RequiresCondition: bio_nod && Damaged
-
-CTUR:
-	Inherits: ^Defense
-	Inherits@AUTOTARGET: ^AutoTargetGround
-	Buildable:
-		BuildPaletteOrder: 50
-		Prerequisites: ~barracks, ~research_bio_nod
-		Queue: Defence.Nodda
-		BuildDuration: 1440
-		BuildDurationModifier: 40
-		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Chem Tower
-	Building:
-	Health:
-		HP: 600
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 6c0
-	WithBuildingBib:
-		HasMinibib: Yes
-	Turreted:
-		TurnSpeed: 255
-		Offset: 0,0,112
-	Armament:
-		Weapon: ChemballLauncher
-		LocalOffset: 512,0,0
-	AttackTurreted:
-	-QuantizeFacingsFromSequence:
-	BodyOrientation:
-		QuantizedFacings: 8
-	Power:
-		Amount: -20
-	DetectCloaked:
-		Range: 5c0
-	Explodes:
-		Weapon: ChemtankExplode
-		EmptyWeapon: ChemtankExplode
-
-ATWR:
-	Inherits: ^Defense
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
-	Inherits@AUTOTARGET: ^AutoTargetAll
-	Valued:
-		Cost: 1500
-	Tooltip:
-		Name: Advanced Guard Tower
-	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~anyhq, ~techlevel.medium
-		Queue: Defence.GDI
-		BuildDuration: 2880
-		BuildDurationModifier: 40
-		Description: All-purpose defensive structure.\n  Strong vs Aircraft, Tanks\n  Weak vs Infantry
-	Selectable:
-		Bounds: 24,24
-		DecorationBounds: 22,48,0,-12
-	SelectionDecorations:
-	Health:
-		HP: 800
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 8c0
-	WithBuildingBib:
-		HasMinibib: Yes
-	Turreted:
-		TurnSpeed: 255
-		Offset: 128,128,384
-	Armament@PRIMARY:
-		Weapon: TowerMissle
-		LocalOffset: 256,128,0, 256,-128,0
-		LocalYaw: -100,100
-	Armament@SECONDARY:
-		Weapon: SAMMissile
-		LocalOffset: 256,128,0, 256,-128,0
-		LocalYaw: -100,100
-	AttackTurreted:
-		PauseOnCondition: disabled
-	BodyOrientation:
-		QuantizedFacings: 8
-	DetectCloaked:
-		Range: 5c0
-		RequiresCondition: !disabled
-	Power:
-		Amount: -50
-	Targetable:
-		TargetTypes: Ground, C4, Structure, DetonateAttack, Defense, AItagAvoid
-
-SBAG:
-	Inherits: ^Wall
-	Valued:
-		Cost: 100
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Sandbag Barrier
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~barracks
-		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
-		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
-	Armor:
-		Type: Light
-	LineBuild:
-		Range: 8
-		NodeTypes: sandbag
-	LineBuildNode:
-		Types: sandbag
-	WithWallSpriteBody:
-		Type: sandbag
-	ProximityExternalCondition@COVER:
-		Condition: Infantry.sandbag
-		Range: 1c255
-	ConditionManager:
-
-CYCL:
-	Inherits: ^Wall
-	Valued:
-		Cost: 50
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Chain Link Barrier
-	Buildable:
-		BuildPaletteOrder: 10
-		Prerequisites: ~fact
-		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
-		Description: Stops infantry.\nCan be crushed by vehicles and tanks.
-	Armor:
-		Type: Light
-	Crushable:
-		CrushClasses: lightwall
-	LineBuild:
-		Range: 8
-		NodeTypes: chain
-	LineBuildNode:
-		Types: chain
-	WithWallSpriteBody:
-		Type: chain
-	#Immobile:
-	#	OccupiesSpace: false
-	#preserved for electric death
-
-BRIK:
-	Inherits: ^Wall
-	Valued:
-		Cost: 150
-	CustomSellValue:
-		Value: 0
-	Tooltip:
-		Name: Concrete Barrier
-	Buildable:
-		BuildPaletteOrder: 30
-		Prerequisites: ~vehicleproduction
-		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
-		Description: Stops infantry and most tanks.\nBlocks some projectiles.
-	Health:
-		HP: 250
-	Armor:
-		Type: Heavy
-	BlocksProjectiles:
-	Crushable:
-		CrushClasses: heavywall
-		-CrushSound:
-	SoundOnDamageTransition:
-		DestroyedSounds: crumble.aud
-	LineBuild:
-		Range: 16
-		NodeTypes: concrete
-	LineBuildNode:
-		Types: concrete
-	WithWallSpriteBody:
-		Type: concrete
-	RenderSprites:
-		-Palette: staticterrain
-	SelfHealing:
-		Delay: 10
-		HealIfBelow: 50
-		DamageCooldown: 200
-
-VGATE:
-	Inherits: ^Gate
-	HitShape:
-		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			TopLeft: -512, -1536
-			BottomRight: 512, 1536
-	Building:
-		Footprint: x x x
-		Dimensions: 1,3
-	WithGateSpriteBody:
-		WallConnections: 0,-1, 0,3
-	LineBuildNode:
-		Connections: 0,-1, 0,1
-	Tooltip:
-		Name: Vertical Gate
-	Gate:
-
-HGATE:
-	Inherits: ^Gate
-	HitShape:
-		UseTargetableCellsOffsets: true
-		Type: Rectangle
-			TopLeft: -1536, -512
-			BottomRight: 1536, 512
-	Building:
-		Footprint: xxx
-		Dimensions: 3,1
-	WithGateSpriteBody:
-		WallConnections: -1,0, 3,0
-	LineBuildNode:
-		Connections: -1,0, 1,0
-	Tooltip:
-		Name: Horizontal Gate
-	Gate:
-
-BARRACKS:
-	AlwaysVisible:
-	Tooltip:
-		Name: Infantry Production
-	Buildable:
-		Description: Infantry Production
-	Interactable:
-
-VEHICLEPRODUCTION:
-	AlwaysVisible:
-	Tooltip:
-		Name: Vehicle Production
-	Buildable:
-		Description: Vehicle Production
-	Interactable:
-
-ANYPOWER:
-	AlwaysVisible:
-	Tooltip:
-		Name: Power Plant
-	Buildable:
-		Description: Power Plant
-	Interactable:
-
-ANYHQ:
-	AlwaysVisible:
-	Tooltip:
-		Name: a communications center
-	Buildable:
-		Description: a communications center
-	Interactable:
-
-ANYTECH:
-	AlwaysVisible:
-	Tooltip:
-		Name: a Tech center
-	Buildable:
-		Description: a Tech center
-	Interactable:
-
-ANYFIX:
-	AlwaysVisible:
-	Tooltip:
-		Name: Repair Facility
-	Buildable:
-		Description: Repairs vehicles
-	Interactable:

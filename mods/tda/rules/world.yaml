@@ -347,6 +347,7 @@ World:
 		TerrainSpeeds:
 			Water: 100
 			Beach: 50
+			River: 45
 			Rough: 50
 			Clear: 50
 			Road: 50

@@ -495,48 +495,53 @@ RMBO:
 		Name: guardtower
 		Weapon: Sniper
 
-	#RENEGATE:
-	#	Inherits: ^Soldier
-	#	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	#	Valued:
-	#		Cost: 1000
-	#	Tooltip:
-	#		Name: Renegate
-	#	Buildable:
-	#		BuildPaletteOrder: 60
-	#		Prerequisites: ~anytech, ~techlevel.high
-	#		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
-	#		Description: Uncontrollable Lethal Commando Unit.\nIt will wonder around wreaking havoc\n Crates will give him new weapons
-	#		BuildLimit: 1
-	#Mobile:
-	#	Speed: 71
-	#	Voice: Move
-	#Health:
-	#	HP: 80
-	#RevealsShroud:
-	#	Range: 6c0
-	#AutoTarget:
-	#	ScanRadius: 8
-	#Demolition:
-	#	DetonationDelay: 45
-	#	Voice: Demolish
-	#Armament@1:
-	#	Weapon: Sniper
-	#Armament@2:
-	#	Weapon: 
-	#AttackFrontal:
-	#	Voice: Attack
-	#AttackMove:
-	#	Voice: Attack
-	#WithInfantryBody:
-	#	DefaultAttackSequence: shoot
-	#	IdleSequences: idle1,idle2,idle3
-	#AnnounceOnBuild:
-	#AnnounceOnKill:
-	#Voiced:
-	#	VoiceSet: CommandoVoice
-	#AttackWander:
-	#	WanderMoveRadius: 30
+RENEGATE:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Renegate
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~anytech, ~techlevel.high
+		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
+		Description: Uncontrollable Lethal Commando Unit.\nIt will wonder around wreaking havoc\n Strong vs all ground targets\n Weak vs air and ani infantry units
+		BuildLimit: 1
+	#\n Crates will give him new weapons
+	Mobile:
+		Speed: 71
+		Voice: Move
+	Health:
+		HP: 80
+	RevealsShroud:
+		Range: 6c0
+	AutoTarget:
+		ScanRadius: 8
+	Armament@SNIPER:
+		Weapon: Sniper
+	Armament@GRENADELAUNCHER:
+		Weapon: GrenadeLauncher
+		LocalOffset: 100,0,200
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Attack
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2,idle3
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	Voiced:
+		VoiceSet: CommandoVoice
+	AttackWander:
+		WanderMoveRadius: 30
+	AutoTarget:
+		InitialStance: AttackAnything
+		InitialStanceAI: AttackAnything
+		EnableStances: False
+	# RejectsOrders:
+	# Interactable:
 
 COMMANDER:
 	Inherits: ^Soldier

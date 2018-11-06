@@ -252,6 +252,30 @@ Vulcan:
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
 
+HeavyMinigun:
+	Inherits: ^FireTrailS
+	Inherits: ^ImpactHitForceBulletsLight
+	ValidTargets: Air
+	Range: 14c0
+	ReloadDelay: 15
+	MinRange: 1c0
+	Report: heavyminigun.wav
+	Projectile: Bullet
+		Speed: 1c682
+		LaunchAngle: 2
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 15
+		ValidTargets: Air
+		Versus:
+			None: 100
+			Wood: 25
+			Light: 100
+			Heavy: 35
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+
 APCGun:
 	Inherits: ^ImpactSoundsBullet
 	Inherits: ^ImpactHitForceBulletsLight

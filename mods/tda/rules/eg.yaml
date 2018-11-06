@@ -1,0 +1,12 @@
+EG_DATA:
+	Inherits: ^Tree
+	Tooltip:
+		Name: I hate temporal mechanics
+	RenderSprites:
+		Palette: NoTerrain
+	Building:
+		Footprint: __ xx
+	EditorTilesetFilter:
+		Categories: eg
+	Health:
+		HP: 50000000

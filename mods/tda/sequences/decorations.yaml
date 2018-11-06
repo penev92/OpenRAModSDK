@@ -1206,3 +1206,7 @@ arco:
 arco.husk:
 	idle: arco
 		Start: 1
+
+eg_data:
+	idle: eg_data.shp
+		AddExtension: false

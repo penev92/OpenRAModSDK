@@ -1,44 +1,47 @@
-	OpenRa Tiberian Dawn Apolyton
+===============================================================
+Tiberium Dawn Apolyton Credits:
+===============================================================
+VIP: 
+Reaperrr: with out him this mod would have been
+dead! He updated my mod to the latest OpenRa engine 
+Version, and because of that this mod has a future!
 
-	Credits:
+abcdefg30: Helped a lot and more than I can count with lua and github.
 
-Name          | Contribution
- | ------------- | ------------------------------------------------------------------- | 
- | Nolt |  Helped me to learn 3DSMax.
- | Frame_limiter |  Donated code for my riflemen that can throw grenades.
- | Voidwalker |  He did a huge and hard work on spawnmanager trait!
- | MustaphaTR |  Helped me with github and also spoted a lot of bugs, donated code for turning off\on weather effects.
- | Flamewh |  voice for the "Researcher". Voice still not in the game yet sorry
+MustaphaTR: Helped me with github and also spoted a lot of bugs, donated code for turning off\on weather effects.
 
+Abarrat: by playtesting and by providing servers
+and advertising the mod!
 
-	VIP:
+SoScared: For streaming and advertising the mod!
 
- | Name              | Contribution
- | ----------------- | ------------------------------------------------------------------- | 
- | Reaperrr          |  with out him this mod would have been dead! He updated my mod to the latest OpenRa engine Version, and because of that this mod has a future!
- | abcdefg30         |  Helped a lot and more than I can count with lua and github.
- | Abarrat           |  by playtesting and by providing servers and advertising the mod!
- | Westwood studios  |  For this legendary game!
- | Joseph D. Kucan   |  For being Kane!!!
- | Frank Klepacki    |  For the awesome music he made!!
+jaZz_KCS: for providing servers
 
+Westwood studios and especially Joseph D. Kucan 
+and Frank Klepacki.
 
-	PlayTest Participants:
+Helped From:
+Nolt for helping me learn 3DSMax.
+Frame_limiter for donating code for the rifleman that throws granades.
+Voidwalker for doing a huge work on spawnmanager!
 
- | name
- | ---------------------- | 
- | Shpooky                | 
- | Abarrat                | 
- | memers.club            | 
- | Polemos                | 
+Voice Actors:
+Flamewh: voice for the "Researcher" (not included yet)
 
-	Supported by:
+PlayTest Participants:
+Shpooky
+Abarrat
+memers.club
+Polemos
+MustaphaTR
+You ;)
 
-   My girlfriend (for not killing me).  
-   My big brother.                       
+Supported by:
+My girlfriend (for not killing me).
+My big brother.
 
-	And finally the OpenRa developers for the
-	engine that made my dream a reality.
+And finally the OpenRa developers for the
+engine that made my dream a reality.
 
  |  Windows                |  Linux / macOS             |  Purpose
  |  ---------------------  |  ------------------------  |  -------------  | 

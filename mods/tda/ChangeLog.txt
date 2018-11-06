@@ -1,74 +1,17 @@
-Fixed: homvee missile to target tanks.
-
-Added: new lobby option to disable day night cycle and weather effects, Contribution by MustaphaTR.
-
-Changed: night time to be less dark.
-
-Fixed: bright corpse at night time.
-
-Fixed: impact sounds of shells vs buildings to be more loud.
-
-Added: water impact visual and sound effect to bullets and shells.
-
-Updated: Game engine to the latest playtest engine. Thanks to abcdefg30!!!!
-
-Added: updates from the new engine like the new colorvalidator, the new login system, locomotor trait and other stuff.
-
-Reworked: some menu items.
-
-Added: red and blue Shimmering effect thanks to the new engine trait added by Voidwalker!!! He did a huge work for this!
-
-Added: f-22 to nod DA faction. the f22 wont show up in the enemy radar, and it has the ability to avoid missiles in a small area around the craft but it is not invureable.
-
-Removed: the helipad from nod DA faction. But it can still get the osprey from the new airfield.
-
-Added: an airfield for nod DA faction.
-
-Changed: orca speed to 240 from 200 (apache has 180, f22 has 280, a10 airstrike has 280).
-
-Added: a transparent observer window for specators, you can also click through it.
-
-Reworked: pip icons of biohazard hospital and machine shop, and also made them show up at the warfactory nod airstrip baracks and hand of nod only if the player selects them.
-
-Fixed: machine shop bounds.
-
-Reworked: osprey "code" and canvas size, also some traits.
-
-Changed: orca and apache to stay landed after they reload, like it used to be in the original game.
-
-Added: rally point for hellipad.
-
-Changed: spy name to specops, also edited the unit art and added some eyekandys and finally edited the unit's icon.
-
-Fixed: chem tower wrong tooltip after upgrade.
-
-Added: new Dummy terrain in order for the Tiberium Growth Decelerator to work (tiberium trees change the terrain they stand on (1 square) in to dammy terrain automaticly, so the Tiberium Growth Decelerator can be placed on them by the player) Duct tape any one?
-
-Added: New Building named Tiberium Growth Decelerator TGD for short, also known as Tiberium Spike. This new building will cover tiberium trees in order to Decelerate tiberium growth and give to the player a small money percentage of the tiberium. In order to enable it you will need to have "Turbo Tiberium" lobby otion set to ON.
-
-Fixed: some palette problems of units that use RA palettes.
-
-Added: new vehicle named mobile outpost vehicle, it can deploy in to an outpost, and only shows up in-game if lobby option "Outpost" is set to ON. Best used if "Limit Build Area" is set to ON aswell.
-
-Added: new building named outpost, it gives buildable area.
-
-Reworked: Some files and general infastracture of code (nothing worth explaining or in-game related), it was just a lot of work for me, so i had to mention it so i can feel better XD.
-
-Reworked: tiberium economy! Now you can select in the lobby options what type of economy the game will be played. The lobby option is called "Turbo Tiberium" if you enable it you will also get the new TGD building (mentioned above) and also the tiberium will spreed faster in the map, and the harvesters are balanced for that too! If in the other hand you want the old way, you can just disable "Turbo Tiberium". And every one is happy!
-oh boy all that work I put in this just to keep every one happy, the least you can do if you want to thank me, is to join my discord and tell me about any bugs you find. I am only one person, naturally ill miss some stuff.
-
-Updated: the AI\Bots building\unit production list. (silly AI wont learn by it self)
-
-Added: AI\Bots to build units when "only barracks" setting is on in the lobby. Some times tho they just wont build any thing.
-
-Added: in "only barracks" mode an income of $1000 every 4 min to hand of nod and barracks (Like oils do).
-
-Added: new unit the Scientist, he will exit the tech center if you sell it.
-
-Added: new unit the Commander, he will exit the con yard if you sell it.(I made a custom animation were he sits down and takes out his radio after he extends the antena).
-
-Added: The original logic from tiberium dawn of selling vehicles\Tanks on repair facility and expanded it to helipad and airfield, now you can sell any vehicle tank or air unit when they are landed on repair facility, helipad, airfield.
-
-
-
-
+Balance: Lowered the research price of Biohazard Weaponry from $3000 to $2000
+Balance: Lowered the research price of Tiberium Armor from $3000 to $2000
+Balance: Lowered the research price of Advance Reactors from $2000 to $500
+Fix: Flame tower tool tip not visible again
+Balance: F-22 bomb count to 1
+Balance: Added Chinook Transport to nod DA
+Balance: changed F-22 bomb range from 1c0 to 0c255
+Balance: F-22 jam missle Chance from 50 to 30
+Visual: F-22 is now darker
+New: Added renegate unit, renegate is an uncontrolable commando unit that moves and attack by its own free will (i.e. at random). it attacks infantry, buildings and vehicles
+New: Added extra weapon to F-22 minigun
+Visual: Added water spash effect
+Sound: Added water sound spash effect
+Balance: A-10 bombs can now destroy tiberium
+Visual: Made Nod DA airfield darker
+Fix: Landing craft not moving on specific beach tiles.
+New: Added new map "the other side" so players can test the mod features (includeds some beta ship models, just a visual).

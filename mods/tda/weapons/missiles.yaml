@@ -212,6 +212,7 @@ F22Missiles:
 	ValidTargets: Air
 	Burst: 2
 	BurstDelay: 15
+	MinRange: 15c0
 	Projectile: Missile
 		Arm: 25
 		Blockable: false
