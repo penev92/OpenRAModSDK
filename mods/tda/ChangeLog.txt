@@ -14,7 +14,7 @@ Sound: Added water sound spash effect
 Balance: A-10 bombs can now destroy tiberium
 Visual: Made Nod DA airfield darker
 Fix: Landing craft not moving on specific beach tiles.
-New: Added new map "the other side" so players can test the mod features (includeds some beta ship models, just a visual)
+New: Added new map "the other side" so players can test the mod features (includes some beta ship models, just a visual)
 Fix: Minelayers not rearming is now fixed
 Fix: units avoiding mines
 Fix: AI not building infantry
