@@ -246,7 +246,7 @@ World:
 				PathingCost: 35
 	Locomotor@CHEM:
 		Name: chem
-		Crushes: crate, TibShimmeringEffect
+		Crushes: crate, TibShimmeringEffect, mine
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 90
@@ -278,7 +278,7 @@ World:
 				PathingCost: 0
 	Locomotor@BIKE:
 		Name: bike
-		Crushes: crate, TibShimmeringEffect
+		Crushes: crate, TibShimmeringEffect, mine
 		TerrainSpeeds:
 			Bridge: 100
 			Clear: 80
@@ -290,7 +290,7 @@ World:
 			Beach: 35
 	Locomotor@WHEELED:
 		Name: wheeled
-		Crushes: crate, TibShimmeringEffect
+		Crushes: crate, TibShimmeringEffect, mine
 		TerrainSpeeds:
 			Bridge: 100
 			Clear: 80
@@ -314,7 +314,7 @@ World:
 			Beach: 40
 	Locomotor@TRACKED:
 		Name: tracked
-		Crushes: wall, crate, infantry, TibShimmeringEffect
+		Crushes: wall, crate, infantry, TibShimmeringEffect, mine
 		TerrainSpeeds:
 			Clear: 80
 			Rough: 70
@@ -343,7 +343,7 @@ World:
 			Water: 100
 	Locomotor@LANDINGCRAFT:
 		Name: lcraft
-		Crushes: crate, TibShimmeringEffect
+		Crushes: crate, TibShimmeringEffect, mine
 		TerrainSpeeds:
 			Water: 100
 			Beach: 50

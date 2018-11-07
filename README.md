@@ -1,6 +1,6 @@
-===============================================================
+
 Tiberium Dawn Apolyton Credits:
-===============================================================
+
 VIP: 
 Reaperrr: with out him this mod would have been
 dead! He updated my mod to the latest OpenRa engine 

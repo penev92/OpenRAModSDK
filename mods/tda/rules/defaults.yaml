@@ -1424,16 +1424,15 @@
 
 ^Mine:
 	Inherits: ^SpriteActor
-	Inherits@shape: ^1x1Shape
-	WithSpriteBody:
-	HiddenUnderFog:
 	Interactable:
 		Bounds: 24,24
+	WithSpriteBody:
+	HiddenUnderFog:
 	Mine:
 		CrushClasses: mine
 		DetonateClasses: mine
-		AvoidFriendly: true
-		BlockFriendly: true
+		AvoidFriendly: false
+		BlockFriendly: false
 	Health:
 		HP: 100
 		NotifyAppliedDamage: false
@@ -1448,11 +1447,12 @@
 	Tooltip:
 		Name: Mine
 	Targetable:
-		TargetTypes: Ground
+		TargetTypes: Ground, Defense
 	Immobile:
 		OccupiesSpace: true
 	EditorTilesetFilter:
 		Categories: System
+	HitShape:
 	OwnerLostAction
 		Action: ChangeOwner
 		Owner: Creeps

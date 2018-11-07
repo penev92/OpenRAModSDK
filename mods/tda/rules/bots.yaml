@@ -16,7 +16,7 @@ Player:
 			ExcludeFromSquads: mcv, harv, harv_boost_on, harv_boost_off
 		BuildingQueues: Building.Nod, Building.Nodda, Building.GDI
 		DefenseQueues: Defence.Nod, Defence.Nodda, Defence.GDI
-		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
+		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda, Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
 		BuildingLimits:
 			proc: 4
 			ref_turbo_on: 4
@@ -203,7 +203,7 @@ Player:
 			ExcludeFromSquads: mcv, harv, harv_boost_on, harv_boost_off
 		BuildingQueues: Building.Nod, Building.Nodda, Building.GDI
 		DefenseQueues: Defence.Nod, Defence.Nodda, Defence.GDI
-		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
+		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda, Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
 		BuildingLimits:
 			proc: 4
 			ref_turbo_on: 4
@@ -390,7 +390,7 @@ Player:
 			ExcludeFromSquads: mcv, harv, harv_boost_on, harv_boost_off
 		BuildingQueues: Building.Nod, Building.Nodda, Building.GDI
 		DefenseQueues: Defence.Nod, Defence.Nodda, Defence.GDI
-		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
+		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda, Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
 		BuildingLimits:
 			ref_turbo_on: 4
 			ref_turbo_off: 4
@@ -579,7 +579,7 @@ Player:
 			ExcludeFromSquads: mcv, harv, harv_boost_on, harv_boost_off
 		BuildingQueues: Building.Nod, Building.Nodda, Building.GDI
 		DefenseQueues: Defence.Nod, Defence.Nodda, Defence.GDI
-		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
+		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda, Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
 		BuildingLimits:
 			proc: 2
 			ref_turbo_on: 2
@@ -793,7 +793,7 @@ Player:
 			ExcludeFromSquads: mcv, harv, harv_boost_on, harv_boost_off
 		BuildingQueues: Building.Nod, Building.Nodda, Building.GDI
 		DefenseQueues: Defence.Nod, Defence.Nodda, Defence.GDI
-		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
+		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda, Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
 		BuildingLimits:
 			proc: 1
 			ref_turbo_on: 1
@@ -967,7 +967,7 @@ Player:
 			ExcludeFromSquads: mcv, harv, harv_boost_on, harv_boost_off
 		BuildingQueues: Building.Nod, Building.Nodda, Building.GDI
 		DefenseQueues: Defence.Nod, Defence.Nodda, Defence.GDI
-		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
+		UnitQueues: Vehicle.Nod, Vehicle.Nodda, Vehicle.GDI, Infantry.Nod, Infantry.Nodda, Infantry.GDI, Aircraft.Nod, Aircraft.GDI, Aircraft.Nodda, Research.Nod, Research.GDI
 		BuildingLimits:
 			fix: 1
 			fix_nod: 1
