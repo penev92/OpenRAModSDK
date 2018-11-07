@@ -16,5 +16,5 @@ Visual: Made Nod DA airfield darker
 Fix: Landing craft not moving on specific beach tiles.
 New: Added new map "the other side" so players can test the mod features (includeds some beta ship models, just a visual)
 Fix: Minelayers not rearming is now fixed
-Fix: units avoiding mines is now fixed
-Fix: AI now buils infantry again
+Fix: units avoiding mines
+Fix: AI not building infantry
