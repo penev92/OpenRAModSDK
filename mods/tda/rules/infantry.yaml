@@ -499,7 +499,7 @@ RENEGATE:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Tooltip:
 		Name: Renegate
 	Buildable:
@@ -540,8 +540,8 @@ RENEGATE:
 		InitialStance: AttackAnything
 		InitialStanceAI: AttackAnything
 		EnableStances: False
-	# RejectsOrders:
-	# Interactable:
+	RejectsOrders:
+	Interactable:
 
 COMMANDER:
 	Inherits: ^Soldier

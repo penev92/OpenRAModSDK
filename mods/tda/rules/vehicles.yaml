@@ -340,13 +340,12 @@ HARV_BOOST_ON:
 		Image: harv
 	Harvester:
 		Resources: Tiberium, BlueTiberium, RedTiberium
-		PipCount: 8
-		Capacity: 96
-		BaleLoadDelay: 2
+		PipCount: 7
+		Capacity: 20
+		BaleLoadDelay: 12
 		BaleUnloadDelay: 1
 		SearchFromProcRadius: 25
 		SearchFromOrderRadius: 15
-		MaxUnloadQueue: 2
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~proc, ~turbo_tiberium

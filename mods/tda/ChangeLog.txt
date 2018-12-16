@@ -1,20 +1,22 @@
-Balance: Lowered the research price of Biohazard Weaponry from $3000 to $2000
-Balance: Lowered the research price of Tiberium Armor from $3000 to $2000
-Balance: Lowered the research price of Advance Reactors from $2000 to $500
-Fix: Flame tower tool tip not visible again
-Balance: F-22 bomb count to 1
-Balance: Added Chinook Transport to nod DA
-Balance: changed F-22 bomb range from 1c0 to 0c255
-Balance: F-22 jam missle Chance from 50 to 30
-Visual: F-22 is now darker
-New: Added renegate unit, renegate is an uncontrolable commando unit that moves and attack by its own free will (i.e. at random). it attacks infantry, buildings and vehicles
-New: Added extra weapon to F-22 minigun
-Visual: Added water spash effect
-Sound: Added water sound spash effect
-Balance: A-10 bombs can now destroy tiberium
-Visual: Made Nod DA airfield darker
+Balance: Lowered the research price of Biohazard Weaponry from $3000 to $2000.
+Balance: Lowered the research price of Tiberium Armor from $3000 to $2000.
+Balance: Lowered the research price of Advance Reactors from $2000 to $500.
+Fix: Flame tower tool tip not visible again.
+Balance: F-22 bomb count to 1.
+Balance: Added Chinook Transport to nod DA.
+Balance: changed F-22 bomb range from 1c0 to 0c255.
+Balance: F-22 jam missle Chance from 50 to 30.
+Visual: F-22 is now darker.
+New: Added renegate unit, renegate is an uncontrolable commando unit that moves and attack by its own free will (i.e. at random). it attacks infantry, buildings and vehicles.
+New: Added extra weapon to F-22 minigun.
+Visual: Added water spash effect.
+Sound: Added water sound spash effect.
+Balance: A-10 bombs can now destroy tiberium.
+Visual: Made Nod DA airfield darker.
 Fix: Landing craft not moving on specific beach tiles.
-New: Added new map "the other side" so players can test the mod features (includes some beta ship models, just a visual)
-Fix: Minelayers not rearming is now fixed
-Fix: units avoiding mines
-Fix: AI not building infantry
+New: Added new map "the other side" so players can test the mod features (includes some beta ship models, just a visual).
+Fix: Minelayers not rearming is now fixed.
+Fix: units avoiding mines.
+Fix: AI not building infantry.
+Balance: Now in both turbo and normal mode harvesters carry the same ammount of tiberium. An example will be $700 for green tiberium, but in turbo mode the harvesters also drop their load instantly.
+New: added manual for the game, tho its unfinished and it has a lot of mispellings (like this file hehe), feal free to help me with that, like add new contents and stuff.
