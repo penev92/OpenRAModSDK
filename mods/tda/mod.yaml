@@ -78,7 +78,7 @@ Rules:
 	tda|rules/research.yaml
 	tda|rules/map_options.yaml
 	tda|rules/inheritable_traits.yaml
-	tda|rules/bots/bot_armies.yaml
+	tda|rules/bot_armies.yaml
 
 Sequences:
 	tda|sequences/structures.yaml
