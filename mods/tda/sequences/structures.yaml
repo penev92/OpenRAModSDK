@@ -25,6 +25,25 @@ fact:
 		Length: *
 	icon: facticnh
 
+
+civ_church:
+	Defaults:
+		UseTilesetExtension: true
+	idle:
+		Length: 1
+	damaged-idle:
+		Start: 1
+		Length: 1
+	dead:
+		Start: 2
+		Tick: 800
+	make: civsmallmake
+		UseTilesetExtension: false
+		Length: 34
+		Tick: 50
+	icon: churchicon.shp
+		AddExtension: False
+
 outpost:
 	idle:
 		Length: 8
@@ -470,6 +489,25 @@ hpad:
 		Tick: 80
 	icon: hpadicnh.tem
 		AddExtension: False
+
+shipyard_nod:
+	idle:
+		Offset: 0,2
+	damaged-idle:
+		Start: 1
+		Offset: 0,2
+	make: shipyard_nod_make
+		Length: *
+		Offset: 0,2
+	icon: shipyard_nod_icon
+
+shipyard_gdi:
+	idle:
+	damaged-idle:
+		Start: 1
+	make: shipyard_gdi_make
+		Length: *
+	icon: shipyard_gdi_icon
 
 fix:
 	idle:

@@ -11,7 +11,7 @@ ATMine:
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: big_napalm
+		Explosions: atmine_explosion
 		ExplosionPalette: flashyeffect
 		ImpactSounds: mineblo1.aud
 	Warhead@Smu: LeaveSmudge

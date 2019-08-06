@@ -1,0 +1,933 @@
+FACT:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^3x2Shape
+	Valued:
+		Cost: 3500
+	Tooltip:
+		Name: Construction Yard
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 20000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: 10
+	RevealsShroud:
+		Range: 10c0
+	WithBuildingBib:
+	SpawnActorsOnSell:
+		ActorTypes: e6,e6,commander,e1,e1,e1,e1,e1,e1
+	Production:
+		Produces: Building.GDI, Building.Nod, Building.Nodda, Defence.GDI, Defence.Nod, Defence.Nodda
+	Transforms:
+		IntoActor: mcv
+		Offset: 1,1
+		Facing: 108
+		RequiresCondition: factundeploy
+	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
+		Condition: factundeploy
+		Prerequisites: global-factundeploy
+	ProductionQueue@GDIBuilding:
+		Type: Building.GDI
+		Factions: gdi
+		Group: Building
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+	ProductionQueue@NodBuilding:
+		Type: Building.Nod
+		Factions: nod
+		Group: Building
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+	ProductionQueue@NoddaBuilding:
+		Type: Building.Nodda
+		Factions: nodda
+		Group: Building
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+	ProductionQueue@GDIDefense:
+		Type: Defence.GDI
+		Factions: gdi
+		Group: Defence
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+	ProductionQueue@NodDefense:
+		Type: Defence.Nod
+		Factions: nod
+		Group: Defence
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+	ProductionQueue@NoddaDefense:
+		Type: Defence.Nodda
+		Factions: nodda
+		Group: Defence
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+	BaseBuilding:
+	ProductionBar@BuildingGDI:
+		ProductionType: Building.GDI
+	ProductionBar@BuildingNod:
+		ProductionType: Building.Nod
+	ProductionBar@BuildingNodda:
+		ProductionType: Building.Nodda
+	ProductionBar@DefenceGDI:
+		ProductionType: Defence.GDI
+	ProductionBar@DefenceNod:
+		ProductionType: Defence.Nod
+	ProductionBar@DefenceNodda:
+		ProductionType: Defence.Nodda
+	BaseProvider:
+		Cooldown: 75
+		Range: 14c0
+	WithBuildingPlacedAnimation:
+	ProvidesPrerequisite@buildingname:
+	Buildable:
+		Description: Builds structures
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack, AItagCONS
+	Selectable:
+		Bounds: 72,48
+
+OUTPOST:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^1x1Shape
+	Inherits@RA: ^PlayerRApaletteBuilding
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Outpost
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+		LocalCenterOffset: 0,0,0
+	Health:
+		HP: 2300
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10c0
+	BaseBuilding:
+	BaseProvider:
+		Cooldown: 35
+		Range: 7c0
+	Power:
+		Amount: 0
+	Buildable:
+		Description: just an other outpost, off you go now
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack
+	Selectable:
+
+NUKE:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: xX xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 4000
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+	ScalePowerWithHealth:
+	Targetable:
+		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagPP
+	Explodes:
+		Sequences: building, building_napalm, med_frag, poof, small_building
+		Chance: 100
+		Weapon: LightNuke
+		Type: CenterPosition
+		EmptyWeapon: UnitExplodeSmall
+		LoadedChance: 15
+	AmmoPool:
+		Name: FaultyFailSafe
+		Ammo: 1
+		PipCount: 0
+	Selectable:
+		Bounds: 48,48
+	#too mutch sounds blocking other sounds. i need ambient sounds with range
+	#	AmbientSound:
+	#		SoundFiles: power.aud
+	#		Delay: 5
+
+NUK2:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@POWER_OUTAGE: ^DisabledByPowerOutage
+	ProvidesPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 4000
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+	#ive got the power ntun ntuuun ntuun ntuuun
+	ScalePowerWithHealth:
+	Targetable:
+		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagPP
+	Explodes:
+		Sequences: building, building_napalm, med_frag, poof, small_building
+		Chance: 100
+		Weapon: LightNuke
+		Type: CenterPosition
+		EmptyWeapon: UnitExplodeSmall
+		LoadedChance: 30
+	AmmoPool:
+		Name: FaultyFailSafe
+		Ammo: 1
+		PipCount: 0
+	Selectable:
+		Bounds: 48,48
+	#too mutch sounds blocking other sounds. i need ambient sounds with range
+	#	AmbientSound:
+	#		SoundFiles: power2.aud
+	#		Delay: 5
+
+PROC:
+	Inherits: ^BaseBuilding
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 853
+	HitShape@TOP:
+		Type: Rectangle
+			TopLeft: -512, -1450
+			BottomRight: 896, -512
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Tiberium Refinery
+	Building:
+		Footprint: _x_ xxx === ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 10000
+	RevealsShroud:
+		Range: 6c0
+	WithBuildingBib:
+	Refinery:
+		DockAngle: 112
+		DockOffset: 0,2
+		IsDragRequired: True
+		DragOffset: -554,512,0
+		DragLength: 12
+		TickRate: 15
+	StoresResources:
+		PipColor: Green
+		PipCount: 5
+		Capacity: 5000
+	Selectable:
+		Bounds: 72,56
+		DecorationBounds: 73,72
+	CustomSellValue:
+		Value: 500
+	WithResourceLevelOverlay:
+	Power:
+		Amount: -15
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite:
+		Prerequisite: proc
+	SelectionDecorations:
+	InfiltrateForCash:
+		Percentage: 60
+		Minimum: 1000
+		Maximum: 2147483647
+	Targetable:
+		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagREF
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~anypower, ~original_rules_or_coop
+		Queue: Building.GDI, Building.Nod, Building.Nodda
+		Description: Processes raw Tiberium\ninto useable resources
+		BuildDuration: 850
+		BuildDurationModifier: 100
+	FreeActorWithDelivery:
+		Actor: HARV
+		DeliveryOffset: 1,2
+		DeliveringActor: osprey.delivery
+		Facing: 160
+
+REF_TURBO_ON:
+	Inherits: PROC
+	ProvidesPrerequisite@buildingname:
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~anypower, ~turbo_tiberium
+		Queue: Building.GDI, Building.Nod, Building.Nodda
+		Description: Processes raw Tiberium\ninto useable resources
+		BuildDuration: 850
+		BuildDurationModifier: 100
+	FreeActorWithDelivery:
+		Actor: HARV_BOOST_ON
+		DeliveryOffset: 1,2
+		DeliveringActor: osprey.delivery
+		Facing: 160
+	RenderSprites:
+		Image: proc
+
+REF_TURBO_OFF:
+	Inherits: PROC
+	ProvidesPrerequisite@buildingname:
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~anypower, ~!turbo_tiberium
+		Queue: Building.GDI, Building.Nod, Building.Nodda
+		Description: Processes raw Tiberium\ninto useable resources
+		BuildDuration: 850
+		BuildDurationModifier: 100
+	FreeActorWithDelivery:
+		Actor: HARV_BOOST_OFF
+		DeliveryOffset: 1,2
+		DeliveringActor: osprey.delivery
+		Facing: 160
+	RenderSprites:
+		Image: proc
+
+SILO:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x1Shape
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Tiberium Silo
+	Buildable:
+		BuildPaletteOrder: 45
+		Prerequisites: ~proc
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		Description: Stores processed Tiberium
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	-GivesBuildableArea:
+	Health:
+		HP: 1000
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+		HasMinibib: Yes
+	RenderSprites:
+	WithSpriteBody:
+	-WithSpriteBody:
+	WithResourceLevelSpriteBody:
+		Sequence: stages
+	StoresResources:
+		PipCount: 10
+		PipColor: Green
+		Capacity: 2000
+	#you are just full of the stuff arent you?
+	-SpawnActorsOnSell:
+		ActorTypes: e1
+	Power:
+		Amount: 0
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	SelectionDecorations:
+	RequiresBuildableArea:
+		AreaTypes: building
+	Selectable:
+		Bounds: 48,24
+		DecorationBounds: 49,30
+
+HPAD:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x2Shape
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 768,-512,0, 768,512,0, -281,-512,0, -630,512,0
+	ProximityExternalCondition:
+		Condition: OnPad
+		Range: 1c0
+		ValidStances: Ally
+		AffectsParent: False
+	Sellable:
+		RefundPercent: 30
+		RequiresCondition: !Repairing
+	ExternalCondition@REPAIRING:
+		Condition: Repairing
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Helipad
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~anyhq
+		Queue: Building.GDI, Building.Nod
+		Description: Produces, rearms and\nrepairs helicopters
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	WithBuildingBib:
+	Health:
+		HP: 3000
+	RevealsShroud:
+		Range: 5c0
+	ProductionFromMapEdge:
+		Produces: Aircraft.GDI, Aircraft.Nod, Aircraft.Nodda
+	Reservable:
+	Exit:
+		SpawnOffset: 0,-256,0
+		MoveIntoWorld: False
+	RallyPoint:
+	WithResupplyAnimation:
+	ProductionQueue@GDI:
+		Type: Aircraft.GDI
+		Factions: gdi
+		Group: Aircraft
+		LowPowerSlowdown: 3
+	ProductionQueue@Nod:
+		Type: Aircraft.Nod
+		Factions: nod
+		Group: Aircraft
+		LowPowerSlowdown: 3
+	ProductionQueue@Nodda:
+		Type: Aircraft.Nodda
+		Factions: nodda
+		Group: Aircraft
+		LowPowerSlowdown: 3
+	ProductionBar@GDI:
+		ProductionType: Aircraft.GDI
+	ProductionBar@Nod:
+		ProductionType: Aircraft.Nod
+	ProductionBar@Nodda:
+		ProductionType: Aircraft.Nodda
+	Power:
+		Amount: -5
+	ProvidesPrerequisite@buildingname:
+	InfiltrateForSupportPower:
+		Proxy: aircraft.upgraded
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack, SpyInfiltrate
+	Selectable:
+		Bounds: 48,48
+
+HQ:
+	Inherits: ^BaseBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
+		Type: Rectangle
+			TopLeft: -1024, -384
+			BottomRight: 1024, 1024
+	Health:
+		HP: 5000
+	ProvidesPrerequisite:
+		Prerequisite: anyhq
+	Building:
+		Footprint: X_ xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 48,40,0,9
+		DecorationBounds: 48,53,0,-4
+	SelectionDecorations:
+	WithSpriteBody:
+		PauseOnCondition: disabled
+	RevealsShroud:
+		Range: 10c0
+	WithBuildingBib:
+	ProvidesRadar:
+		RequiresCondition: !disabled
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 10c0
+	InfiltrateForExploration:
+	Targetable:
+		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagHQ
+	AmbientSound:
+		SoundFiles: low_radio.aud
+		Delay: 5
+	Exit:
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		RequiresCondition: powerdown
+		ReferencePoint: Center
+	RequiresBuildableArea:
+		AreaTypes: building
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+
+FIX:
+	Inherits: ^BaseBuilding
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -683
+			BottomRight: 1536, 768
+	HitShape@TOPANDBOTTOM:
+		TargetableOffsets: 840,0,0, -1060,0,0
+		Type: Rectangle
+			TopLeft: -640, -980
+			BottomRight: 640, 1110
+	ProximityExternalCondition:
+		Condition: OnPad
+		Range: 1c0
+		ValidStances: Ally
+		AffectsParent: False
+	Sellable:
+		RefundPercent: 30
+		RequiresCondition: !Repairing
+	ExternalCondition@REPAIRING:
+		Condition: Repairing
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Repair Facility
+	ProvidesPrerequisite:
+		Prerequisite: anyfix
+	Building:
+		Footprint: _X_ xxx _X_
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 64,34,0,3
+		DecorationBounds: 72,48
+	SelectionDecorations:
+	Health:
+		HP: 2000
+	RevealsShroud:
+		Range: 5c0
+	WithBuildingBib:
+		HasMinibib: Yes
+	Reservable:
+	RepairsUnits:
+		Interval: 15
+		PlayerExperience: 0
+	RallyPoint:
+	WithResupplyAnimation:
+	Power:
+		Amount: -5
+	ProvidesPrerequisite@buildingname:
+	WithResupplyAnimation:
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack, AItagFIX
+
+SHIPYARD_NOD:
+	Inherits: ^WaterBuilding
+	Tooltip:
+		Name: Nod Sub Pen
+	Buildable:
+		BuildPaletteOrder: 50
+		Queue: Building.Nod, Building.Nodda
+		Prerequisites: ~anyhq, ~techlevel.high
+		Description: Produces and repairs\nNeval units.
+	ProductionQueue@NodShip:
+		Type: Ship.Nod
+		Factions: nod
+		Group: Ship
+		LowPowerSlowdown: 3
+	ProductionQueue@NoddaShip:
+		Type: Ship.Nodda
+		Factions: nodda
+		Group: Ship
+		LowPowerSlowdown: 3
+	ProductionBar@ShipNod:
+		ProductionType: Ship.Nod
+	ProductionBar@ShipNod:
+		ProductionType: Ship.Nodda
+	ProvidesPrerequisite@buildingname:
+
+SHIPYARD_GDI:
+	Inherits: ^WaterBuilding
+	Tooltip:
+		Name: GDI Naval Yard
+	Buildable:
+		BuildPaletteOrder: 40
+		Queue: Building.GDI
+		Prerequisites: ~anyhq, ~techlevel.high
+		Description: Produces and repairs\nNeval units.
+	ProductionQueue@GDIShip:
+		Type: Ship.GDI
+		Factions: gdi
+		Group: Ship
+		LowPowerSlowdown: 3
+	ProductionBar@ShipGDI:
+		ProductionType: Ship.GDI
+	ProvidesPrerequisite@buildingname:
+
+SBAG:
+	Inherits: ^Wall
+	Valued:
+		Cost: 100
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Sandbag Barrier
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~barracks
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
+	Armor:
+		Type: Light
+	LineBuild:
+		Range: 8
+		NodeTypes: sandbag
+	LineBuildNode:
+		Types: sandbag
+	WithWallSpriteBody:
+		Type: sandbag
+	ProximityExternalCondition@COVER:
+		Condition: Infantry.sandbag
+		Range: 1c255
+	ConditionManager:
+
+CYCL:
+	Inherits: ^Wall
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Chain Link Barrier
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~fact
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		Description: Stops infantry.\nCan be crushed by vehicles and tanks.
+	Armor:
+		Type: Light
+	Crushable:
+		CrushClasses: lightwall
+	LineBuild:
+		Range: 8
+		NodeTypes: chain
+	LineBuildNode:
+		Types: chain
+	WithWallSpriteBody:
+		Type: chain
+	#Immobile:
+	#	OccupiesSpace: false
+	#preserved for electric death
+
+BRIK:
+	Inherits: ^Wall
+	Valued:
+		Cost: 150
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Barrier
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~vehicleproduction
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		Description: Stops infantry and most tanks.\nBlocks some projectiles.
+	Health:
+		HP: 250
+	Armor:
+		Type: Heavy
+	BlocksProjectiles:
+	Crushable:
+		CrushClasses: heavywall
+		-CrushSound:
+	SoundOnDamageTransition:
+		DestroyedSounds: crumble.aud
+	LineBuild:
+		Range: 16
+		NodeTypes: concrete
+	LineBuildNode:
+		Types: concrete
+	WithWallSpriteBody:
+		Type: concrete
+	RenderSprites:
+		-Palette: staticterrain
+	SelfHealing:
+		Delay: 10
+		HealIfBelow: 50
+		DamageCooldown: 200
+
+VGATE:
+	Inherits: ^Gate
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -1536
+			BottomRight: 512, 1536
+	Building:
+		Footprint: x x x
+		Dimensions: 1,3
+	WithGateSpriteBody:
+		WallConnections: 0,-1, 0,3
+	LineBuildNode:
+		Connections: 0,-1, 0,1
+	Tooltip:
+		Name: Vertical Gate
+	Gate:
+
+HGATE:
+	Inherits: ^Gate
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 512
+	Building:
+		Footprint: xxx
+		Dimensions: 3,1
+	WithGateSpriteBody:
+		WallConnections: -1,0, 3,0
+	LineBuildNode:
+		Connections: -1,0, 1,0
+	Tooltip:
+		Name: Horizontal Gate
+	Gate:
+
+BARRACKS:
+	AlwaysVisible:
+	Tooltip:
+		Name: Infantry Production
+	Buildable:
+		Description: Infantry Production
+	Interactable:
+
+VEHICLEPRODUCTION:
+	AlwaysVisible:
+	Tooltip:
+		Name: Vehicle Production
+	Buildable:
+		Description: Vehicle Production
+	Interactable:
+
+ANYPOWER:
+	AlwaysVisible:
+	Tooltip:
+		Name: Power Plant
+	Buildable:
+		Description: Power Plant
+	Interactable:
+
+ANYHQ:
+	AlwaysVisible:
+	Tooltip:
+		Name: a communications center
+	Buildable:
+		Description: a communications center
+	Interactable:
+
+ANYTECH:
+	AlwaysVisible:
+	Tooltip:
+		Name: a Tech center
+	Buildable:
+		Description: a Tech center
+	Interactable:
+
+ANYFIX:
+	AlwaysVisible:
+	Tooltip:
+		Name: Repair Facility
+	Buildable:
+		Description: Repairs vehicles
+	Interactable:
+
+TGD:
+	Inherits: ^BaseBuilding
+	Tooltip:
+		Name: Tiberium Growth Decelerator
+	Building:
+		TerrainTypes: BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
+		AllowInvalidPlacement: False
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~proc, ~turbo_tiberium
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		BuildDuration: 1440
+		BuildDurationModifier: 40
+		Description: Large chamber made for housing a\nsingle tiberium tree.\nDecelerates tiberium growth.\nCollects the surplus tiberium inside the chamber and\ngives a small percentage to the owner.\n Can't be sold
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 6
+	OwnerLostAction:
+		Action: ChangeOwner
+		Owner: Neutral
+	GrantConditionOnTerrain@RED:
+		Condition: OnRedTib
+		TerrainTypes: RedTibTreeTerrain
+	GrantConditionOnTerrain@BLUE:
+		Condition: OnBlueTib
+		TerrainTypes: BlueTibTreeTerrain
+	GrantConditionOnTerrain@GREEN:
+		Condition: OnGreenTib
+		TerrainTypes: GreenTibTreeTerrain
+	-Sellable:
+	Valued:
+		Cost: 1000
+	Health:
+		HP: 240000
+	RevealsShroud:
+		Range: 6c0
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 8
+	Power:
+		Amount: 0
+	RenderSprites:
+		Image: spikedummy
+	Replacement:
+		ReplaceableTypes: Spike
+	ProximityExternalCondition@SPIKE:
+		ValidStances: Ally, Neutral, Enemy
+		Condition: Spike.proximity
+		Range: 10c0
+		AffectsParent: True
+	SpawnActorOnDeath@RED:
+		Actor: tgdred
+		Probability: 100
+		OwnerType: Victim
+		InternalOwner: Neutral
+		SkipMakeAnimations: True
+		RequiresLobbyCreeps: False
+		SpawnAfterDefeat: True
+		RequiresCondition: OnRedTib
+	SpawnActorOnDeath@GREEN:
+		Actor: tgdgreen
+		Probability: 100
+		OwnerType: Victim
+		InternalOwner: Neutral
+		SkipMakeAnimations: True
+		RequiresLobbyCreeps: False
+		SpawnAfterDefeat: True
+		RequiresCondition: OnGreenTib
+	SpawnActorOnDeath@BLUE:
+		Actor: tgdblue
+		Probability: 100
+		OwnerType: Victim
+		InternalOwner: Neutral
+		SkipMakeAnimations: True
+		RequiresLobbyCreeps: False
+		SpawnAfterDefeat: True
+		RequiresCondition: OnBlueTib
+	DamagedByTerrain:
+		Damage: 10000
+		DamageTypes: Tiberium
+		DamageInterval: 1
+		Terrain: BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
+	-Explodes:
+	-ActorLostNotification:
+	-ShakeOnDeath:
+	-SoundOnDamageTransition:
+	WithRangeCircle:
+		Range: 10c0
+		Color: D46F6F
+	-GivesBounty:
+	SelectionDecorations:
+		RenderSelectionBars: False
+
+^TGD_AFTER_DEATH_BASE:
+	Inherits@bounty: ^GlobalBounty
+	Explodes:
+		Sequences: building, building_napalm, med_frag, poof, small_building
+		Delay: 1
+		Type: Footprint
+		Weapon: UnitExplodeSmall
+	ActorLostNotification:
+		Notification: BuildingLost
+	ShakeOnDeath:
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack
+	Health:
+		HP: 500
+	SoundOnDamageTransition:
+		DamagedSounds: xplos.aud
+		DestroyedSounds: crumble.aud
+	CashTrickler:
+		Interval: 1500
+		InitialDelay: 1500
+	RenderSprites:
+		Image: spike
+	SelectionDecorations:
+		RenderSelectionBars: True
+
+TGDRED:
+	Inherits@1: TGD
+	Inherits@2: ^TGD_AFTER_DEATH_BASE
+	Tooltip:
+		Name: Red Tiberium Growth Decelerator
+	Building:
+		TerrainTypes: RedTibTreeTerrain
+	GrantConditionOnTerrain@RED:
+		Condition: OnRedTib
+		TerrainTypes: RedTibTreeTerrain
+	SpawnActorOnDeath@RED:
+		Actor: dummy_red_tib_tree
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		SkipMakeAnimations: True
+		RequiresLobbyCreeps: False
+		SpawnAfterDefeat: True
+		RequiresCondition: OnRedTib
+	-Buildable:
+	-DamagedByTerrain:
+	CashTrickler:
+		Amount: 1800
+
+TGDGREEN:
+	Inherits@1: TGD
+	Inherits@2: ^TGD_AFTER_DEATH_BASE
+	Tooltip:
+		Name: Green Tiberium Growth Decelerator
+	Building:
+		TerrainTypes: GreenTibTreeTerrain
+	GrantConditionOnTerrain@GREEN:
+		Condition: OnGreenTib
+		TerrainTypes: GreenTibTreeTerrain
+	SpawnActorOnDeath@GREEN:
+		Actor: dummy_green_tib_tree
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		SkipMakeAnimations: True
+		RequiresLobbyCreeps: False
+		SpawnAfterDefeat: True
+		RequiresCondition: OnGreenTib
+	-Buildable:
+	-DamagedByTerrain:
+	CashTrickler:
+		Amount: 800
+
+TGDBLUE:
+	Inherits@1: TGD
+	Inherits@2: ^TGD_AFTER_DEATH_BASE
+	Tooltip:
+		Name: Blue Tiberium Growth Decelerator
+	Building:
+		TerrainTypes: BlueTibTreeTerrain
+	GrantConditionOnTerrain@BLUE:
+		Condition: OnBlueTib
+		TerrainTypes: BlueTibTreeTerrain
+	SpawnActorOnDeath@BLUE:
+		Actor: dummy_blue_tib_tree
+		Probability: 100
+		OwnerType: InternalName
+		InternalOwner: Neutral
+		SkipMakeAnimations: True
+		RequiresLobbyCreeps: False
+		SpawnAfterDefeat: True
+		RequiresCondition: OnBlueTib
+	-Buildable:
+	-DamagedByTerrain:
+	CashTrickler:
+		Amount: 1400

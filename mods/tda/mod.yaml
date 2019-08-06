@@ -1,6 +1,6 @@
 Metadata:
 	Title: Tiberian Dawn Apolyton
-	Version: TDA-158
+	Version: 159
 	Website: https://www.moddb.com/mods/tiberian-dawn-apolyton
 	WebIcon32: https://raw.githubusercontent.com/KOYK/OpenRA-Tiberian-Dawn-Apolyton/master/mods/tda/icon.png
 
@@ -30,6 +30,7 @@ Packages:
 	~transit.mix
 	tda|uibits
 	tda|data
+	tda|data/civ
 	tda|data/ss
 	tda|data/destroyed
 	tda|data/icon
@@ -54,31 +55,30 @@ Packages:
 
 MapFolders:
 	tda|maps: System
-	~^maps/tda/TDA-157: User
+	~^maps/tda/159: User
 
 Rules:
-	tda|rules/misc.yaml
-	tda|rules/bots.yaml
+	tda|rules/faction_all.yaml
+	tda|rules/faction_nod_all.yaml
+	tda|rules/faction_nod_gorilla_warfare.yaml
+	tda|rules/faction_nod_direct_assault.yaml
+	tda|rules/faction_gdi.yaml
+	tda|rules/faction_civilian.yaml
+	tda|rules/faction_lifeforms.yaml
+	tda|rules/faction_neutral.yaml
+	tda|rules/units_airforce.yaml
+	tda|rules/units_armor.yaml
+	tda|rules/units_troops.yaml
+	tda|rules/units_navy.yaml
+	tda|rules/system.yaml
 	tda|rules/player.yaml
 	tda|rules/world.yaml
 	tda|rules/palettes.yaml
 	tda|rules/defaults.yaml
-	tda|rules/structures.yaml
-	tda|rules/infantry.yaml
-	tda|rules/vehicles.yaml
-	tda|rules/trees.yaml
-	tda|rules/civilian.yaml
-	tda|rules/civilian-desert.yaml
-	tda|rules/tech_buildings.yaml
-	tda|rules/ships.yaml
-	tda|rules/aircraft.yaml
-	tda|rules/husks.yaml
-	tda|rules/destroyed.yaml
 	tda|rules/research.yaml
-	tda|rules/compatibility.yaml
-	tda|rules/lights.yaml
 	tda|rules/map_options.yaml
-	tda|rules/eg.yaml
+	tda|rules/inheritable_traits.yaml
+	tda|rules/bots/bot_armies.yaml
 
 Sequences:
 	tda|sequences/structures.yaml

@@ -256,6 +256,13 @@
 	Inherits@1: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
 	Inherits@bounty: ^GlobalBounty
+	Inherits@CLOAK: ^AcceptsCloakCrate
+	Inherits@ExternalCondition: ^ExternalCondition
+	DamagedByTerrain@UnderTiberiumEffect:
+		Damage: 25
+		DamageInterval: 25
+		Terrain: Clear, Rough, Road, Bridge, Tiberium, BlueTiberium, RedTiberium, Beach
+		RequiresCondition: HitByTiberium
 	Sellable:
 		RefundPercent: 30
 		RequiresCondition: OnPad
@@ -279,7 +286,7 @@
 		TargetTypes: Ground, Vehicle, Repair
 		RequiresCondition: !parachute
 	Repairable:
-		RepairBuildings: fix, fix_nod
+		RepairBuildings: fix_gdi, fix_nod
 	Passenger:
 		CargoType: Vehicle
 		Weight: 5
@@ -322,7 +329,7 @@
 		Prerequisites: vehicles.upgraded
 	GivesBounty:
 	ProximityCaptor:
-		Types: Vehicle
+		Types: Vehicle, Player
 	Carryable:
 		CarriedCondition: notmobile
 	SelfHealing@MACHINE_SHOP:
@@ -335,7 +342,7 @@
 		Condition: machine_shop_repair
 		Prerequisites: fixn
 	HitShape:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Vehicle
 
 ^Vehicle:
@@ -364,7 +371,7 @@
 		Offset: 0,0,427
 		RequiresCondition: parachute
 	ProximityCaptor:
-		Types: Tank
+		Types: Tank, Player
 	Targetable:
 		TargetTypes: Ground, Tank, Repair
 		RequiresCondition: !parachute
@@ -415,7 +422,7 @@
 		Prerequisites: aircraft.upgraded
 	GivesBounty:
 	ProximityCaptor:
-		Types: Plane
+		Types: Plane, Player
 	HitShape:
 	Targetable@GROUND:
 		TargetTypes: Ground, Vehicle, Repair
@@ -430,7 +437,7 @@
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Aircraft
 
 ^PlaneUnControled:
@@ -459,10 +466,10 @@
 		Prerequisites: aircraft.upgraded
 	GivesBounty:
 	ProximityCaptor:
-		Types: PlaneUnControled
+		Types: PlaneUnControled, Player
 	HitShape:
 	Interactable:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Aircraft
 
 ^Helicopter:
@@ -494,7 +501,7 @@
 	Selectable:
 		Bounds: 24,25
 	Aircraft:
-		RepairBuildings: fix, fix_nod
+		RepairBuildings: fix_gdi, fix_nod
 		AirborneCondition: airborne
 		CruisingCondition: cruising
 		CanHover: True
@@ -528,9 +535,9 @@
 		Prerequisites: aircraft.upgraded
 	GivesBounty:
 	ProximityCaptor:
-		Types: Helicopter
+		Types: Helicopter, Player
 	HitShape:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Aircraft
 	SoundOnDamageTransition:
 		DamagedSounds: alarm_altitude.wav
@@ -540,6 +547,13 @@
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^SpriteActor
 	Inherits@bounty: ^GlobalBounty
+	Inherits@ConMan: ^ConditionManager
+	Inherits@ExternalCondition: ^ExternalCondition
+	DamagedByTerrain@UnderTiberiumEffect:
+		Damage: 25
+		DamageInterval: 25
+		Terrain: Clear, Rough, Road, Bridge, Tiberium, BlueTiberium, RedTiberium, Beach
+		RequiresCondition: HitByTiberium
 	Huntable:
 	Health:
 		Shape: Circle
@@ -661,11 +675,11 @@
 	ExternalCondition@COVER:
 		Condition: Infantry.sandbag
 	ProximityCaptor:
-		Types: Infantry
+		Types: Infantry, Player
 	HitShape:
 		Type: Circle
 			Radius: 128
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Infantry
 
 ^Soldier:
@@ -770,66 +784,7 @@
 	HitShape:
 		Type: Circle
 			Radius: 128
-	EditorTilesetFilter:
-		Categories: Critter
-
-^Viceroid:
-	Inherits@1: ^ExistsInWorld
-	Inherits@2: ^SpriteActor
-	Huntable:
-	Health:
-		HP: 300
-		Shape: Circle
-			Radius: 427
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		Range: 6c0
-	Mobile:
-		Voice: Move
-		Locomotor: chem
-		Speed: 71
-	SelectionDecorations:
-	WithSpriteControlGroupDecoration:
-	Selectable:
-		Bounds: 24,24
-	Targetable:
-		TargetTypes: Ground, Creep
-	AutoTarget:
-		ScanRadius: 5
-	AttackMove:
-		Voice: Attack
-	DrawLineToTarget:
-	HiddenUnderFog:
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Visceroid
-	Armament:
-		Weapon: Chemspray
-		LocalOffset: 384,0,0
-		MuzzleSequence: muzzle
-	AttackFrontal:
-		Voice: Attack
-	BodyOrientation:
-		QuantizedFacings: 8
-	WithSpriteBody:
-	WithMuzzleOverlay:
-	Guard:
-		Voice: Move
-	Guardable:
-	DamagedByTerrain:
-		Damage: -1
-		DamageInterval: 4
-		DamageTypes: TiberiumDeath
-		Terrain: Tiberium, BlueTiberium, RedTiberium
-	Voiced:
-		VoiceSet: DinoVoice
-	GivesBounty:
-	HitShape:
-		Type: Circle
-			Radius: 427
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Critter
 
 ^Ship:
@@ -861,9 +816,9 @@
 		VoiceSet: VehicleVoice
 	GivesBounty:
 	ProximityCaptor:
-		Types: Ship
+		Types: Ship, Player
 	HitShape:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Naval
 
 ^Building:
@@ -871,6 +826,14 @@
 	Inherits@2: ^SpriteActor
 	Inherits@shape: ^1x1Shape
 	Inherits@bounty: ^GlobalBounty
+	Inherits@ConMan: ^ConditionManager
+	Inherits@CapMan: ^CaptureManager
+	Inherits@ExternalCondition: ^ExternalCondition
+	DamagedByTerrain@UnderTiberiumEffect:
+		Damage: 25
+		DamageInterval: 25
+		Terrain: Clear, Rough, Road, Bridge, Tiberium, BlueTiberium, RedTiberium, Beach
+		RequiresCondition: HitByTiberium
 	Huntable:
 	SelectionDecorations:
 	WithSpriteControlGroupDecoration:
@@ -907,19 +870,27 @@
 	AcceptsDeliveredCash:
 	GivesBounty:
 	ProximityCaptor:
-		Types: Building
+		Types: Building, Player
 	#BlocksProjectiles:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Building
 	RequiresBuildableArea:
 		AreaTypes: building
 
 ^BaseBuilding:
 	Inherits: ^Building
+	Inherits@ExternalCondition: ^ExternalCondition
+	DamagedByTerrain@UnderTiberiumEffect:
+		Damage: 25
+		DamageInterval: 25
+		Terrain: Clear, Rough, Road, Bridge, Tiberium, BlueTiberium, RedTiberium, Beach
+		RequiresCondition: HitByTiberium
 	Building:
 		RequiresBaseProvider: true
 		BuildSounds: constru2.aud, hvydoor1.aud
 		TerrainTypes: Clear,Road
+	GrantCondition@CapturableBuilding:
+		Condition: CapturableBuilding
 	MustBeDestroyed:
 		RequiredForShortGame: true
 	RepairableBuilding:
@@ -936,7 +907,6 @@
 	EngineerRepairable:
 	Sellable:
 		SellSounds: cashturn.aud
-	Capturable:
 	WithMakeAnimation:
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -948,9 +918,61 @@
 		Palette: player
 		IsPlayerPalette: True
 
+^WaterBuilding:
+	Inherits: ^BaseBuilding
+	HitShape:
+		TargetableOffsets: 768,0,0, 768,-1024,0, 768,1024,0
+		Type: Rectangle
+			TopLeft: -1536, -1152
+			BottomRight: 1536, 598
+	HitShape@BOTTOM:
+		TargetableOffsets: -768,0,0
+		Type: Rectangle
+			TopLeft: -512, 598
+			BottomRight: 512, 1110
+	Selectable:
+		Bounds: 72,48
+	Targetable:
+		TargetTypes: Ground, Water, Structure, C4, DetonateAttack
+	Building:
+		Footprint: XXX xxx XXX
+		Dimensions: 3,3
+		TerrainTypes: Water
+	RequiresBuildableArea:
+		Adjacent: 8
+	-GivesBuildableArea:
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c0
+	Valued:
+		Cost: 2500
+	RepairsUnits:
+		HpPerStep: 1000
+		StartRepairingNotification: Repairing
+		FinishRepairingNotification: UnitRepaired
+		PlayerExperience: 15
+	-SpawnActorsOnSell:
+	RallyPoint:
+		Image: rallypointwater
+		FlagSequence: flag
+		Palette: playerRA
+		IsPlayerPalette: True
+	Power:
+		Amount: -5
+	DetectCloaked:
+		CloakTypes: Underwater
+		Range: 10c0
+	RenderDetectionCircle:
+	ProductionFromMapEdge:
+		Produces: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
+	RenderSprites:
+		PlayerPalette: playerRA
+
 ^CivBuilding:
 	Inherits: ^Building
-	-ConditionManager:
 	Health:
 		HP: 400
 	Tooltip:
@@ -959,7 +981,7 @@
 		ShowOwnerRow: false
 	FrozenUnderFog:
 	GivesBounty:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Civilian building
 	RenderSprites:
 		Palette: terrain
@@ -978,15 +1000,15 @@
 		ShowOwnerRow: false
 	FrozenUnderFog:
 	ScriptTriggers:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Husk
 	RenderSprites:
 		Palette: terrain
 
 ^TechBuilding:
 	Inherits: ^CivBuilding
-	Capturable:
-		CaptureThreshold: 100
+	GrantCondition@CapturableBuilding:
+		Condition: CapturableBuilding
 	CaptureNotification:
 		Notification: CivilianBuildingCaptured
 	EngineerRepairable:
@@ -994,7 +1016,7 @@
 		Range: 3c0
 	Tooltip:
 		ShowOwnerRow: True
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Tech building
 	RenderSprites:
 		-Palette: terrain
@@ -1029,7 +1051,7 @@
 	WithSpriteBody:
 	FrozenUnderFog:
 	ScriptTriggers:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Husk
 
 ^Wall:
@@ -1066,7 +1088,7 @@
 		Shape: Rectangle
 			TopLeft: -512, -512
 			BottomRight: 512, 512
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Wall
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1100,7 +1122,7 @@
 		Adjacent: 4
 		BuildSounds: hvydoor1.aud
 		TerrainTypes: Clear, Road
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Wall
 	-GivesBuildableArea:
 	MustBeDestroyed:
@@ -1153,7 +1175,7 @@
 	HiddenUnderShroud:
 	ScriptTriggers:
 	HitShape:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Tree
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1171,7 +1193,7 @@
 		ShowOwnerRow: false
 	FrozenUnderFog:
 	ScriptTriggers:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Tree
 
 ^TibTree:
@@ -1200,7 +1222,7 @@
 	ConditionManager:
 	Valued:
 		Cost: 750
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Resource spawn
 
 ^Rock:
@@ -1220,7 +1242,7 @@
 		Terrain: Tree
 	HiddenUnderShroud:
 	ScriptTriggers:
-	EditorTilesetFilter:
+	MapEditorData:
 		RequireTilesets: DESERT
 	RequiresBuildableArea:
 		AreaTypes: building
@@ -1237,7 +1259,7 @@
 		Type: CenterPosition
 	WithFacingSpriteBody:
 	HitShape:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: Husk
 
 ^PlaneHusk:
@@ -1257,17 +1279,16 @@
 
 ^Husk:
 	Inherits: ^CommonHuskDefaults
+	Inherits@CapMan: ^CaptureManager
 	Husk:
 		AllowedTerrain: Clear, Rough, Road, Tiberium, BlueTiberium, Beach, RedTiberium
+	GrantCondition@CapturableHusk:
+		Condition: CapturableHusk
 	Burns:
 		Interval: 5
 	Targetable:
 		RequiresForceFire: yes
 		TargetTypes: Ground, Husk
-	Capturable:
-		Types: husk
-		CaptureThreshold: 100
-		ValidStances: Enemy, Neutral, Ally
 	TransformOnCapture:
 		ForceHealthPercentage: 50
 	Tooltip:
@@ -1360,7 +1381,7 @@
 		Offset: 0,0,427
 		RequiresCondition: parachute
 	ConditionManager:
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: System
 
 ^Defense:
@@ -1373,8 +1394,8 @@
 		RequiredForShortGame: false
 	Building:
 	ProximityCaptor:
-		Types: Defense
-	EditorTilesetFilter:
+		Types: Defense, Player
+	MapEditorData:
 		Categories: Defense
 	-AcceptsDeliveredCash:
 	Targetable:
@@ -1402,7 +1423,7 @@
 	GivesBounty:
 	AcceptsDeliveredCash:
 	ProximityCaptor:
-		Types: Flag
+		Types: Flag, Player
 	RenderSprites:
 		PlayerPalette: playerRA
 		Image: basicflag
@@ -1419,7 +1440,7 @@
 	FrozenUnderFog:
 	RequiresBuildableArea:
 		AreaTypes: building
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: System
 
 ^Mine:
@@ -1450,7 +1471,7 @@
 		TargetTypes: Ground, Defense
 	Immobile:
 		OccupiesSpace: true
-	EditorTilesetFilter:
+	MapEditorData:
 		Categories: System
 	HitShape:
 	OwnerLostAction
@@ -1510,4 +1531,61 @@
 
 ^CapTran:
 	Capturable:
+		Types: Tran
 		CaptureThreshold: 100
+
+#===================================
+#Start of: Old maps compatibility
+#===================================
+V19.Husk:
+	Inherits: ^CivBuildingHusk
+	WithSpriteBody:
+	WithIdleOverlay:
+		StartSequence: fire-start
+		Sequence: fire-loop
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Oil Derrick (Destroyed)
+
+HOSP.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Hospital (Destroyed)
+	WithBuildingBib:
+		HasMinibib: Yes
+
+BIO.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Biological Lab (Destroyed)
+#-----------------------------------
+#End of: Old maps compatibility
+#-----------------------------------
+
+#===================================
+#Start of: EGS
+#===================================
+EG_DATA:
+	Inherits: ^Tree
+	Tooltip:
+		Name: I hate temporal mechanics
+	RenderSprites:
+		Palette: NoTerrain
+	Building:
+		Footprint: __ xx
+	MapEditorData:
+		Categories: eg
+	Health:
+		HP: 50000000
+
+#-----------------------------------
+#End of: EGS
+#-----------------------------------

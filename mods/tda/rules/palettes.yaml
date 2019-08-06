@@ -56,6 +56,7 @@
 		AllowModifiers: false
 	PaletteFromFile@chrome:
 		Name: chrome
+		CursorPalette: true
 		Filename: temperat.pal
 		ShadowIndex: 3
 		AllowModifiers: false

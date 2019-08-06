@@ -91,6 +91,7 @@ CommandoVoice:
 		Poisoned: ramyell1
 		Build: rokroll1
 		Kill: keepem1,laugh1,lefty1,tuffguy1
+		Action: onit1,gotit1
 
 DinoVoice:
 	Voices:

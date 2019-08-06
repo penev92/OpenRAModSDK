@@ -11,6 +11,8 @@ lobby-bits: chrome.png
 	admin-anonymous: 464,112,16,16
 	player-registered: 480,112,16,16
 	player-anonymous: 496,112,16,16
+	authentication: 418,97,12,13
+	authentication-disabled: 418,113,12,13
 
 panel-logotransparent: observer.png
 	background: 0,0,1024,512

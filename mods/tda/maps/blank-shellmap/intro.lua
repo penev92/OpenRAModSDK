@@ -1,7 +1,15 @@
--- WorldLoaded = function()
+WorldLoaded = function()
 
 	-- Media.PlayMovieFullscreen("intro2.vqa")
-	-- -- Trigger.AfterDelay(DateTime.Seconds(121), function()
-		-- -- Media.PlayMovieFullscreen("logo.vqa")
-	-- -- end)
--- end
+
+	Media.SetBackgroundMusic()
+
+	Media.PlayMovieInRadar("logo.vqa")
+
+	Trigger.AfterDelay(DateTime.Seconds(28), function()
+		Media.SetBackgroundMusic("mainmenumusic")
+	end)
+
+end
+
+-- oh man this is what i call "cool idea"

@@ -24,3 +24,6 @@ Metrics:
 	TextShadow: false
 	TextContrastColorDark: 062100
 	TextContrastColorLight: 7F7F7F
+	ChatLineSound: ChatLine
+	ClickDisabledSound: ClickDisabledSound
+	ClickSound: ClickSound

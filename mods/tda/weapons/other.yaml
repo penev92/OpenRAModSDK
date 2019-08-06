@@ -33,7 +33,7 @@
 			Wood: 100
 			Light: 100
 			Heavy: 100
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		DamageTypes: TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Structure, Wall
@@ -78,7 +78,7 @@ Flamethrower:
 			Wood: 100
 			Light: 100
 			Heavy: 20
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+		DamageTypes: FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall
@@ -106,7 +106,7 @@ BigFlamer:
 			Wood: 100
 			Light: 100
 			Heavy: 25
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+		DamageTypes: FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall
@@ -132,7 +132,7 @@ ChemsprayL:
 			Wood: 100
 			Light: 100
 			Heavy: 100
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		DamageTypes: TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
@@ -141,6 +141,7 @@ ChemsprayL:
 		ImpactSounds: xplos.aud
 
 Chemspray:
+	Inherits: ^GrantExternalConditionWarhead
 	ReloadDelay: 65
 	Range: 3c0
 	Report: flamer2.aud
@@ -154,7 +155,7 @@ Chemspray:
 			Wood: 100
 			Light: 100
 			Heavy: 100
-		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+		DamageTypes: TiberiumDeath
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
 		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep

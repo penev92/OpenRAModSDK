@@ -1,12 +1,12 @@
 Player:
-	HackyAI@Cabal:
+	ModularBot@Cabal:
 		Name: Cabal
 		Type: cabal
 		MinimumExcessPower: 60
 		BuildingCommonNames:
 			ConstructionYard: fact,pylesole,handsole
 			Refinery: proc, ref_turbo_on, ref_turbo_off
-			Power: nuke,nuk2
+			Power: nuke_nod,nuk2_nod,nuke_gdi,nuk2_gdi
 			Barracks: pyle,hand,pylesole,handsole
 			VehiclesFactory: weap,afld
 			Production: pyle,hand,weap,afld,hpad,afldra
@@ -41,7 +41,7 @@ Player:
 			proc: 20%
 			ref_turbo_on: 20%
 			ref_turbo_off: 20%
-			nuke: 9%
+			nuke_nod: 9%
 			pyle: 5%
 			hand: 5%
 			hq: 4%
@@ -186,7 +186,7 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
-	HackyAI@Watson:
+	ModularBot@Watson:
 		Name: Watson
 		Type: watson
 		MinimumExcessPower: 60
@@ -373,7 +373,7 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
-	HackyAI@HAL9001:
+	ModularBot@HAL9001:
 		Name: HAL 9001
 		Type: hal9001
 		MinimumExcessPower: 60
@@ -562,7 +562,7 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
-	HackyAI@blitzkrieg:
+	ModularBot@blitzkrieg:
 		Name: Blitzkrieg
 		Type: blitzkrieg
 		MinimumExcessPower: 30
@@ -776,7 +776,7 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 10c0
-	HackyAI@MeatGrinder:
+	ModularBot@MeatGrinder:
 		Name: Meat Grinder
 		Type: MeatGrinder
 		MinimumExcessPower: 60
@@ -950,7 +950,7 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
-	HackyAI@Shpooky:
+	ModularBot@Shpooky:
 		Name: Shpooky
 		Type: Shpooky
 		MinimumExcessPower: 60

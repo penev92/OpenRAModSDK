@@ -1,9 +1,5 @@
-Palettes:
-	cursor: temperat.pal
-	racursor: racursor.pal
-
 Cursors:
-	mouse_apolyton1.shp: cursor
+	mouse_apolyton1.shp: chrome
 		scroll-t:
 			Start: 1
 			Y: -12
@@ -231,14 +227,14 @@ Cursors:
 		powerdown:
 			Start: 269
 			Length: 3
-	ramouse.shp: racursor
+	ramouse.shp: chrome
 		heal:
 			Start: 160
 			Length: 4
 		heal-minimap:
 			Start: 194
 			Length: 1
-	mouse_apolyton2.shp: cursor
+	mouse_apolyton2.shp: chrome
 		artilerybarrage:
 			Start: 0
 			Length: 6

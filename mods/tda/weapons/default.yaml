@@ -170,4 +170,16 @@
 		ExplosionPalette: alpha
 		InvalidTargets: Water
 
+^GrantExternalConditionWarhead:
+	Warhead@HitByTiberium: GrantExternalCondition
+		Condition: HitByTiberium
+		Duration: 125
+		Range: 1c0
+		ValidTargets: Tank, Vehicle, Husk, Infantry, Structure
+		InvalidTargets: Air
+		ValidStances: Enemy, Neutral, Ally
+		AffectsParent: False
+		Delay: 75
+		DebugOverlayColor: FD30FF
+
 #My lifes work^

@@ -1,0 +1,58 @@
+^CaptureManager:
+	CaptureManager:
+		CapturingCondition: CapturingCon
+		BeingCapturedCondition: BeingCapturedCon
+		PreventsAutoTarget: True	
+	Captures@Building:
+		CaptureTypes: Building
+		PlayerExperience: 50
+		CaptureDelay: 0	
+		ConsumedByCapture: True
+		PlayerExperienceStances: Enemy, Neutral
+		RequiresCondition: CapturesBuilding
+		Voice: Action
+	Captures@Transport:
+		CaptureTypes: Transport
+		PlayerExperience: 50
+		CaptureDelay: 0	
+		ConsumedByCapture: True
+		PlayerExperienceStances: Enemy, Neutral
+		RequiresCondition: CapturesTransport
+		Voice: Move
+	Captures@Husk:
+		CaptureTypes: Husk
+		PlayerExperience: 50
+		CaptureDelay: 0	
+		ConsumedByCapture: True
+		PlayerExperienceStances: Enemy, Neutral, Ally
+		RequiresCondition: CapturesHusk
+		Voice: Action
+	CaptureProgressBar:
+		Color: FFA500
+	CaptureNotification:
+	CapturableProgressBlink:
+		Interval: 50
+	Capturable@Building:
+		Types: Building
+		ValidStances: Enemy, Neutral
+		CancelActivity: False
+		RequiresCondition: CapturableBuilding
+	Capturable@Husk:
+		Types: Husk
+		ValidStances: Enemy, Neutral, Ally
+		CancelActivity: False
+		RequiresCondition: CapturableHusk
+	Capturable@Transport:
+		Types: Transport
+		ValidStances: Enemy, Neutral
+		CancelActivity: False
+		RequiresCondition: CapturableTransport
+
+^ConditionManager:
+	ConditionManager:
+
+^ExternalCondition:
+	ExternalCondition@HitByTiberium:
+		Condition: HitByTiberium
+		SourceCap: 0
+		TotalCap: 0

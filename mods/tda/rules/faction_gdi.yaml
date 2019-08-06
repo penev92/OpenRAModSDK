@@ -1,0 +1,518 @@
+FACT.GDI:
+	Inherits: FACT
+	RenderSprites:
+		Image: fact
+	Buildable:
+		Queue: Building.GDI, Building.Nod, Building.Nodda
+		BuildPaletteOrder: 1000
+		Prerequisites: ~disabled
+		ForceFaction: gdi
+	Tooltip:
+		Name: Construction Yard (GDI)
+
+NUKE_GDI:
+	Inherits@powerplant: NUKE
+	RenderSprites:
+		Image: NUKE
+	Power:
+		Amount: 20
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: GDI Nuclear Power Plant
+	Replaceable:
+		Types: PowerGDI
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: fact
+		Queue: Building.GDI
+		Description: Generates nuclear power.\nChance for fail-safe failure 15%
+
+NUK2_GDI:
+	Inherits@powerplant2: NUK2
+	RenderSprites:
+		Image: NUK2
+	Power:
+		Amount: 40
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: GDI Advanced Nuclear Power Plant
+	Replacement:
+		ReplaceableTypes: PowerGDI
+	Buildable:
+		BuildPaletteOrder: 15
+		Prerequisites: ~anyhq, ~research_adv_nuke, ~techlevel.medium
+		Queue: Building.GDI
+		Description: Provides extra nuclear power\nthan its predecessor model.\nChance for fail-safe failure 30%
+
+PYLE:
+	Inherits: ^BaseBuilding
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,-256,0, 840,512,0, 210,-512,0, -71,512,0
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 640
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Barracks
+	ProvidesPrerequisite:
+		Prerequisite: barracks
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~anypower
+		Queue: Building.GDI
+		Description: Trains infantry
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 3000
+	RevealsShroud:
+		Range: 5c0
+	WithBuildingBib:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -426,85,0
+		ExitCell: 0,1
+	Exit@2:
+		SpawnOffset: 298,298,0
+		ExitCell: 1,1
+	Production:
+		Produces: Infantry.GDI
+	ProductionQueue:
+		Type: Infantry.GDI
+		Group: Infantry
+		RequireOwner: false
+		LowPowerSlowdown: 3
+	ProductionBar:
+		ProductionType: Infantry
+	Power:
+		Amount: -5
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 48,42,0,-5
+	InfiltrateForSupportPower:
+		Proxy: barracks.upgraded
+	Targetable:
+		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagRAX
+	AmbientSound:
+		SoundFiles: barracks.aud
+		Delay: 5
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospitalheal
+		Prerequisites: hosp
+	WithDecoration@REDCROSS:
+		Image: pips
+		Sequence: pip-heal
+		ReferencePoint: Top, Right
+		RequiresCondition: hospitalheal
+		ValidStances: Ally, Neutral
+		RequiresSelection: True
+	GrantConditionOnPrerequisite@BIO:
+		Condition: hazmatsuits
+		Prerequisites: bio
+	WithDecoration@HAZMAT:
+		Image: pips
+		Sequence: pip-hazmat
+		ReferencePoint: Top, Right
+		RequiresCondition: hazmatsuits
+		ValidStances: Ally, Neutral
+		RequiresSelection: True
+
+PYLESOLE:
+	Inherits: PYLE
+	Power:
+		Amount: 0
+	RenderSprites:
+		Image: pyle
+	-Buildable:
+	CashTrickler:
+		InitialDelay: 6000
+		Interval: 6000
+		Amount: 1000
+		ShowTicks: False
+
+WEAP:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^3x2Shape
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 512
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Vehicle Factory
+	ProvidesPrerequisite:
+		Prerequisite: vehicleproduction
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~barracks
+		Queue: Building.GDI
+		Description: Produces vehicles
+		BuildDuration: 750
+		BuildDurationModifier: 100
+	Building:
+		Footprint: xxx === ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 72,48
+		DecorationBounds: 72,64,0,-16
+	SelectionDecorations:
+	Health:
+		HP: 10000
+	RevealsShroud:
+		Range: 4c0
+	WithBuildingBib:
+	WithProductionDoorOverlay:
+		Sequence: build-top
+	RallyPoint:
+		Offset: 0,2
+	Exit@1:
+		SpawnOffset: -512,-512,0
+		ExitCell: 0,1
+		ExitDelay: 3
+	Production:
+		Produces: Vehicle.GDI
+	ProductionQueue:
+		Type: Vehicle.GDI
+		RequireOwner: false
+		Group: Vehicle
+		LowPowerSlowdown: 3
+	ProductionBar:
+		ProductionType: vehicles
+	Power:
+		Amount: -7
+	ProvidesPrerequisite@buildingname:
+	InfiltrateForSupportPower:
+		Proxy: vehicles.upgraded
+	Targetable:
+		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagWF
+	GrantConditionOnPrerequisite@MACHINE_SHOP:
+		Condition: machine_shop_repair
+		Prerequisites: fixn
+	WithDecoration@MECH:
+		Image: pips
+		Sequence: pip-mech
+		ReferencePoint: Right, Top
+		RequiresCondition: machine_shop_repair
+		RequiresSelection: True
+
+HQ_GDI:
+	Inherits@radar: HQ
+	Valued:
+		Cost: 1500
+	Health:
+		HP: 5000
+	Power:
+		Amount: -9
+	Tooltip:
+		Name: GDI Communications Center
+	ProvidesPrerequisite:
+		Prerequisite: anyhq
+	Buildable:
+		BuildPaletteOrder: 70
+		Prerequisites: ~vehicleproduction, ~techlevel.medium
+		Queue: Building.GDI
+		Description: Provides radar and Air Strike support power.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
+		BuildLimit: 1
+	AirstrikePower:
+		PauseOnCondition: disabled
+		Prerequisites: ~techlevel.superweapons
+		Icon: airstrike
+		ChargeInterval: 5250
+		SquadSize: 3
+		QuantizedFacings: 8
+		Description: Air Strike
+		LongDesc: Deploy an aerial napalm strike.\nBurns buildings and infantry along a line.
+		EndChargeSpeechNotification: AirstrikeReady
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		IncomingSpeechNotification: EnemyAirstrike
+		LaunchSpeechNotification: FriendlyAirstrike
+		NotReady: noredy1
+		UnitType: a10
+		DisplayBeacon: True
+		BeaconPoster: airstrike
+		BeaconPosterPalette: beaconposter
+		DisplayRadarPing: True
+		CameraActor: camera
+		ArrowSequence: arrow
+		CircleSequence: circles
+		ClockSequence: clock
+		DisplayTimerStances: Ally
+		Cursor: airstrike
+	SupportPowerChargeBar:
+	ProductionQueue@GDIResearch:
+		Type: Research.GDI
+		Factions: gdi
+		Group: Research
+		LowPowerSlowdown: 3
+		ReadyAudio: ResearchC
+		BlockedAudio: ResearchW
+		QueuedAudio: ResearchST
+		OnHoldAudio: ResearchS
+		CancelledAudio: ResearchA
+	ProductionBar@ResearchGDI:
+		ProductionType: Research.GDI
+	Production:
+		Produces: Research.GDI
+		MoveIntoWorld: false
+	RenderSprites:
+		Image: HQ
+
+FIX_GDI:
+	Inherits@RepairFacility: FIX
+	Tooltip:
+		Name: GDI Repair Facility
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~vehicleproduction
+		Queue: Building.GDI
+		Description: Repairs vehicles
+	WithRepairOverlay@LIGHTS:
+		Sequence: active-lights
+		Palette: PlayerColorLights
+		IsPlayerPalette: true
+	RenderSprites:
+		Image: FIX
+
+EYE:
+	Inherits: ^BaseBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,512,128, 420,-598,213
+		Type: Rectangle
+			TopLeft: -1024, -384
+			BottomRight: 1024, 1024
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Advanced Communications Center
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~anytech, ~techlevel.high
+		Queue: Defence.GDI
+		Description: Provides radar and Orbital Ion Cannon support power.\nRequires power to operate.
+		BuildLimit: 1
+	Building:
+		Footprint: X_ xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 48,40,0,9
+		DecorationBounds: 48,53,0,-4
+	SelectionDecorations:
+	WithSpriteBody:
+		PauseOnCondition: disabled
+	Health:
+		HP: 10000
+	WithBuildingBib:
+	ProvidesRadar:
+		RequiresCondition: !disabled
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 10c0
+	IonCannonPower:
+		PauseOnCondition: disabled
+		Prerequisites: ~techlevel.superweapons
+		Icon: ioncannon
+		Cursor: ioncannon
+		ChargeInterval: 9000
+		Description: Ion Cannon
+		LongDesc: Initiate an Ion Cannon strike.\nApplies instant damage to a small area.
+		BeginChargeSpeechNotification: IonCannonCharging
+		EndChargeSpeechNotification: IonCannonReady
+		LaunchSound: ion1.aud
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		DisplayRadarPing: True
+		CameraActor: camera.small
+		DisplayTimerStances: Ally, Neutral, Enemy
+		AllowMultiple: True
+	RevealsShroud:
+		Range: 3c0
+		ValidStances: Ally, Enemy
+	HiddenUnderFog:
+		AlwaysVisibleStances: Ally, Enemy
+		Type: CenterPosition
+	-FrozenUnderFog:
+	SupportPowerChargeBar:
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	InfiltrateForExploration:
+	Targetable:
+		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagSuperWeapon
+	AmbientSound:
+		SoundFiles: low_radio.aud
+		Delay: 5
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		RequiresCondition: powerdown
+		ReferencePoint: Center
+	RequiresBuildableArea:
+		AreaTypes: building
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+
+MISS_GDI:
+	Inherits: ^BaseBuilding
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@shape: ^3x2Shape
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 0,-896,0, 0,896,0, 840,0,0, -706,0,0, -706,-768,0, -706,640,0
+	Building:
+		Footprint: xx_ xxx ===
+		Dimensions: 3,3
+	Tooltip:
+		Name: Tech Center
+	Buildable:
+		Queue: Building.GDI
+		BuildPaletteOrder: 80
+		Prerequisites: ~anyhq, ~techlevel.high
+		Description: Provides GDI advanced technologies.
+		BuildLimit: 1
+	Valued:
+		Cost: 4000
+	WithBuildingBib:
+		HasMinibib: Yes
+	SpawnActorsOnSell:
+		ActorTypes: scientist,scientist,scientist,scientist,scientist,scientist,scientist,scientist,scientist
+	WithMakeAnimation:
+	WithIdleOverlay@DISH:
+		PauseOnCondition: lowpower
+		Sequence: idle-dish
+	WithIdleOverlay@ANTENA:
+		PauseOnCondition: lowpower
+		Sequence: idle-antena
+		Palette: playerRA
+		IsPlayerPalette: True
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite:
+		Prerequisite: anytech
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure
+	Power:
+		Amount: -12
+	Health:
+		HP: 10000
+	WithDecoration@POWERDOWN:
+		Image: poweroff
+		Sequence: offline
+		Palette: chrome
+		RequiresCondition: powerdown
+		ReferencePoint: Center
+	PowerMultiplier@POWERDOWN:
+		RequiresCondition: powerdown
+		Modifier: 0
+	RevealsShroud:
+		Range: 5c0
+	Selectable:
+		Bounds: 72,48
+
+ATWR:
+	Inherits: ^Defense
+	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Advanced Guard Tower
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~anyhq, ~techlevel.medium
+		Queue: Defence.GDI
+		BuildDuration: 2880
+		BuildDurationModifier: 40
+		Description: All-purpose defensive structure.\n  Strong vs Aircraft, Tanks\n  Weak vs Infantry
+	Selectable:
+		Bounds: 24,24
+		DecorationBounds: 22,48,0,-12
+	SelectionDecorations:
+	Health:
+		HP: 7000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8c0
+	WithBuildingBib:
+		HasMinibib: Yes
+	Turreted:
+		TurnSpeed: 255
+		Offset: 128,128,384
+	Armament@PRIMARY:
+		Weapon: TowerMissle
+		LocalOffset: 256,128,0, 256,-128,0
+		LocalYaw: -100,100
+	Armament@SECONDARY:
+		Weapon: SAMMissile
+		LocalOffset: 256,128,0, 256,-128,0
+		LocalYaw: -100,100
+	AttackTurreted:
+		PauseOnCondition: disabled
+	BodyOrientation:
+		QuantizedFacings: 8
+	DetectCloaked:
+		Range: 5c0
+		RequiresCondition: !disabled
+	Power:
+		Amount: -15
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack, Defense, AItagAvoid
+
+GTWR:
+	Inherits: ^Defense
+	Inherits@AUTOTARGET: ^AutoTargetGround
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Guard Tower
+	Buildable:
+		BuildPaletteOrder: 55
+		Prerequisites: ~barracks
+		Queue: Defence.GDI
+		BuildDuration: 1440
+		BuildDurationModifier: 40
+		Description: Basic defensive structure.\nDetects Spies by scanning for biochip IDs.\n  Strong vs Infantry\n  Weak vs Tanks
+	Building:
+	Health:
+		HP: 2400
+	RevealsShroud:
+		Range: 7c0
+	WithBuildingBib:
+		HasMinibib: Yes
+	AttackGarrisoned:
+		Armaments: guardtower
+		PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 88, 88, 88, 88, 88, 88
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 1
+		InitialUnits: e1
+	BodyOrientation:
+		QuantizedFacings: 8
+	DetectCloaked:
+		Range: 3c0
+	Turreted:
+		TurnSpeed: 255
+	Power:
+		Amount: -5
+	IgnoresDisguise:
+	-QuantizeFacingsFromSequence:
+	Selectable:
+		Bounds: 24,24
+	RenderRangeCircle:
+		FallbackRange: 6c0
