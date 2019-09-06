@@ -868,6 +868,7 @@
 	FrozenUnderFog:
 	Demolishable:
 	AcceptsDeliveredCash:
+		ValidStances: Ally, Enemy
 	GivesBounty:
 	ProximityCaptor:
 		Types: Building, Player

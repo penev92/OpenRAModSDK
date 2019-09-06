@@ -56,3 +56,13 @@
 		Condition: HitByTiberium
 		SourceCap: 0
 		TotalCap: 0
+
+^ArtilleryUnit
+	RevealOnFire:
+		ArmamentNames: primary
+		RevealForStancesRelativeToTarget: Enemy
+		Duration: 75
+		Radius: 1c0
+	Targetable@AITAG:
+		TargetTypes: ArtyType
+		

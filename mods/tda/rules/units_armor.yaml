@@ -482,6 +482,7 @@ ARTY:
 	Inherits: ^Tank
 	Inherits@CLOAK: ^AcceptsCloakCrate
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@ARTILLERY: ^ArtilleryUnit
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -517,8 +518,6 @@ ARTY:
 		Weapon: ArtilleryShellExplode
 		EmptyWeapon: UnitExplode
 		LoadedChance: 75
-	Targetable:
-		TargetTypes: Ground, Tank, Repair, AItagArtyType
 ARTY.Husk:
 	Inherits: ^Husk
 	Tooltip:
@@ -1011,6 +1010,7 @@ MSAM:
 	Inherits: ^Tank
 	Inherits@CLOAK: ^AcceptsCloakCrate
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@ARTILLERY: ^ArtilleryUnit
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1042,8 +1042,6 @@ MSAM:
 	WithSpriteTurret:
 	SpawnActorOnDeath:
 		Actor: MSAM.Husk
-	Targetable:
-		TargetTypes: Ground, Tank, Repair, AItagArtyType
 	WithTurretAimAnimation:
 		Sequence: aim
 MSAM.Husk:
@@ -1061,6 +1059,7 @@ MLRS:
 	Inherits: ^Tank
 	Inherits@CLOAK: ^AcceptsCloakCrate
 	Inherits@AUTOTARGET: ^AutoTargetAir
+	Inherits@ARTILLERY: ^ArtilleryUnit
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1097,8 +1096,6 @@ MLRS:
 	SpawnActorOnDeath:
 		Actor: MLRS.Husk
 	Guard:
-	Targetable:
-		TargetTypes: Ground, Tank, Repair, AItagAvoid
 	ReloadAmmoPool@1:
 		Delay: 45
 		Count: 1

@@ -28,6 +28,7 @@ Balance: Oil Derrick now gives $500 and only to the first player who captures it
 Balance: Oil Derrick will now give $10 every second.
 Fixed: Oil Derrick now uses smoke when gets destroyed.
 Fixed: Spellling and typos for renegade and commando icons and description.
+Added: RevealOnFire for all artillery type Units.
 
 
 
