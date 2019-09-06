@@ -68,16 +68,34 @@ AFLDRA:
 		Factions: gdi
 		Group: Aircraft
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@Nod:
 		Type: Aircraft.Nod
 		Factions: nod
 		Group: Aircraft
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@Nodda:
 		Type: Aircraft.Nodda
 		Factions: nodda
 		Group: Aircraft
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionBar@GDI:
 		ProductionType: Aircraft.GDI
 	ProductionBar@Nod:

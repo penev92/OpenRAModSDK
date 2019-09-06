@@ -29,10 +29,23 @@ CIV_CHURCH:
 		HP: 600
 	RevealsShroud:
 		Range: 5c0
+	RenderSprites:
+		Palette: NoTerrain
+	GrantCondition@afterbuild:
+		Condition: afterbuild
+	WithIdleOverlay@afterbuild:
+		StartSequence: afterbuild
+		Sequence: null
+		RequiresCondition: afterbuild
+		Palette: NoTerrain
+		IsPlayerPalette: false
+#unfortunally for some reason the idleoverlay palette messes with the building palette, and the end result is the building inheriting the idleoverlay palette. So i have to convert the buildings into one palette, but in a twist of fate i found that only the desert buildings are visually effected for my eyes, so i will change only them.
 
 V19:
 	Inherits: ^TechBuilding
-	CashTrickler:
+	GivesCashOnCapture:
+		Amount: 500
+		CaptureTypes: Building
 	#CashTricklerBar:
 	#	DisplayStances: Ally
 	#	Color: c5c5c5
@@ -49,6 +62,20 @@ V19:
 		Actor: V19_DES
 		OwnerType: InternalName
 		InternalOwner: Neutral
+	TransformOnCapture:
+		IntoActor: V19.Captured
+		SkipMakeAnims: true
+		CaptureTypes: Building
+		
+V19.Captured:
+	Inherits: V19
+	RenderSprites:
+		Image: V19
+	CashTrickler:
+		Amount: 10
+		Interval: 25
+		InitialDelay: 25
+	-GivesCashOnCapture:
 
 HOSP:
 	Inherits: ^TechBuilding
@@ -139,7 +166,7 @@ BARR:
 		ExitCell: 0,2
 	Production:
 		Produces: Mercs
-	ProductionQueue:
+	ProductionQueue@nullfornow:
 		Type: Mercs
 		Group: Infantry
 		LowPowerSlowdown: 0
@@ -259,12 +286,14 @@ V19_DES:
 		Cost: 0
 	Tooltip:
 		Name: Destroyed Oil Derrick
-	TransformOnCapture:
-		IntoActor: v19
-		ForceHealthPercentage: 10
-		SkipMakeAnims: True
 	EditorOnlyTooltip:
 		Name: Use this
+	-GrantCondition@CapturableBuilding:
+	WithIdleOverlay:
+		StartSequence: fire-start
+		Sequence: fire-loop
+	DamageMultiplier:
+		Modifier: 0
 
 HOSP_DES:
 	Inherits: ^TechBuilding

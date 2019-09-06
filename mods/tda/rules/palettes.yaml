@@ -12,7 +12,7 @@
 	PaletteFromFile@terrain-snow:
 		Name: terrain
 		Tileset: SNOW
-		Filename: snow.pal
+		Filename: snowTD.pal
 		ShadowIndex: 4
 	PaletteFromFile@terrain-temperat:
 		Name: terrain
@@ -37,7 +37,7 @@
 	PaletteFromFile@staticterrain-snow:
 		Name: staticterrain
 		Tileset: SNOW
-		Filename: snow.pal
+		Filename: snowTD.pal
 		ShadowIndex: 4
 	PaletteFromFile@staticterrain-temperat:
 		Name: staticterrain
@@ -73,6 +73,11 @@
 		Filename: temperat.pal
 		ShadowIndex: 4
 		AllowModifiers: false
+	PaletteFromFile@snowRA:
+		Name: snowRA
+		Filename: snowRA.pal
+		ShadowIndex: 3
+		AllowModifiers: True
 	PaletteFromRGBA@shadow:
 		Name: shadow
 		R: 0
@@ -129,7 +134,7 @@
 		RemapIndex: 176, 178, 180, 182, 184, 186, 189, 191, 177, 179, 181, 183, 185, 187, 188, 190
 	PaletteFromFile@NoTerrain:
 		Name: NoTerrain
-		Filename: temperat.pal
+		Filename: noterrain.pal
 		ShadowIndex: 4
 	PaletteFromFile@playerRA:
 		Name: playerRA
@@ -144,12 +149,26 @@
 		MenuEffect: Desaturated
 	CloakPaletteEffect:
 	RotationPaletteEffect:
-		ExcludePalettes: flashyeffectra, flashyeffect, effect, effectra, staticterrain, staticdesert, staticplayer, chrome, alpha, ra2foricamos, playerRA
+		ExcludeTilesets: JUNGLE, TEMPERAT, SNOW, WINTER, DESERT
+	RotationPaletteEffect@water: 
+		ExcludePalettes: flashyeffectra, flashyeffect, effect, effectra, staticterrain, staticdesert, staticplayer, chrome, alpha, ra2foricamos, NoTerrain, player
 		RotationBase: 32
-	RotationPaletteEffect@water:
-		ExcludePalettes: flashyeffectra, flashyeffect, effect, effectra, staticterrain, staticdesert, staticplayer, chrome, alpha, ra2foricamos, playerRA
-		RotationBase: 32
-		RotationStep: 0.05
+		RotationRange: 7
+		RotationStep: 0.20
+		ExcludeTilesets: SNOW
+	RotationPaletteEffect@ocean: 
+		ExcludePalettes: flashyeffectra, flashyeffect, effect, effectra, staticterrain, staticdesert, staticplayer, chrome, alpha, ra2foricamos, NoTerrain, player
+		RotationBase: 224
+		RotationRange: 2
+		RotationStep: 0.10
+		ExcludeTilesets: SNOW
+	RotationPaletteEffect@waterRA:
+		ExcludePalettes: flashyeffectra, flashyeffect, effect, effectra, staticterrain, staticdesert, staticplayer, chrome, alpha, ra2foricamos, NoTerrain, player
+		Palettes: snowRA
+		RotationBase: 96
+		RotationRange: 7
+		RotationStep: 0.20
+		ExcludeTilesets: JUNGLE, TEMPERAT, WINTER, DESERT
 	PaletteFromFile@depth:
 		Name: depth
 		Filename: depth.pal

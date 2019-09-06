@@ -25,7 +25,6 @@ fact:
 		Length: *
 	icon: facticnh
 
-
 civ_church:
 	Defaults:
 		UseTilesetExtension: true
@@ -37,10 +36,14 @@ civ_church:
 	dead:
 		Start: 2
 		Tick: 800
-	make: civsmallmake
+	make: makeblank
+		Length: 22
+		Offset: 0,-1
+	afterbuild: civsmallmake
+		Length: 44
+		Offset: 0,-1
+	null: null
 		UseTilesetExtension: false
-		Length: 34
-		Tick: 50
 	icon: churchicon.shp
 		AddExtension: False
 

@@ -657,7 +657,7 @@ C17D.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: C17
-		Scale: 1.30
+		PlayerPalette: playerRA
 
 C130:
 	Inherits: ^PlaneUnControled

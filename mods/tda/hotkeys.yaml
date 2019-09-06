@@ -21,3 +21,7 @@ ProductionTypeAircraft: U
 ProductionTypeUpgrade: I
 	Description: Upgrade Tab
 	Types: Production
+
+PowerDown: X
+	Description: Power-down mode
+	Types: OrderGenerator

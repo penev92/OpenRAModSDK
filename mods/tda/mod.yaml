@@ -17,7 +17,6 @@ Packages:
 	$tda: tda
 	./mods/d2k: d2k
 	./mods/common: common
-	~speech.mix
 	~conquer.mix
 	~sounds.mix
 	~tempicnh.mix
@@ -44,13 +43,14 @@ Packages:
 	tda|data/sounds/superweapons
 	tda|data/sounds/ambient
 	tda|data/sounds/interface
+	tda|data/sounds/interface/eva/eva.mix
+	tda|data/sounds/death
 	tda|data/music
 	tda|tilesets/desert
 	tda|tilesets/winter
 	tda|tilesets/snow
 	tda|tilesets/temperat
 	tda|tilesets/jungle
-	tda|tilesets/snow/snow.mix
 	tda|tilesets/desert/desert.mix
 
 MapFolders:
@@ -66,10 +66,12 @@ Rules:
 	tda|rules/faction_civilian.yaml
 	tda|rules/faction_lifeforms.yaml
 	tda|rules/faction_neutral.yaml
+
 	tda|rules/units_airforce.yaml
 	tda|rules/units_armor.yaml
 	tda|rules/units_troops.yaml
 	tda|rules/units_navy.yaml
+
 	tda|rules/system.yaml
 	tda|rules/player.yaml
 	tda|rules/world.yaml
@@ -78,7 +80,11 @@ Rules:
 	tda|rules/research.yaml
 	tda|rules/map_options.yaml
 	tda|rules/inheritable_traits.yaml
-	tda|rules/bot_armies.yaml
+
+	tda|rules/bots/bot_profiles.yaml
+	tda|rules/bots/bot_shared.yaml
+	tda|rules/bots/bot_forces.yaml
+	tda|rules/bots/bot_support_powers.yaml
 
 Sequences:
 	tda|sequences/structures.yaml

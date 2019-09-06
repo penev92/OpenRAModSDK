@@ -88,8 +88,15 @@ PYLE:
 		Group: Infantry
 		RequireOwner: false
 		LowPowerSlowdown: 3
-	ProductionBar:
-		ProductionType: Infantry
+		Factions: gdi
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@GDI:
+		ProductionType: Infantry.GDI
 	Power:
 		Amount: -5
 	ProvidesPrerequisite@buildingname:
@@ -185,8 +192,15 @@ WEAP:
 		RequireOwner: false
 		Group: Vehicle
 		LowPowerSlowdown: 3
-	ProductionBar:
-		ProductionType: vehicles
+		Factions: gdi
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@GDI:
+		ProductionType: Vehicle.GDI
 	Power:
 		Amount: -7
 	ProvidesPrerequisite@buildingname:
@@ -359,8 +373,6 @@ EYE:
 		Palette: chrome
 		RequiresCondition: powerdown
 		ReferencePoint: Center
-	RequiresBuildableArea:
-		AreaTypes: building
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0

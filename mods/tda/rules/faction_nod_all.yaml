@@ -39,7 +39,6 @@ NUK2_NOD:
 		Queue: Building.Nod, Building.Nodda
 		Description: Provides extra nuclear power\nthan its predecessor model.\nChance for fail-safe failure 30%
 	Interactable:
-	AlwaysVisible:
 	KillsSelf:
 		RemoveInstead: true
 
@@ -83,12 +82,24 @@ HAND:
 		RequireOwner: false
 		LowPowerSlowdown: 3
 		Factions: nod
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@NoddaInfantry:
 		Type: Infantry.Nodda
 		Group: Infantry
 		RequireOwner: false
 		LowPowerSlowdown: 3
 		Factions: nodda
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionBar@Nod:
 		ProductionType: Infantry.Nod
 	ProductionBar@Nodda:
@@ -185,14 +196,24 @@ AFLD:
 		Group: Vehicle
 		RequireOwner: false
 		LowPowerSlowdown: 3
-		ReadyAudio:
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 		Factions: nod
 	ProductionQueue@NoddaVehicle:
 		Type: Vehicle.Nodda
 		Group: Vehicle
 		RequireOwner: false
 		LowPowerSlowdown: 3
-		ReadyAudio:
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 		Factions: nodda
 	ProductionBar@Nod:
 		ProductionType: Vehicle.Nod
@@ -310,8 +331,6 @@ TMPL:
 		Palette: chrome
 		RequiresCondition: powerdown
 		ReferencePoint: Center
-	RequiresBuildableArea:
-		AreaTypes: building
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0

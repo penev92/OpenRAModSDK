@@ -37,6 +37,10 @@ FACT:
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@NodBuilding:
 		Type: Building.Nod
 		Factions: nod
@@ -44,6 +48,10 @@ FACT:
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@NoddaBuilding:
 		Type: Building.Nodda
 		Factions: nodda
@@ -51,6 +59,10 @@ FACT:
 		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@GDIDefense:
 		Type: Defence.GDI
 		Factions: gdi
@@ -58,6 +70,10 @@ FACT:
 		LowPowerSlowdown: 3
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@NodDefense:
 		Type: Defence.Nod
 		Factions: nod
@@ -65,6 +81,10 @@ FACT:
 		LowPowerSlowdown: 3
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@NoddaDefense:
 		Type: Defence.Nodda
 		Factions: nodda
@@ -72,6 +92,10 @@ FACT:
 		LowPowerSlowdown: 3
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	BaseBuilding:
 	ProductionBar@BuildingGDI:
 		ProductionType: Building.GDI
@@ -85,9 +109,6 @@ FACT:
 		ProductionType: Defence.Nod
 	ProductionBar@DefenceNodda:
 		ProductionType: Defence.Nodda
-	BaseProvider:
-		Cooldown: 75
-		Range: 14c0
 	WithBuildingPlacedAnimation:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
@@ -96,6 +117,12 @@ FACT:
 		TargetTypes: Ground, C4, Structure, DetonateAttack, AItagCONS
 	Selectable:
 		Bounds: 72,48
+	GrantConditionOnPrerequisite@BaseProvider:
+		Prerequisites: limit_build_area_on
+		Condition: limit_build_area
+	BaseProvider:
+		Range: 14c0
+		RequiresCondition: limit_build_area
 
 OUTPOST:
 	Inherits: ^BaseBuilding
@@ -116,9 +143,13 @@ OUTPOST:
 	RevealsShroud:
 		Range: 10c0
 	BaseBuilding:
+	GrantConditionOnPrerequisite@BaseProvider:
+		Prerequisites: limit_build_area_on
+		Condition: limit_build_area
 	BaseProvider:
-		Cooldown: 35
+		InitialDelay: 750
 		Range: 7c0
+		RequiresCondition: limit_build_area
 	Power:
 		Amount: 0
 	Buildable:
@@ -340,8 +371,6 @@ SILO:
 	MustBeDestroyed:
 		RequiredForShortGame: false
 	SelectionDecorations:
-	RequiresBuildableArea:
-		AreaTypes: building
 	Selectable:
 		Bounds: 48,24
 		DecorationBounds: 49,30
@@ -393,16 +422,34 @@ HPAD:
 		Factions: gdi
 		Group: Aircraft
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@Nod:
 		Type: Aircraft.Nod
 		Factions: nod
 		Group: Aircraft
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@Nodda:
 		Type: Aircraft.Nodda
 		Factions: nodda
 		Group: Aircraft
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: ConstructionComplete
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionBar@GDI:
 		ProductionType: Aircraft.GDI
 	ProductionBar@Nod:
@@ -462,8 +509,6 @@ HQ:
 		Palette: chrome
 		RequiresCondition: powerdown
 		ReferencePoint: Center
-	RequiresBuildableArea:
-		AreaTypes: building
 	PowerMultiplier@POWERDOWN:
 		RequiresCondition: powerdown
 		Modifier: 0
@@ -535,11 +580,23 @@ SHIPYARD_NOD:
 		Factions: nod
 		Group: Ship
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionQueue@NoddaShip:
 		Type: Ship.Nodda
 		Factions: nodda
 		Group: Ship
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionBar@ShipNod:
 		ProductionType: Ship.Nod
 	ProductionBar@ShipNod:
@@ -560,6 +617,12 @@ SHIPYARD_GDI:
 		Factions: gdi
 		Group: Ship
 		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	ProductionBar@ShipGDI:
 		ProductionType: Ship.GDI
 	ProvidesPrerequisite@buildingname:
@@ -756,7 +819,7 @@ TGD:
 		Description: Large chamber made for housing a\nsingle tiberium tree.\nDecelerates tiberium growth.\nCollects the surplus tiberium inside the chamber and\ngives a small percentage to the owner.\n Can't be sold
 	RequiresBuildableArea:
 		AreaTypes: building
-		Adjacent: 6
+		Adjacent: 8
 	OwnerLostAction:
 		Action: ChangeOwner
 		Owner: Neutral

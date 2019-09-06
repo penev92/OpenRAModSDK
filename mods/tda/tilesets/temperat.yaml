@@ -1,7 +1,7 @@
 General:
 	Name: Temperate
 	Id: TEMPERAT
-	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Water Cliffs, Beach, River, Bridge, GreenTibTreeTerrain, BlueTibTreeTerrain, RedTibTreeTerrain
+	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Water Cliffs, Beach, River, Bridge, System (do Not Use)
 	HeightDebugColors: AA0000
 
 Terrain:
@@ -9,23 +9,11 @@ Terrain:
 		Type: Beach
 		TargetTypes: Ground
 		Color: B09C78
-	TerrainType@BlueTiberium:
-		Type: BlueTiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: 54FCFC
-		RestrictPlayerColor: true
-	TerrainType@RedTiberium:
-		Type: RedTiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: f43b26
-		RestrictPlayerColor: true
 	TerrainType@Clear:
 		Type: Clear
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
-		Color: 284428
+		Color: 234A23
 		RestrictPlayerColor: true
 	TerrainType@River:
 		Type: River
@@ -45,12 +33,6 @@ Terrain:
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
 		Color: 44443C
-	TerrainType@Tiberium:
-		Type: Tiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: A1E21C
-		RestrictPlayerColor: true
 	TerrainType@Tree:
 		Type: Tree
 		TargetTypes: Ground
@@ -64,6 +46,24 @@ Terrain:
 		Type: Water
 		TargetTypes: Water
 		Color: 5C74A4
+		RestrictPlayerColor: true
+	TerrainType@Tiberium:
+		Type: Tiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: A1E21C
+		RestrictPlayerColor: true
+	TerrainType@BlueTiberium:
+		Type: BlueTiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: 54FCFC
+		RestrictPlayerColor: true
+	TerrainType@RedTiberium:
+		Type: RedTiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: f43b26
 		RestrictPlayerColor: true
 	TerrainType@GreenTibTreeTerrain:
 		Type: GreenTibTreeTerrain
@@ -82,33 +82,6 @@ Terrain:
 		RestrictPlayerColor: true
 
 Templates:
-	Template@GreenTibTreeTerrain:
-		Id: 5001
-		Images: clear1.tem
-		Size: 1,1
-		PickAny: True
-		Categories: System
-		Tiles:
-			0: GreenTibTreeTerrain
-			1: GreenTibTreeTerrain
-	Template@BlueTibTreeTerrain:
-		Id: 5002
-		Images: clear1.tem
-		Size: 1,1
-		PickAny: True
-		Categories: System
-		Tiles:
-			0: BlueTibTreeTerrain
-			1: BlueTibTreeTerrain
-	Template@RedTibTreeTerrain:
-		Id: 5003
-		Images: clear1.tem
-		Size: 1,1
-		PickAny: True
-		Categories: System
-		Tiles:
-			0: RedTibTreeTerrain
-			1: RedTibTreeTerrain
 	Template@255:
 		Id: 255
 		Images: clear1.tem
@@ -1831,16 +1804,16 @@ Templates:
 			0: Rock
 			1: Rock
 	#after this is buged, comment before release
-	#Template@590:
-	#	Id: 590
-	#	Images: wc01.tem
-	#	Size: 2,2
-	#	Categories: Water Cliffs
-	#	Tiles:
-	#		0: Rock
-	#		1: Rock
-	#		2: Rock
-	#		3: Rock
+	Template@590:
+		Id: 590
+		Images: wc01.tem
+		Size: 2,2
+		Categories: Water Cliffs
+		Tiles:
+			0: Rock
+			1: Rock
+			2: Rock
+			3: Rock
 	#Template@600:
 	#	Id: 600
 	#	Images: wc02.tem
@@ -2219,3 +2192,120 @@ Templates:
 	#		1: Rock
 	#		2: Rock
 	#		3: Rock
+	Template@951:
+		Id: 951
+		Images: f01.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Rough
+			1: Road
+			2: Road
+			3: Beach
+			4: Beach
+			5: Beach
+			6: Beach
+			7: Beach
+			8: Beach
+	Template@952:
+		Id: 952
+		Images: f02.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Beach
+			1: Beach
+			2: Beach
+			3: Beach
+			4: Beach
+			5: Beach
+			6: Beach
+			7: Beach
+			8: Beach
+	Template@953:
+		Id: 953
+		Images: f03.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Beach
+			1: Beach
+			2: Beach
+			3: Beach
+			4: Beach
+			5: Beach
+			6: Clear
+			7: Road
+			8: Clear
+	Template@954:
+		Id: 954
+		Images: f04.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Clear
+			1: Beach
+			2: Beach
+			3: Road
+			4: Beach
+			5: Beach
+			6: Clear
+			7: Beach
+			8: Beach
+	Template@955:
+		Id: 955
+		Images: f05.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Beach
+			1: Beach
+			2: Beach
+			3: Beach
+			4: Beach
+			5: Beach
+			6: Beach
+			7: Beach
+			8: Beach
+	Template@956:
+		Id: 956
+		Images: f06.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Beach
+			1: Beach
+			2: Clear
+			3: Beach
+			4: Beach
+			5: Road
+			6: Beach
+			7: Beach
+			8: Clear
+	Template@GreenTibTreeTerrain:
+		Id: 5001
+		Images: clear1.tem
+		Size: 1,1
+		PickAny: True
+		Categories: System (do Not Use)
+		Tiles:
+			0: GreenTibTreeTerrain
+			1: GreenTibTreeTerrain
+	Template@BlueTibTreeTerrain:
+		Id: 5002
+		Images: clear1.tem
+		Size: 1,1
+		PickAny: True
+		Categories: System (do Not Use)
+		Tiles:
+			0: BlueTibTreeTerrain
+			1: BlueTibTreeTerrain
+	Template@RedTibTreeTerrain:
+		Id: 5003
+		Images: clear1.tem
+		Size: 1,1
+		PickAny: True
+		Categories: System (do Not Use)
+		Tiles:
+			0: RedTibTreeTerrain
+			1: RedTibTreeTerrain

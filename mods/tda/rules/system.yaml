@@ -213,7 +213,7 @@ CRATEHEAL:
 	RenderSprites:
 		Image: crateheal
 	HealUnitsCrateAction:
-		Notification: heal2.aud
+		Sound: heal2.aud
 		SelectionShares: 10
 		Sequence: heal
 

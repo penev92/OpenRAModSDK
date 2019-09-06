@@ -508,7 +508,7 @@ RENEGATE:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Renegate
+		Name: Renegade
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~anytech, ~techlevel.high

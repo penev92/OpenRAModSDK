@@ -1,7 +1,7 @@
 General:
 	Name: Jungle
 	Id: JUNGLE
-	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Beach, River, Bridge, GreenTibTreeTerrain, BlueTibTreeTerrain, RedTibTreeTerrain
+	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Beach, River, Bridge, System (do Not Use)
 	HeightDebugColors: AA0000
 
 Terrain:
@@ -9,23 +9,11 @@ Terrain:
 		Type: Beach
 		TargetTypes: Ground
 		Color: B09C78
-	TerrainType@BlueTiberium:
-		Type: BlueTiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: 54FCFC
-		RestrictPlayerColor: true
-	TerrainType@RedTiberium:
-		Type: RedTiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: f43b26
-		RestrictPlayerColor: true
 	TerrainType@Clear:
 		Type: Clear
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
-		Color: 285C30
+		Color: 043604
 		RestrictPlayerColor: true
 	TerrainType@River:
 		Type: River
@@ -45,12 +33,6 @@ Terrain:
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
 		Color: 44443C
-	TerrainType@Tiberium:
-		Type: Tiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: A1E21C
-		RestrictPlayerColor: true
 	TerrainType@Tree:
 		Type: Tree
 		TargetTypes: Ground
@@ -64,6 +46,24 @@ Terrain:
 		Type: Water
 		TargetTypes: Water
 		Color: 5C74A4
+		RestrictPlayerColor: true
+	TerrainType@Tiberium:
+		Type: Tiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: A1E21C
+		RestrictPlayerColor: true
+	TerrainType@BlueTiberium:
+		Type: BlueTiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: 54FCFC
+		RestrictPlayerColor: true
+	TerrainType@RedTiberium:
+		Type: RedTiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: f43b26
 		RestrictPlayerColor: true
 	TerrainType@GreenTibTreeTerrain:
 		Type: GreenTibTreeTerrain
@@ -82,33 +82,6 @@ Terrain:
 		RestrictPlayerColor: true
 
 Templates:
-	Template@GreenTibTreeTerrain:
-		Id: 5001
-		Images: clear1.jun
-		Size: 1,1
-		PickAny: True
-		Categories: System
-		Tiles:
-			0: GreenTibTreeTerrain
-			1: GreenTibTreeTerrain
-	Template@BlueTibTreeTerrain:
-		Id: 5002
-		Images: clear1.jun
-		Size: 1,1
-		PickAny: True
-		Categories: System
-		Tiles:
-			0: BlueTibTreeTerrain
-			1: BlueTibTreeTerrain
-	Template@RedTibTreeTerrain:
-		Id: 5003
-		Images: clear1.jun
-		Size: 1,1
-		PickAny: True
-		Categories: System
-		Tiles:
-			0: RedTibTreeTerrain
-			1: RedTibTreeTerrain
 	Template@255:
 		Id: 255
 		Images: clear1.jun
@@ -1830,3 +1803,30 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+	Template@GreenTibTreeTerrain:
+		Id: 5001
+		Images: clear1.jun
+		Size: 1,1
+		PickAny: True
+		Categories: System (do Not Use)
+		Tiles:
+			0: GreenTibTreeTerrain
+			1: GreenTibTreeTerrain
+	Template@BlueTibTreeTerrain:
+		Id: 5002
+		Images: clear1.jun
+		Size: 1,1
+		PickAny: True
+		Categories: System (do Not Use)
+		Tiles:
+			0: BlueTibTreeTerrain
+			1: BlueTibTreeTerrain
+	Template@RedTibTreeTerrain:
+		Id: 5003
+		Images: clear1.jun
+		Size: 1,1
+		PickAny: True
+		Categories: System (do Not Use)
+		Tiles:
+			0: RedTibTreeTerrain
+			1: RedTibTreeTerrain

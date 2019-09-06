@@ -764,7 +764,7 @@
 		TargetTypes: Ground, Creep
 	HiddenUnderFog:
 	RenderSprites:
-		Palette: terrain
+		Palette: NoTerrain
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
@@ -874,8 +874,6 @@
 	#BlocksProjectiles:
 	MapEditorData:
 		Categories: Building
-	RequiresBuildableArea:
-		AreaTypes: building
 
 ^BaseBuilding:
 	Inherits: ^Building
@@ -968,8 +966,28 @@
 	RenderDetectionCircle:
 	ProductionFromMapEdge:
 		Produces: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
-	RenderSprites:
-		PlayerPalette: playerRA
+
+^Defense:
+	Inherits: ^BaseBuilding
+	AutoTarget:
+	RenderRangeCircle:
+	RenderDetectionCircle:
+	-GivesBuildableArea:
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	Building:
+	ProximityCaptor:
+		Types: Defense, Player
+	MapEditorData:
+		Categories: Defense
+	-AcceptsDeliveredCash:
+	Targetable:
+		TargetTypes: Ground, C4, Structure, DetonateAttack, Defense, AItagDefense
+	RequiresBuildableArea:
+		AreaTypes: building
+		Adjacent: 4
+	Selectable:
+		Bounds: 24,24
 
 ^CivBuilding:
 	Inherits: ^Building
@@ -1075,7 +1093,7 @@
 	LineBuildNode:
 		Types: wall
 	RenderSprites:
-		Palette: staticterrain
+		Palette: NoTerrain
 	WithWallSpriteBody:
 	GivesExperience:
 	Sellable:
@@ -1089,7 +1107,7 @@
 			TopLeft: -512, -512
 			BottomRight: 512, 512
 	MapEditorData:
-		Categories: Wall
+		Categories: Defense
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 10
@@ -1123,7 +1141,7 @@
 		BuildSounds: hvydoor1.aud
 		TerrainTypes: Clear, Road
 	MapEditorData:
-		Categories: Wall
+		Categories: Defense
 	-GivesBuildableArea:
 	MustBeDestroyed:
 		RequiredForShortGame: false
@@ -1143,7 +1161,7 @@
 		Name: Tree
 		ShowOwnerRow: false
 	RenderSprites:
-		Palette: staticterrain
+		Palette: terrain
 	WithSpriteBody:
 	Building:
 		Footprint: __ x_
@@ -1177,8 +1195,6 @@
 	HitShape:
 	MapEditorData:
 		Categories: Tree
-	RequiresBuildableArea:
-		AreaTypes: building
 
 ^TreeHusk:
 	Inherits@1: ^SpriteActor
@@ -1195,6 +1211,8 @@
 	ScriptTriggers:
 	MapEditorData:
 		Categories: Tree
+	RenderSprites:
+		Palette: terrain
 
 ^TibTree:
 	Inherits@1: ^SpriteActor
@@ -1203,7 +1221,7 @@
 		Name: Blossom Tree
 		ShowOwnerRow: false
 	RenderSprites:
-		Palette: staticterrain
+		Palette: NoTerrain
 	WithSpriteBody:
 	Building:
 		Footprint: x
@@ -1232,7 +1250,7 @@
 		Name: Rock
 		ShowOwnerRow: false
 	RenderSprites:
-		Palette: staticterrain
+		Palette: terrain
 	WithSpriteBody:
 	Building:
 		Footprint: __ x_
@@ -1244,8 +1262,7 @@
 	ScriptTriggers:
 	MapEditorData:
 		RequireTilesets: DESERT
-	RequiresBuildableArea:
-		AreaTypes: building
+		Categories: Tree
 
 ^CommonHuskDefaults:
 	Inherits@1: ^SpriteActor
@@ -1358,7 +1375,7 @@
 	Crate:
 		TerrainTypes: Clear, Rough, Road, Tiberium, BlueTiberium, Beach, RedTiberium
 	RenderSprites:
-		Palette: terrain
+		Palette: NoTerrain
 		Image: crate
 	WithCrateBody:
 		XmasImages: xcratea, xcrateb, xcratec, xcrated
@@ -1383,28 +1400,6 @@
 	ConditionManager:
 	MapEditorData:
 		Categories: System
-
-^Defense:
-	Inherits: ^BaseBuilding
-	AutoTarget:
-	RenderRangeCircle:
-	RenderDetectionCircle:
-	-GivesBuildableArea:
-	MustBeDestroyed:
-		RequiredForShortGame: false
-	Building:
-	ProximityCaptor:
-		Types: Defense, Player
-	MapEditorData:
-		Categories: Defense
-	-AcceptsDeliveredCash:
-	Targetable:
-		TargetTypes: Ground, C4, Structure, DetonateAttack, Defense, AItagDefense
-	RequiresBuildableArea:
-		AreaTypes: building
-		Adjacent: 4
-	Selectable:
-		Bounds: 24,24
 
 ^BasicFlag:
 	Inherits@1: ^ExistsInWorld
@@ -1438,8 +1433,6 @@
 		GenericStancePrefix: true
 		GenericVisibility: Ally, Enemy
 	FrozenUnderFog:
-	RequiresBuildableArea:
-		AreaTypes: building
 	MapEditorData:
 		Categories: System
 

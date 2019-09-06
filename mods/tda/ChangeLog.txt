@@ -15,6 +15,20 @@ Visual: added new rallypoint buey for the shipyards.
 Visual: added new C17 aircraft for nod.
 Engine: Re-organized yaml files by adding new and deleting the old ones.
 Engine: I added and changed some traits to be more lets say global and generalized (why i am telling you this? well I am kinda proud of my organizing work I did so far).
+Visual: added a soft water animation* to the deeper parts of the water tiles
+Fixed: some palette data, nothing visual.
+Added: 8 new dificulties for bots. Tutor, Very Easy, Easy, Normal, Hard, Very Hard, Impossible, Nightmare
+Added: 6 Missing Ford (crossing) tiles in temperat tileset, After painfully converting, cuting, color changing them one by one :'(
+Added: A new Category for tiles that are being used as dummy tiles. The new Category name is: System (do Not Use).
+Fixed: The following don't use terrain palette any more: Crates, ^TibTree, ^Wall, ^TechBuilding, ^DINO
+Added: Imported the full snow tileset from RA, you will ask why not do that for the rest of the tilesets? well have you ever notice why RA terrain color is so.. lets say cold? well if you take a look at the palettes, RA uses less colors for terrain, but TD uses more colors for terrain and that means TD terrain is more colorfull. Since snow comes from RA palette, even if you replace the palette with the TD one(using a program), you will still get an approximation with the same "less" colors, so its the same thing. I wonder why no one else have notice this, aside from me that is (yes I feel special leave me alone! XD)
+Added: Power down hotkey.
+Balance: Oil Derrick no longer can be repaired after they are destroyed.
+Balance: Oil Derrick now gives $500 and only to the first player who captures it.
+Balance: Oil Derrick will now give $10 every second.
+Fixed: Oil Derrick now uses smoke when gets destroyed.
+Fixed: Spellling and typos for renegade and commando icons and description.
+
 
 
 
