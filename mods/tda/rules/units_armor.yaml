@@ -66,7 +66,7 @@ MOV:
 		Name: Mobile Outpost Vehicle
 	Buildable:
 		BuildPaletteOrder: 101
-		Prerequisites: ~limit_build_area_on, ~anyfix, ~techlevel.medium
+		Prerequisites: ~outpost_on, ~anyfix, ~techlevel.medium
 		Queue: Vehicle.GDI, Vehicle.Nod, Vehicle.Nodda
 		Description: Deploys into an Outpost.\n  Unarmed
 	Selectable:

@@ -117,12 +117,8 @@ FACT:
 		TargetTypes: Ground, C4, Structure, DetonateAttack, AItagCONS
 	Selectable:
 		Bounds: 72,48
-	GrantConditionOnPrerequisite@BaseProvider:
-		Prerequisites: limit_build_area_on
-		Condition: limit_build_area
 	BaseProvider:
 		Range: 14c0
-		RequiresCondition: limit_build_area
 
 OUTPOST:
 	Inherits: ^BaseBuilding
@@ -143,13 +139,9 @@ OUTPOST:
 	RevealsShroud:
 		Range: 10c0
 	BaseBuilding:
-	GrantConditionOnPrerequisite@BaseProvider:
-		Prerequisites: limit_build_area_on
-		Condition: limit_build_area
 	BaseProvider:
 		InitialDelay: 750
 		Range: 7c0
-		RequiresCondition: limit_build_area
 	Power:
 		Amount: 0
 	Buildable:

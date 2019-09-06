@@ -37,6 +37,13 @@ Player:
 		Enabled: True
 		DisplayOrder: 10
 		Prerequisites: MapEffects
+	LobbyPrerequisiteCheckbox@OUTPOST:
+		ID: outpost
+		Label: Outpost
+		Description: Enables the Outpost unit, best used with "Limit Build Area" ON
+		Enabled: False
+		DisplayOrder: 10
+		Prerequisites: outpost_on
 	LobbyPrerequisiteCheckbox@TURBO_TIBERIUM:
 		ID: turbo_tiberium
 		Label: Turbo Tiberium
@@ -55,15 +62,6 @@ Player:
 		Prerequisites: original_rules_or_coop
 		Visible: False
 		Locked: True
-	LobbyPrerequisiteCheckbox@LIMITBUILDAREA_CUSTOM:
-		ID: limit_build_area_custom
-		Label: Limit Build Areaa
-		Description: Limits structure placement to areas around Construction Yards
-		Enabled: True
-		DisplayOrder: 10
-		Prerequisites: limit_build_area_on
-		Visible: True
-		Locked: False
 
 World:
 	MapBuildRadius:
