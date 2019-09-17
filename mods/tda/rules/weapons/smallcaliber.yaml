@@ -40,8 +40,8 @@ SilencedPPK:
 	InvalidTargets: Vehicle, Tank, Water, Structure, Wall, Husk
 	Projectile: Bullet
 		Speed: 1c682
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
+	Warhead@1Dam: TargetDamage
+		Spread: 0c1
 		Damage: 150
 		ValidTargets: Infantry
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath

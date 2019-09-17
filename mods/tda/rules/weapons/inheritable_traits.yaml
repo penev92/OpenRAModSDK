@@ -174,7 +174,6 @@
 	Warhead@HitByTiberium: GrantExternalCondition
 		Condition: HitByTiberium
 		Duration: 125
-		Range: 1c0
 		ValidTargets: Tank, Vehicle, Husk, Infantry, Structure
 		InvalidTargets: Air
 		ValidStances: Enemy, Neutral, Ally
@@ -182,4 +181,62 @@
 		Delay: 75
 		DebugOverlayColor: FD30FF
 
-#My lifes work^
+^FireWeaponRA:
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 65
+	Range: 5c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 75
+		InvalidTargets: Wall
+		ValidTargets: Ground, Trees
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 25
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: small_napalm
+		ImpactSounds: firebl3.aud
+		ImpactActors: false
+
+^ChemWeaponRA:
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 65
+	Range: 5c0
+	InvalidTargets: Wall
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 95
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 100
+		DamageTypes: TiberiumDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: chemball
+		ImpactSounds: firebl3.aud
+		ImpactActors: false
+
+^BulletLDamageVersusArmorTypes:
+	Warhead@1Dam: SpreadDamage
+		Versus:
+			None: 100
+			Kevlar: 80
+			Plates: 60
+			Juggernaut: 40
+			Aluminium: 50
+			Steel: 10
+			Uranium: 1
+			Brik: 40
+			Concrete: 30
+			Fortified: 1
+
+#This file is my lifes work^ Do not copy!!

@@ -5,8 +5,8 @@ Balance: Huge number of changes in power, health and value of all buildings.
 Engine: Update from release-20180923 to release-20190314 (got help from abcdefg and Mustapha :)
 Balance: Engineers wont fix husks any more.
 Balance: Engineers and commando can capture transport helis (they get consume tho) Like in the original TD.
-Visual: Added new explotion effect to anti tank mines.
-Added: Shipyards from ra.
+Visual: Added new explosion effect to anti tank mines.
+Added: Modified shipyards from ra.
 Visual: Added the Nod logo to the sub pen ( including damaged version as always, some times I amaze my self ;).
 Added: New tiberium weapon logic, all tiberium weapons do damage over time.
 Balance: Chem tank and chem trooper do same damage as their flame weapon counter parts.
@@ -21,15 +21,16 @@ Added: 8 new dificulties for bots. Tutor, Very Easy, Easy, Normal, Hard, Very Ha
 Added: 6 Missing Ford (crossing) tiles in temperat tileset, After painfully converting, cuting, color changing them one by one :'(
 Added: A new Category for tiles that are being used as dummy tiles. The new Category name is: System (do Not Use).
 Fixed: The following don't use terrain palette any more: Crates, ^TibTree, ^Wall, ^TechBuilding, ^DINO
-Added: Imported the full snow tileset from RA, you will ask why not do that for the rest of the tilesets? well have you ever notice why RA terrain color is so.. lets say cold? well if you take a look at the palettes, RA uses less colors for terrain, but TD uses more colors for terrain and that means TD terrain is more colorfull. Since snow comes from RA palette, even if you replace the palette with the TD one(using a program), you will still get an approximation with the same "less" colors, so its the same thing. I wonder why no one else have notice this, aside from me that is (yes I feel special leave me alone! XD)
+Added: Imported the full snow tileset from RA, you will ask why not do that for the rest of the tilesets? well have you ever notice why RA terrain color is so.. lets say cold? well if you take a look at the palettes, RA uses less colors for terrain, but TD uses more colors for terrain and that means TD terrain is more colorfull. Since snow comes from RA palette, even if you replace the palette with the TD one(using a program), you will still get an approximation with the same "less" colors, so its the same thing. Not sure if people know about this, I call this the ELoyrianTDcolorPalette Effect!
 Added: Power down hotkey.
 Balance: Oil Derrick no longer can be repaired after they are destroyed.
 Balance: Oil Derrick now gives $500 and only to the first player who captures it.
 Balance: Oil Derrick will now give $10 every second.
-Fixed: Oil Derrick now uses smoke when gets destroyed.
+Fixed: Oil Derrick now uses burn and smoke animation again when gets destroyed.
 Fixed: Spellling and typos for renegade and commando icons and description.
 Added: RevealOnFire for all artillery type Units.
-
-
-
+Fixed: spec ops unit's spreed damage, now the damage area of effect is 0c1.
+Balance: Defences or Defenses are no longer capturable.
+Added: You can sent supply trucks to enemy players by using ctrl and click.
+Engine: Updated repair\healing logic to a working contidion again.
 

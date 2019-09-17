@@ -1,3 +1,7 @@
+#############################################################################################################
+#											Buildings														#
+#############################################################################################################
+
 FACT:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
@@ -171,7 +175,7 @@ NUKE:
 	Explodes:
 		Sequences: building, building_napalm, med_frag, poof, small_building
 		Chance: 100
-		Weapon: LightNuke
+		Weapon: FaultyFailSafe
 		Type: CenterPosition
 		EmptyWeapon: UnitExplodeSmall
 		LoadedChance: 15
@@ -208,7 +212,7 @@ NUK2:
 	Explodes:
 		Sequences: building, building_napalm, med_frag, poof, small_building
 		Chance: 100
-		Weapon: LightNuke
+		Weapon: FaultyFailSafe
 		Type: CenterPosition
 		EmptyWeapon: UnitExplodeSmall
 		LoadedChance: 30
@@ -558,66 +562,9 @@ FIX:
 	Targetable:
 		TargetTypes: Ground, C4, Structure, DetonateAttack, AItagFIX
 
-SHIPYARD_NOD:
-	Inherits: ^WaterBuilding
-	Tooltip:
-		Name: Nod Sub Pen
-	Buildable:
-		BuildPaletteOrder: 50
-		Queue: Building.Nod, Building.Nodda
-		Prerequisites: ~anyhq, ~techlevel.high
-		Description: Produces and repairs\nNeval units.
-	ProductionQueue@NodShip:
-		Type: Ship.Nod
-		Factions: nod
-		Group: Ship
-		LowPowerSlowdown: 3
-		QueuedAudio: Building
-		ReadyAudio: UnitReady
-		BlockedAudio: NoBuild
-		LimitedAudio: BuildingInProgress
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionQueue@NoddaShip:
-		Type: Ship.Nodda
-		Factions: nodda
-		Group: Ship
-		LowPowerSlowdown: 3
-		QueuedAudio: Building
-		ReadyAudio: UnitReady
-		BlockedAudio: NoBuild
-		LimitedAudio: BuildingInProgress
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionBar@ShipNod:
-		ProductionType: Ship.Nod
-	ProductionBar@ShipNod:
-		ProductionType: Ship.Nodda
-	ProvidesPrerequisite@buildingname:
-
-SHIPYARD_GDI:
-	Inherits: ^WaterBuilding
-	Tooltip:
-		Name: GDI Naval Yard
-	Buildable:
-		BuildPaletteOrder: 40
-		Queue: Building.GDI
-		Prerequisites: ~anyhq, ~techlevel.high
-		Description: Produces and repairs\nNeval units.
-	ProductionQueue@GDIShip:
-		Type: Ship.GDI
-		Factions: gdi
-		Group: Ship
-		LowPowerSlowdown: 3
-		QueuedAudio: Building
-		ReadyAudio: UnitReady
-		BlockedAudio: NoBuild
-		LimitedAudio: BuildingInProgress
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-	ProductionBar@ShipGDI:
-		ProductionType: Ship.GDI
-	ProvidesPrerequisite@buildingname:
+#############################################################################################################
+#											Defences														#
+#############################################################################################################
 
 SBAG:
 	Inherits: ^Wall
@@ -746,54 +693,6 @@ HGATE:
 	Tooltip:
 		Name: Horizontal Gate
 	Gate:
-
-BARRACKS:
-	AlwaysVisible:
-	Tooltip:
-		Name: Infantry Production
-	Buildable:
-		Description: Infantry Production
-	Interactable:
-
-VEHICLEPRODUCTION:
-	AlwaysVisible:
-	Tooltip:
-		Name: Vehicle Production
-	Buildable:
-		Description: Vehicle Production
-	Interactable:
-
-ANYPOWER:
-	AlwaysVisible:
-	Tooltip:
-		Name: Power Plant
-	Buildable:
-		Description: Power Plant
-	Interactable:
-
-ANYHQ:
-	AlwaysVisible:
-	Tooltip:
-		Name: a communications center
-	Buildable:
-		Description: a communications center
-	Interactable:
-
-ANYTECH:
-	AlwaysVisible:
-	Tooltip:
-		Name: a Tech center
-	Buildable:
-		Description: a Tech center
-	Interactable:
-
-ANYFIX:
-	AlwaysVisible:
-	Tooltip:
-		Name: Repair Facility
-	Buildable:
-		Description: Repairs vehicles
-	Interactable:
 
 TGD:
 	Inherits: ^BaseBuilding
@@ -986,3 +885,1162 @@ TGDBLUE:
 	-DamagedByTerrain:
 	CashTrickler:
 		Amount: 1400
+
+#############################################################################################################
+#											Vehicles														#
+#############################################################################################################
+
+MCV:
+	Inherits: ^VehicleWithoutVeterancy
+	Inherits@CLOAK: ^AcceptsCloakCrate
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Mobile Construction Vehicle
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~anyfix, ~techlevel.medium
+		Queue: Vehicle.GDI, Vehicle.Nod, Vehicle.Nodda
+		Description: Deploys into another Construction Yard.\n  Unarmed
+	Selectable:
+		Priority: 4
+		DecorationBounds: 36,36
+	Mobile:
+		Speed: 71
+	Health:
+		HP: 1200
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8c0
+	Transforms:
+		IntoActor: fact
+		Offset: -1,-1
+		Facing: 108
+		TransformSounds: constru2.aud, hvydoor1.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+		RequiresCondition: !solesurvivorgame
+	GrantConditionOnPrerequisite:
+		Condition: solesurvivorgame
+		Prerequisites: solesurvivor
+	DamageMultiplier@SOLE:
+		Modifier: 9000
+		RequiresCondition: solesurvivorgame
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	BaseBuilding:
+	SpawnActorOnDeath:
+		Actor: MCV.Husk
+	-ProducibleWithLevel:
+	SelectionDecorations:
+	Targetable:
+		TargetTypes: Ground, Tank, Repair, AItagCONS
+	#GrantConditionOnBotOwner:
+	#	Condition: BotControl
+	#	Bots: Shpooky
+	#to limit the mcv to 1, but Buildable trait it dosnt accept conditions
+MCV.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Mobile Construction Vehicle (Destroyed)
+	TransformOnCapture:
+		IntoActor: mcv
+	RenderSprites:
+		Image: mcv.destroyed
+
+MOV:
+	Inherits: ^VehicleWithoutVeterancy
+	Inherits@CLOAK: ^AcceptsCloakCrate
+	Inherits@RA: ^PlayerRApaletteVehicle
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Mobile Outpost Vehicle
+	Buildable:
+		BuildPaletteOrder: 101
+		Prerequisites: ~outpost_on, ~anyfix, ~techlevel.medium
+		Queue: Vehicle.GDI, Vehicle.Nod, Vehicle.Nodda
+		Description: Deploys into an Outpost.\n  Unarmed
+	Selectable:
+		Priority: 4
+		DecorationBounds: 36,36
+	Mobile:
+		Speed: 71
+	Health:
+		HP: 200
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8c0
+	Transforms:
+		IntoActor: outpost
+		Facing: 108
+		TransformSounds: constru2.aud, hvydoor1.aud
+		NoTransformNotification: BuildingCannotPlaceAudio
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	BaseBuilding:
+	SpawnActorOnDeath:
+		Actor: MOV.Husk
+	-ProducibleWithLevel:
+	SelectionDecorations:
+	Targetable:
+		TargetTypes: Ground, Tank, Repair, AItagCONS
+MOV.Husk:
+	Inherits: ^HuskRApalette
+	Tooltip:
+		Name: Mobile Outpost Vehicle (Destroyed)
+	TransformOnCapture:
+		IntoActor: mov
+	RenderSprites:
+		Image: mov.destroyed
+		PlayerPalette: playerRA
+
+TRUK:
+	Inherits: ^VehicleWithoutVeterancy
+	Inherits@CLOAK: ^AcceptsCloakCrate
+	Inherits@RA: ^PlayerRApaletteVehicle
+	Buildable:
+		Queue: Vehicle.GDI, Vehicle.Nod, Vehicle.Nodda
+		BuildPaletteOrder: 20
+		Prerequisites: ~techlevel.low
+		Description: Transports cash to other players.\n  Unarmed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Supply Truck
+	Health:
+		HP: 110
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 128
+	RevealsShroud:
+		Range: 4c0
+	DeliversCash:
+		Payload: 500
+		PlayerExperience: 50
+	SpawnActorOnDeath:
+		Actor: moneycratemp
+	RenderSprites:
+		Scale: 0.9
+	-ProducibleWithLevel:
+
+HARV:
+	Inherits: ^Tank
+	Inherits@CLOAK: ^AcceptsCloakCrate
+	RenderSprites:
+		FactionImages:
+			nod: harv.nod
+			nodda: harv.nod
+			gdi: harv.gdi
+		Image: harv
+	Cloak:
+		InitialDelay: 90
+		CloakDelay: 90
+		CloakSound: trans1.aud
+		UncloakSound: trans1.aud
+		RequiresCondition: !cloak-force-disabled && stl_harv
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	GrantConditionOnPrerequisite@1:
+		Condition: stl_harv
+		Prerequisites: research_stl_harv
+	GrantConditionOnPrerequisite@2:
+		Condition: arm_harv
+		Prerequisites: research_arm_harv
+	DamageMultiplier@FromResearch:
+		Modifier: 80
+		RequiresCondition: arm_harv && !HarvesterTruce
+	DamageMultiplier@FromLobby:
+		Modifier: 0
+		RequiresCondition: HarvesterTruce
+	GrantConditionOnPrerequisite@HarvesterTruce:
+		Condition: HarvesterTruce
+		Prerequisites: HarvesterTruce
+	Tooltip:
+		Name: Harvester
+		GenericName: Harvester
+		RequiresCondition: !stl_harv && !arm_harv
+	Tooltip@Stealth:
+		Name: Stealth Harvester
+		GenericName: Harvester
+		RequiresCondition: stl_harv && !arm_harv
+	Tooltip@Heavy:
+		Name: Heavy Harvester
+		GenericName: Harvester
+		RequiresCondition: arm_harv && !stl_harv
+	Tooltip@Heavy_Stealth:
+		Name: Heavy Stealth Harvester
+		GenericName: Harvester
+		RequiresCondition: arm_harv && arm_harv
+	WithDecoration@TIB_ARMOR:
+		Image: pips
+		Sequence: pip-tib_armor
+		ReferencePoint: Top, Left
+		RequiresCondition: arm_harv
+		ValidStances: Ally
+		RequiresSelection: True
+	Valued:
+		Cost: 1400
+	Selectable:
+		Priority: 7
+		DecorationBounds: 36,36
+	Mobile:
+		Speed: 85
+	Health:
+		HP: 600
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 4c0
+	-ProducibleWithLevel:
+	Explodes:
+		Weapon: TiberiumExplosion
+	#Code below for when we can detect tiberium type thats being carried. Note to self: keep on dreaming
+	#	Explodes@Green:
+	#		Weapon: TiberiumExplosionGreen
+	#		RequiresCondition: tibgreen
+	#	Explodes@Blue:
+	#		Weapon: TiberiumExplosionBlue
+	#		RequiresCondition: tibblue
+	#	Explodes@Red:
+	#		Weapon: TiberiumExplosionRed
+	#		RequiresCondition: tibred
+	SelectionDecorations:
+	Targetable:
+		TargetTypes: Ground, Tank, Repair, AItagHarv
+		RequiresCondition: !HarvesterTruce
+	Targetable@HarvesterTruceON:
+		TargetTypes: null
+		RequiresCondition: HarvesterTruce
+	GrantConditionOnBotOwner:
+		Condition: BotControl
+		Bots: Cabal, watson, hal9001, blitzkrieg, MeatGrinder
+	CashTrickler:
+		ShowTicks: false
+		RequiresCondition: BotControl
+	WithHarvestAnimation:
+	WithDockingAnimation:
+	Harvester:
+		Resources: Tiberium, BlueTiberium, RedTiberium
+		PipCount: 7
+		Capacity: 20
+		BaleLoadDelay: 12
+		BaleUnloadDelay: 6
+		SearchFromProcRadius: 25
+		SearchFromOrderRadius: 15
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~proc, ~original_rules_or_coop
+		Queue: Vehicle.GDI, Vehicle.Nod, Vehicle.Nodda
+		Description: Collects Tiberium for processing.\n Obtainable upgrades\n  Stealth Generators, Tiberium Armor\n  Unarmed
+		BuildDuration: 675
+		BuildDurationModifier: 100
+	SpawnActorOnDeath:
+		Actor: HARV.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
+HARV.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Harvester (Destroyed)
+	TransformOnCapture:
+		IntoActor: harv
+	RenderSprites:
+		Image: harv.destroyed
+
+HARV_BOOST_ON:
+	Inherits: HARV
+	WithHarvestAnimation:
+	WithDockingAnimation:
+	RenderSprites:
+		Image: harv
+	Harvester:
+		Resources: Tiberium, BlueTiberium, RedTiberium
+		PipCount: 7
+		Capacity: 20
+		BaleLoadDelay: 12
+		BaleUnloadDelay: 1
+		SearchFromProcRadius: 25
+		SearchFromOrderRadius: 15
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~proc, ~turbo_tiberium
+		Queue: Vehicle.GDI, Vehicle.Nod, Vehicle.Nodda
+		Description: Collects Tiberium for processing.\n Obtainable upgrades\n  Stealth Generators, Tiberium Armor\n  Unarmed
+		BuildDuration: 675
+		BuildDurationModifier: 100
+	SpawnActorOnDeath:
+		Actor: HARV_BOOST_ON.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
+HARV_BOOST_ON.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Harvester ON(Destroyed)
+	TransformOnCapture:
+		IntoActor: harv_boost_on
+	RenderSprites:
+		Image: harv.destroyed
+
+HARV_BOOST_OFF:
+	Inherits: HARV
+	WithHarvestAnimation:
+	WithDockingAnimation:
+	RenderSprites:
+		Image: harv
+	Harvester:
+		Resources: Tiberium, BlueTiberium, RedTiberium
+		PipCount: 7
+		Capacity: 20
+		BaleLoadDelay: 12
+		BaleUnloadDelay: 6
+		SearchFromProcRadius: 25
+		SearchFromOrderRadius: 15
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~proc, ~!turbo_tiberium
+		Queue: Vehicle.GDI, Vehicle.Nod, Vehicle.Nodda
+		Description: Collects Tiberium for processing.\n Obtainable upgrades\n  Stealth Generators, Tiberium Armor\n  Unarmed
+		BuildDuration: 675
+		BuildDurationModifier: 100
+	SpawnActorOnDeath:
+		Actor: HARV_BOOST_OFF.Husk
+		OwnerType: InternalName
+		EffectiveOwnerFromOwner: true
+HARV_BOOST_OFF.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Harvester OFF(Destroyed)
+	TransformOnCapture:
+		IntoActor: harv_boost_off
+	RenderSprites:
+		Image: harv.destroyed
+
+MHQ:
+	Inherits: ^Vehicle
+	Inherits@CLOAK: ^AcceptsCloakCrate
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Mobile HQ
+	Health:
+		HP: 200
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 85
+	RevealsShroud:
+		Range: 6c0
+	WithIdleOverlay@SPINNER:
+		Sequence: spinner
+		Offset: -256,0,256
+	Passenger:
+		Weight: 10
+	Buildable:
+		Description: Mobile base of operations
+
+#############################################################################################################
+#											Infantry														#
+#############################################################################################################
+
+MEDI:
+	Inherits@1: ^Infantry
+	Inherits@2: ^Doctor
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
+		BuildPaletteOrder: 40
+		Description: Heals nearby infantry.\n  Unarmed
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Medic
+	Health:
+		HP: 25
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		PipType: Blue
+		Voice: Action
+	Armament:
+		Weapon: Heal
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetStances: Ally
+		ForceTargetStances: Ally
+	AutoTarget:
+	AttackFrontal:
+	WithInfantryBody:
+		DefaultAttackSequence: heal
+		StandSequences: stand
+	Voiced:
+		VoiceSet: MedicVoice
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+	Mobile:
+		Speed: 56
+	Guard:
+		Voice: Action
+
+MECH:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CapMan: ^CaptureManager
+	GrantCondition@CapturesHusk:
+		Condition: CapturesHusk
+	Buildable:
+		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
+		BuildPaletteOrder: 40
+		Prerequisites: ~anyfix, ~techlevel.medium
+		Description: Repairs nearby vehicles and restores\nhusks to working condition by capturing them.\n  Unarmed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mechanic
+	Health:
+		HP: 25
+	Mobile:
+		Voice: Move
+		Speed: 56
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		PipType: Blue
+		Voice: Move
+	AutoTarget:
+	Armament:
+		Weapon: Repair
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
+	AttackFrontal:
+		Voice: Move
+	WithInfantryBody:
+		DefaultAttackSequence: repair
+		StandSequences: stand
+	Voiced:
+		VoiceSet: MechanicVoice
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	MustBeDestroyed:
+		RequiredForShortGame: true
+
+SOLESURVIVOR:
+	Inherits: E1
+	RenderSprites:
+		Image: e1
+	MustBeDestroyed:
+		RequiredForShortGame: true
+	Valued:
+		Cost: 1000
+	-Buildable:
+	Health:
+		HP: 150
+	Tooltip:
+		Name: Sole Survivor
+	ConditionManager:
+	ProvidesPrerequisite:
+		Prerequisite: solesurvivor
+	SoundOnDamageTransition:
+		DamagedSounds: inftakingfire1.wav, inftakingfire2.wav, inftakingfire3.wav, inftakingfire4.wav
+
+E1:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Minigunner
+	Buildable:
+		BuildPaletteOrder: 10
+		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
+		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Mobile:
+		Speed: 56
+	Health:
+		HP: 50
+	Armament:
+		Name: primary
+		Weapon: M16
+		FireDelay: 3
+		AmmoPoolName: VehGrenadeANDBulletsA
+	Armament@VehicleGrenade:
+		Name: secondary
+		AmmoPoolName: VehGrenadeANDBulletsA
+		Weapon: VehicleGrenade
+		LocalOffset: 0,0,427
+		FireDelay: 16
+	AmmoPool@VehGrenadeANDBullets:
+		Name: VehGrenadeANDBulletsA
+		Ammo: 2
+		PipCount: 0
+	Armament@Gren:
+		Name: secondary
+		Weapon: FragGrenade
+		LocalOffset: 0,0,427
+		FireDelay: 15
+	AttackFrontal:
+	WithInfantryBody:
+		IdleSequences: idle1,idle2,idle3,idle4,idle5
+		AttackSequences:
+			primary: shoot
+			secondary: throw
+	Armament@PILLBOX:
+		Name: pillbox
+		Weapon: HighVRA
+		MuzzleSequence: garrison-muzzle
+	Armament@GUARDTOWER:
+		Name: guardtower
+		Weapon: HighV
+		MuzzleSequence: garrison-muzzle
+	SoundOnDamageTransition:
+		DamagedSounds: inftakingfire1.wav, inftakingfire2.wav, inftakingfire3.wav, inftakingfire4.wav
+	ReloadAmmoPool@1:
+		AmmoPool: VehGrenadeANDBulletsA
+		Delay: 4
+		Count: 1
+		ResetOnFire: False
+
+E3:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Rocket Soldier
+	Buildable:
+		BuildPaletteOrder: 20
+		Queue: Infantry.Nod, Infantry.Nodda, Infantry.GDI
+		Description: Anti-tank/Anti-aircraft infantry. \n  Strong vs Tanks, Aircraft\n  Weak vs Infantry
+	Mobile:
+		Speed: 42
+	Health:
+		HP: 45
+	AutoTarget:
+		ScanRadius: 6
+	Armament:
+		Weapon: Rockets
+		LocalOffset: 256,43,341
+		FireDelay: 5
+	AttackFrontal:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	Armament@PILLBOX:
+		Name: pillbox
+		Weapon: Rockets
+	Armament@GUARDTOWER:
+		Name: guardtower
+		Weapon: Rockets
+	SoundOnDamageTransition:
+		DamagedSounds: inftakingfire1.wav, inftakingfire2.wav, inftakingfire3.wav, inftakingfire4.wav
+
+E6:
+	Inherits@1: ^Soldier
+	Inherits@CapMan: ^CaptureManager
+	GrantCondition@CapturesBuilding:
+		Condition: CapturesBuilding
+	GrantCondition@CapturesTransport:
+		Condition: CapturesTransport
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Engineer
+	Buildable:
+		BuildPaletteOrder: 30
+		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
+		Description: Damages and captures enemy structures.\n  Unarmed
+	Mobile:
+		Speed: 56
+	Health:
+		HP: 25
+	Passenger:
+		PipType: Yellow
+	EngineerRepair:
+	RepairsBridges:
+	-AutoTarget:
+	-ProducibleWithLevel:
+	SoundOnDamageTransition:
+		DamagedSounds: inftakingfire1.wav, inftakingfire2.wav, inftakingfire3.wav, inftakingfire4.wav
+
+RMBO:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CapMan: ^CaptureManager
+	GrantCondition:
+		Condition: CapturesTransport
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Commando
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~anytech, ~techlevel.high
+		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
+		Description: Elite sniper infantry unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles
+		BuildLimit: 1
+	Mobile:
+		Speed: 71
+		Voice: Move
+	Guard:
+		Voice: Move
+	Health:
+		HP: 110
+	Passenger:
+		PipType: Red
+		Voice: Move
+	RevealsShroud:
+		Range: 6c0
+	AutoTarget:
+		ScanRadius: 8
+	Demolition:
+		DetonationDelay: 45
+		Voice: Demolish
+	Armament:
+		Weapon: Sniper
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Attack
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2,idle3
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+	AnnounceOnKill:
+	Voiced:
+		VoiceSet: CommandoVoice
+	Armament@PILLBOX:
+		Name: pillbox
+		Weapon: Sniper
+	Armament@GUARDTOWER:
+		Name: guardtower
+		Weapon: Sniper
+
+RENEGATE:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Renegade
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~anytech, ~techlevel.high
+		Queue: Infantry.GDI, Infantry.Nod, Infantry.Nodda
+		Description: Uncontrollable Lethal Commando Unit.\nIt will wonder around wreaking havoc\n Strong vs all ground targets\n Weak vs air and ani infantry units
+		BuildLimit: 1
+	#\n Crates will give him new weapons
+	Mobile:
+		Speed: 71
+		Voice: Move
+	Health:
+		HP: 80
+	RevealsShroud:
+		Range: 6c0
+	AutoTarget:
+		ScanRadius: 8
+	Armament@SNIPER:
+		Weapon: Sniper
+	Armament@GRENADELAUNCHER:
+		Weapon: GrenadeLauncher
+		LocalOffset: 100,0,200
+	AttackFrontal:
+		Voice: Attack
+	AttackMove:
+		Voice: Attack
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		IdleSequences: idle1,idle2,idle3
+	VoiceAnnouncement:
+		RequiresCondition: produced
+		Voice: Build
+	AnnounceOnKill:
+	Voiced:
+		VoiceSet: CommandoVoice
+	AttackWander:
+		WanderMoveRadius: 30
+	AutoTarget:
+		InitialStance: AttackAnything
+		InitialStanceAI: AttackAnything
+		EnableStances: False
+	RejectsOrders:
+	Interactable:
+
+COMMANDER:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Base Commander
+	Buildable:
+		BuildPaletteOrder: 70
+		Queue: Infantry.Nod, Infantry.Nodda, Infantry.GDI
+		Description: Anti-tank/Anti-aircraft infantry. \n  Strong vs Tanks, Aircraft\n  Weak vs Infantry
+		Prerequisites: ~disabled
+	Mobile:
+		Speed: 71
+	Health:
+		HP: 45
+	AutoTarget:
+		ScanRadius: 6
+	Armament:
+		Weapon: USP45
+	AttackFrontal:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+	Armament@PILLBOX:
+		Name: pillbox
+		Weapon: USP45
+	Armament@GUARDTOWER:
+		Name: guardtower
+		Weapon: USP45
+	SoundOnDamageTransition:
+		DamagedSounds: inftakingfire1.wav, inftakingfire2.wav, inftakingfire3.wav, inftakingfire4.wav
+
+#############################################################################################################
+#											 Navy															#
+#############################################################################################################
+
+BOAT:
+	Inherits: ^Ship
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Gunboat
+	Health:
+		HP: 700
+	Armor:
+		Type: Heavy
+	TDGunboat:
+		Speed: 28
+	-Mobile:
+	RevealsShroud:
+		Range: 7c0
+		Type: CenterPosition
+	Turreted:
+		TurnSpeed: 5
+		Offset: 0,896,171
+	Armament:
+		Weapon: BoatMissile
+		LocalOffset: 85,-85,0, 85,85,0
+	AttackTDGunboatTurreted:
+	-QuantizeFacingsFromSequence:
+	BodyOrientation:
+		QuantizedFacings: 2
+	WithGunboatBody:
+		Sequence: left # Just a work-around to avoid crash
+	Selectable:
+		Bounds: 42,24
+		DecorationBounds: 42,24
+	AutoTarget:
+		AllowMovement: false
+	RejectsOrders:
+	SelectionDecorations:
+	GrantConditionOnDamageState@HEAVY:
+		Condition: heavy-damage
+		ValidDamageStates: Heavy
+	GrantConditionOnDamageState@CRITICAL:
+		Condition: critical-damage
+		ValidDamageStates: Critical
+	SpeedMultiplier@HEAVYDAMAGE:
+		RequiresCondition: heavy-damage
+		Modifier: 75
+	SpeedMultiplier@CRITICALDAMAGE:
+		RequiresCondition: critical-damage
+		Modifier: 50
+
+GUNBOAT:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
+		BuildPaletteOrder: 1000
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Gunboat
+	Health:
+		HP: 700
+	Armor:
+		Type: Heavy
+	Mobile:
+		TurnSpeed: 2
+		Speed: 42
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 7
+		Offset: 2250,0,200
+	Armament:
+		Weapon: TurretGunBoatGun
+		LocalOffset: 550,0,0
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithMuzzleOverlay:
+	SelectionDecorations:
+	Selectable:
+		Bounds: 24,24
+	WithSpriteTurret:
+	AutoTarget:
+	WithFacingSpriteBody:
+	AttackMove:
+	RenderSprites:
+		PlayerPalette: playerRA
+	#LeavesTrails:
+	#	Image: ship_trail
+	#	Sequences: idle
+	#	Palette: terrain
+	#	TerrainTypes: Water
+	#	Type: CenterPosition 
+	#	VisibleThroughFog: False
+	#	TrailWhileStationary: False
+	#	StationaryInterval: 0
+	#	TrailWhileMoving: True
+	#	MovingInterval: 0
+	#	StartDelay: 0
+	#	Offsets: -3000,0,0
+	#Collection of 3D World Vector	Trail spawn positions relative to actor position. (forward, right, up) triples
+	#	SpawnAtLastPosition: True
+	#	RequiresCondition: 
+	#[12:46] <+pchote> the center of the deck needs to match the center of rotation of the actor
+	#[12:46] <+pchote> if the center moves with facing then you can't position anything properl
+	#[12:46] <+pchote> y
+	#[12:47] <+pchote> and your camera angles need to match the rules too
+	#<Nolt_Phone> Look up for the coordinate of the camera aiming point, group your entire model, and align it to it (note: he talks about 3DsMax)
+LST:
+	Inherits: ^Ship
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Landing Craft
+	Buildable:
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
+		BuildPaletteOrder: 1000
+	Mobile:
+		InitialFacing: 0
+		TurnSpeed: 4
+		Speed: 142
+		RequiresCondition: !notmobile
+		Locomotor: lcraft
+	LeavesTrails:
+		Image: wake1
+		TerrainTypes: Water
+		TrailWhileStationary: true
+		Palette: playerRA
+		SpawnAtLastPosition: true
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	WithFacingSpriteBody:
+	WithRoof:
+	WithCargo:
+		DisplayTypes: Infantry, Vehicle
+		LocalOffset: 390,-256,0, 390,256,0, 0,0,0, -390,-256,0, -390,256,0
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 5
+		PipCount: 5
+		PassengerFacing: 2
+		LoadingCondition: notmobile
+	RenderSprites:
+		PlayerPalette: playerRA
+		Scale: 0.8
+	Selectable:
+		Bounds: 48,48
+
+#############################################################################################################
+#											Airforce														#
+#############################################################################################################
+
+TRAN:
+	Inherits@1: ^Helicopter
+	Inherits@ConMan: ^ConditionManager
+	Inherits@CapMan: ^CaptureManager
+	GrantCondition@CapturableTransport:
+		Condition: CapturableTransport
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Chinook Transport
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: hpad
+		Queue: Aircraft.GDI, Aircraft.Nod
+		Description: Infantry Transport Helicopter.\n  Unarmed
+	Aircraft:
+		LandWhenIdle: true
+		TurnSpeed: 5
+		Speed: 140
+		InitialFacing: 0
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Tiberium,BlueTiberium,RedTiberium
+		AltitudeVelocity: 0c100
+		TurnToLand: true
+		Repulsable: true
+	Health:
+		HP: 90
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	WithIdleOverlay@ROTOR1AIR:
+		Offset: 597,0,85
+		Sequence: rotor
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTOR1GROUND:
+		Offset: 597,0,85
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	WithIdleOverlay@ROTOR2AIR:
+		Offset: -597,0,171
+		Sequence: rotor2
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTOR2GROUND:
+		Offset: -597,0,171
+		Sequence: slow-rotor2
+		RequiresCondition: !airborne
+	Cargo:
+		Types: Infantry, Doctor
+		MaxWeight: 10
+		PipCount: 10
+		PassengerFacing: 224
+	SpawnActorOnDeath:
+		Actor: TRAN.Husk
+	Explodes:
+		Weapon: HeliExplode
+		EmptyWeapon: HeliExplode
+	SelectionDecorations:
+	-ProducibleWithLevel:
+	Selectable:
+		DecorationBounds: 41,41
+TRAN.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Chinook Transport
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 140
+	RevealsShroud:
+		Range: 8c0
+		Type: CenterPosition
+	WithIdleOverlay@ROTOR1:
+		Offset: 597,0,85
+		Sequence: rotor
+	WithIdleOverlay@ROTOR2:
+		Offset: -597,0,171
+		Sequence: rotor2
+	RenderSprites:
+		Image: tran
+
+OSPREY:
+	Inherits@1: ^Helicopter
+	Inherits@ConMan: ^ConditionManager
+	Inherits@CapMan: ^CaptureManager
+	GrantCondition@CapturableTransport:
+		Condition: CapturableTransport
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: V-22 Osprey
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: vehicleproduction
+		Queue: Aircraft.GDI, Aircraft.Nod, Aircraft.Nodda
+		Description: Vehicle And Infantry Transport Helicopter.\n  Unarmed
+	Aircraft:
+		LandWhenIdle: True
+		TurnSpeed: 5
+		Speed: 140
+		InitialFacing: 0
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Tiberium,BlueTiberium,RedTiberium
+		AltitudeVelocity: 0c100
+		Repulsable: true
+		CruiseAltitude: 2160
+		TurnToLand: true
+		AirborneCondition: airborne
+	Carryall:
+		LoadingDelay: 10
+		UnloadingDelay: 10
+		LocalOffset: -10, -60, -70
+		DropRange: 3c0
+	Health:
+		HP: 90
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	WithIdleOverlay@ROTOR1AIR:
+		Offset: 0,845,650
+		Sequence: rotor
+		RequiresCondition: airborne
+	#Offset ^forward, right, up^
+	WithIdleOverlay@ROTOR1GROUND:
+		Offset: 0,845,650
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	WithIdleOverlay@ROTOR2AIR:
+		Offset: 0,-845,650
+		Sequence: rotor2
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTOR2GROUND:
+		Offset: 0,-845,650
+		Sequence: slow-rotor2
+		RequiresCondition: !airborne
+	SpawnActorOnDeath:
+		Actor: OSPREY.Husk
+	Explodes:
+		Weapon: HeliExplode
+		EmptyWeapon: HeliExplode
+	SelectionDecorations:
+	-ProducibleWithLevel:
+	RenderSprites:
+		PlayerPalette: playerRA
+	Cargo:
+		Types: Infantry, Doctor
+		MaxWeight: 5
+		PipCount: 5
+		PassengerFacing: 128
+	Selectable:
+		DecorationBounds: 66,52
+OSPREY.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: V-22 Osprey
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 140
+	RevealsShroud:
+		Range: 8c0
+		Type: CenterPosition
+	WithIdleOverlay@ROTOR1:
+		Offset: 0,847,50
+		Sequence: rotor
+	WithIdleOverlay@ROTOR2:
+		Offset: 0,-847,50
+		Sequence: rotor2
+	RenderSprites:
+		Image: osprey
+		PlayerPalette: playerRA
+	FallsToEarth:
+		Velocity: 0c100
+
+OSPREY.delivery:
+	Inherits: OSPREY
+	Tooltip:
+		Name: V-22 Osprey
+	Aircraft:
+		LandWhenIdle: false
+		TurnSpeed: 5
+		Speed: 326
+		InitialFacing: 0
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach,Tiberium,BlueTiberium,RedTiberium
+		AltitudeVelocity: 0c100
+		TurnToLand: false
+		Repulsable: false
+		CruiseAltitude: 2160
+		CanHover: true
+		AirborneCondition: airborne
+	FlyAwayOnIdle:
+	RenderSprites:
+		PlayerPalette: playerRA
+		Image: osprey
+	RejectsOrders:
+	DamageMultiplier@INVULNERABLE:
+		Modifier: 0
+	RevealsShroud:
+		Range: 0c0
+		Type: CenterPosition
+	-Selectable:
+	-Buildable:
+	-Targetable@GROUND:
+	-Targetable@AIRBORNE:
+	Interactable:
+
+#############################################################################################################
+#											Inherits														#
+#############################################################################################################
+
+BARRACKS:
+	AlwaysVisible:
+	Tooltip:
+		Name: Infantry Production
+	Buildable:
+		Description: Infantry Production
+	Interactable:
+
+VEHICLEPRODUCTION:
+	AlwaysVisible:
+	Tooltip:
+		Name: Vehicle Production
+	Buildable:
+		Description: Vehicle Production
+	Interactable:
+
+ANYPOWER:
+	AlwaysVisible:
+	Tooltip:
+		Name: Power Plant
+	Buildable:
+		Description: Power Plant
+	Interactable:
+
+ANYHQ:
+	AlwaysVisible:
+	Tooltip:
+		Name: a communications center
+	Buildable:
+		Description: a communications center
+	Interactable:
+
+ANYTECH:
+	AlwaysVisible:
+	Tooltip:
+		Name: a Tech center
+	Buildable:
+		Description: a Tech center
+	Interactable:
+
+ANYFIX:
+	AlwaysVisible:
+	Tooltip:
+		Name: Repair Facility
+	Buildable:
+		Description: Repairs vehicles
+	Interactable:
+
+SHIPYARD_GDI:
+	Inherits: ^WaterBuilding
+	Tooltip:
+		Name: GDI Naval Yard
+	Buildable:
+		BuildPaletteOrder: 40
+		Queue: Building.GDI
+		Prerequisites: ~anyhq, ~techlevel.high
+		Description: Produces and repairs\nNeval units.
+	ProductionQueue@GDIShip:
+		Type: Ship.GDI
+		Factions: gdi
+		Group: Ship
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@ShipGDI:
+		ProductionType: Ship.GDI
+	ProvidesPrerequisite@buildingname:

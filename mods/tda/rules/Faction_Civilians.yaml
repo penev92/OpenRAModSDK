@@ -1,452 +1,427 @@
-SPLIT2:
-	Inherits: ^TibTree
-	SeedsResource:
-		ResourceType: Tiberium
-		Interval: 55
-		MaxRange: 900
-	WithIdleOverlay@lightsg:
-		Sequence: idle-lightsg
-		Palette: lights_Green_05
-		IsPlayerPalette: False
-	LaysTerrain:
-		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
-		Template: 5001
-SPLIT3:
-	Inherits: ^TibTree
-	RenderSprites:
-		Image: split2
-	SeedsResource:
-		ResourceType: Tiberium
-		Interval: 55
-		MaxRange: 900
-	WithIdleAnimation:
-	WithIdleOverlay@lightsg:
-		Sequence: idle-lightsg
-		Palette: lights_Green_05
-		IsPlayerPalette: False
-	LaysTerrain:
-		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
-		Template: 5001
-SPLITBLUE:
-	Inherits: ^TibTree
-	RenderSprites:
-		Image: split3
-	SeedsResource:
-		ResourceType: BlueTiberium
-		Interval: 110
-		MaxRange: 10
-		RequiresCondition: !Spike.proximity
-	WithIdleAnimation:
-	Tooltip:
-		Name: Blossom Tree (blue)
-	RadarColorFromTerrain:
-		Terrain: BlueTiberium
-	WithIdleOverlay@lightsb:
-		Sequence: idle-lightsb
-		Palette: lights_Blue_05
-		IsPlayerPalette: False
-	LaysTerrain:
-		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
-		Template: 5002
-SPLITRED:
-	Inherits: ^TibTree
-	RenderSprites:
-		Image: split3
-	SeedsResource:
-		ResourceType: RedTiberium
-		Interval: 220
-		MaxRange: 5
-	WithIdleAnimation:
-	Tooltip:
-		Name: Blossom Tree (Red)
-	RadarColorFromTerrain:
-		Terrain: RedTiberium
-	WithIdleOverlay@lightsr:
-		Sequence: idle-lightsr
-		Palette: lights_Red_05
-		IsPlayerPalette: False
-	LaysTerrain:
-		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
-		Template: 5003
+#############################################################################################################
+#											Buildings														#
+#############################################################################################################
+#Welcome to the most unorganized section of my mod!!! ill short it out as I go tho.
+#All-Faction
 
-DUMMY_GREEN_TIB_TREE:
-	Inherits: SPLIT3
-	RenderSprites:
-		Image: split2fake
-	-ActorSpawner:
-	-SeedsResource:
-	Replaceable:
-		Types: Spike
-	LaysTerrain:
-		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
-		Template: 5001
-DUMMY_BLUE_TIB_TREE:
-	Inherits: SPLITBLUE
-	RenderSprites:
-		Image: split3fake
-	-ActorSpawner:
-	-SeedsResource:
-	Replaceable:
-		Types: Spike
-	LaysTerrain:
-		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
-		Template: 5002
-DUMMY_RED_TIB_TREE:
-	Inherits: SPLITRED
-	RenderSprites:
-		Image: split3fake
-	-ActorSpawner:
-	-SeedsResource:
-	Replaceable:
-		Types: Spike
-	LaysTerrain:
-		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
-		Template: 5003
-
-ROCK1:
-	Inherits: ^Rock
+CIV_CHURCH:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 48,48
 	Building:
-		Footprint: __ xx
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Church
+	Buildable:
+		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
+		BuildPaletteOrder: 80
+		Prerequisites: ~techlevel.high
+		Description: A Church
+	Valued:
+		Cost: 500
+	SpawnActorsOnSell:
+		ActorTypes: scientist,scientist,scientist,scientist,scientist,scientist,scientist,scientist,scientist
+	WithMakeAnimation:
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite:
+		Prerequisite: anytech
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure
+	Power:
+		Amount: 0
+	Health:
+		HP: 600
+	RevealsShroud:
+		Range: 5c0
+	RenderSprites:
+		Palette: NoTerrain
+	GrantCondition@afterbuild:
+		Condition: afterbuild
+	WithIdleOverlay@afterbuild:
+		StartSequence: afterbuild
+		Sequence: null
+		RequiresCondition: afterbuild
+		Palette: NoTerrain
+		IsPlayerPalette: false
+#unfortunally for some reason the idleoverlay palette messes with the building palette, and the end result is the building inheriting the idleoverlay palette. So i have to convert the buildings into one palette, but in a twist of fate i found that only the desert buildings are visually effected for my eyes, so i will change only them.
 
-ROCK2:
-	Inherits: ^Rock
-	Building:
-		Footprint: xx_
-		Dimensions: 3,1
-
-ROCK3:
-	Inherits: ^Rock
-
-ROCK4:
-	Inherits: ^Rock
+V19:
+	Inherits: ^TechBuilding
+	GivesCashOnCapture:
+		Amount: 500
+		CaptureTypes: Building
+	#CashTricklerBar:
+	#	DisplayStances: Ally
+	#	Color: c5c5c5
 	Building:
 		Footprint: x
 		Dimensions: 1,1
+	Health:
+		HP: 1000
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Oil Derrick
+	SpawnActorOnDeath:
+		Actor: V19_DES
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	TransformOnCapture:
+		IntoActor: V19.Captured
+		SkipMakeAnims: true
+		CaptureTypes: Building
+		
+V19.Captured:
+	Inherits: V19
+	RenderSprites:
+		Image: V19
+	CashTrickler:
+		Amount: 10
+		Interval: 25
+		InitialDelay: 25
+	-GivesCashOnCapture:
 
-ROCK5:
-	Inherits: ^Rock
+HOSP:
+	Inherits: ^TechBuilding
+	Selectable:
+		Priority: 0
 	Building:
-		Footprint: x_
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 1000
+	Tooltip:
+		Name: Hospital
+	SpawnActorOnDeath:
+		Actor: HOSP_DES
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	WithBuildingBib:
+		HasMinibib: Yes
+	ProvidesPrerequisite@buildingname:
+	CaptureNotification:
+		Notification: CivilianBuildingCaptured
 
-ROCK6:
-	Inherits: ^Rock
+BIO:
+	Inherits: ^TechBuilding
 	Building:
-		Footprint: ___ xxx
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 2000
+	Tooltip:
+		Name: Biological Lab
+	SpawnActorOnDeath:
+		Actor: BIO_DES
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	ProvidesPrerequisite@buildingname:
+
+MISS:
+	Inherits: ^TechBuilding
+	Building:
+		Footprint: xxx xxx
 		Dimensions: 3,2
+	Tooltip:
+		Name: Tech Center
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1000
+		Prerequisites: ~disabled
+	Valued:
+		Cost: 2000
+	WithBuildingBib:
+		HasMinibib: Yes
+	WithMakeAnimation:
+	ProvidesPrerequisite@buildingname:
+	SpawnActorOnDeath:
+		Actor: MISS_DES
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	Selectable:
+		Bounds: 72,48
 
-ROCK7:
-	Inherits: ^Rock
+BARR:
+	Inherits: ^TechBuilding
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Private Security Barracks
+	ProvidesPrerequisite:
+		Prerequisite: barracks
+	Buildable:
+		BuildPaletteOrder: 30
+		Description: Trains infantry
+	WithBuildingBib:
 	Building:
-		Footprint: xxxx
-		Dimensions: 4,1
-
-T01:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 500
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+		Offset: 1,2
+	Exit@1:
+		SpawnOffset: -170,810,0
+		ExitCell: 1,2
+	Exit@2:
+		SpawnOffset: -725,640,0
+		ExitCell: 0,2
+	Production:
+		Produces: Mercs
+	ProductionQueue@nullfornow:
+		Type: Mercs
+		Group: Infantry
+		LowPowerSlowdown: 0
+	ProductionBar:
+		ProductionType: Mercs
+	Power:
+		Amount: 0
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	Selectable:
+		Bounds: 48,42,0,-5
+		DecorationBounds: 48,42,0,-5
+	RenderSprites:
+		PlayerPalette: playerRA
 	SpawnActorOnDeath:
-		Actor: T01.Husk
-T01.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
+		Actor: BARR_DES
+		OwnerType: InternalName
+		InternalOwner: Neutral
 
-T02:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T02.Husk
-T02.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-T03:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T03.Husk
-T03.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-T04:
-	Inherits: ^Tree
-	MapEditorData:
-		RequireTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T04.Husk
-T04.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		RequireTilesets: DESERT
-
-T05:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T05.Husk
-T05.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-T06:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T06.Husk
-T06.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-T07:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T07.Husk
-T07.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-T08:
-	Inherits: ^Tree
+FIXN:
+	Inherits: ^TechBuilding
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Machine Shop
 	Building:
-		Footprint: x_
-		Dimensions: 2,1
+		Footprint: __x xxx x==
+		Dimensions: 3,3
+	Health:
+		HP: 500
+	RevealsShroud:
+		Range: 5c0
+	Power:
+		Amount: 0
+	SelectionDecorations:
+	Selectable:
+		Bounds: 72,48
+		DecorationBounds: 72,72,0,0
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithBuildingBib:
 	SpawnActorOnDeath:
-		Actor: T08.Husk
-T08.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: x_
-		Dimensions: 2,1
+		Actor: FIXN_DES
+		OwnerType: InternalName
+		InternalOwner: Neutral
+	ProvidesPrerequisite@buildingname:
 
-T09:
-	Inherits: ^Tree
+PORT:
+	Inherits: ^TechBuilding
+	Inherits@shape: ^2x1Shape
+	Valued:
+		Cost: 6000
+	Tooltip:
+		Name: Shipyard
 	Building:
-		Footprint: x_
-		Dimensions: 2,1
-	MapEditorData:
-		RequireTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T09.Husk
-T09.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: x_
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT
+		Footprint: xxxx xxxx xxxx xxxx
+		Dimensions: 4,4
+	ProductionFromMapEdge:
+		Produces: Ship.Nod, Ship.Nodda, Ship.GDI
+	ProductionQueue@NodShip:
+		Type: Ship.Nod
+		Factions: nod
+		Group: Ship
+		LowPowerSlowdown: 3
+	ProductionQueue@NoddaShip:
+		Type: Ship.Nodda
+		Factions: nodda
+		Group: Ship
+		LowPowerSlowdown: 3
+	ProductionQueue@GDIShip:
+		Type: Ship.GDI
+		Factions: gdi
+		Group: Ship
+		LowPowerSlowdown: 3
+	ProductionBar@ShipGDI:
+		ProductionType: Ship.GDI
+	ProductionBar@ShipNod:
+		ProductionType: Ship.Nod
+	ProductionBar@ShipNod:
+		ProductionType: Ship.Nodda
+	Exit:
+		ProductionTypes: Ship.Nod, Ship.Nodda, Ship.GDI
+		ExitDelay: 5
+		MoveIntoWorld: True
+	RallyPoint:
+		Offset	1,5
+	Health:
+		HP: 5000
+	RevealsShroud:
+		Range: 7c0
+	RenderSprites:
+		PlayerPalette: playerRA
+	WithSpriteBody:
+	Power:
+		Amount: 0
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	-EngineerRepairable:
+	-Targetable:
+	ProximityCapturable:
+		Range: 10c0
+		CaptorTypes: Vehicle, Tank, Infantry, Player
+		MustBeClear: true
+		Sticky: true
+		Permanent: false
 
-T10:
-	Inherits: ^Tree
+V19_DES:
+	Inherits: ^TechBuilding
 	Building:
-		Footprint: __ xx
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T10.Husk
-T10.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: __ xx
-	MapEditorData:
-		ExcludeTilesets: DESERT
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 20
+	Valued:
+		Cost: 0
+	Tooltip:
+		Name: Destroyed Oil Derrick
+	EditorOnlyTooltip:
+		Name: Use this
+	-GrantCondition@CapturableBuilding:
+	WithIdleOverlay:
+		StartSequence: fire-start
+		Sequence: fire-loop
+	DamageMultiplier:
+		Modifier: 0
 
-T11:
-	Inherits: ^Tree
+HOSP_DES:
+	Inherits: ^TechBuilding
 	Building:
-		Footprint: __ xx
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T11.Husk
-T11.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: __ xx
-	MapEditorData:
-		ExcludeTilesets: DESERT
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 20
+	Valued:
+		Cost: 0
+	Tooltip:
+		Name: Destroyed Hospital
+	WithBuildingBib:
+		HasMinibib: Yes
+	ProvidesPrerequisite@buildingname:
+	TransformOnCapture:
+		IntoActor: hosp
+		ForceHealthPercentage: 10
+		SkipMakeAnims: True
+	EditorOnlyTooltip:
+		Name: Use this
 
-T12:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T12.Husk
-T12.Husk:
-	Inherits: ^TreeHusk
+BIO_DES:
+	Inherits: ^TechBuilding
 	Building:
-	MapEditorData:
-		ExcludeTilesets: DESERT
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 20
+	Valued:
+		Cost: 0
+	Tooltip:
+		Name: Destroyed Biological Lab
+	TransformOnCapture:
+		IntoActor: bio
+		ForceHealthPercentage: 10
+		SkipMakeAnims: True
+	EditorOnlyTooltip:
+		Name: Use this
 
-T13:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T13.Husk
-T13.Husk:
-	Inherits: ^TreeHusk
+MISS_DES:
+	Inherits: ^TechBuilding
 	Building:
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-T14:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T14.Husk
-T14.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-T15:
-	Inherits: ^Tree
-	Building:
-		Footprint: ___ xx_
+		Footprint: xxx xxx
 		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T15.Husk
-T15.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: ___ xx_
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
+	Tooltip:
+		Name: Destroyed Tech Center
+	Health:
+		HP: 20
+	Valued:
+		Cost: 0
+	WithBuildingBib:
+		HasMinibib: Yes
+	TransformOnCapture:
+		IntoActor: miss
+		ForceHealthPercentage: 10
+		SkipMakeAnims: True
+	EditorOnlyTooltip:
+		Name: Use this
 
-T16:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T16.Husk
-T16.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
+BARR_DES:
+	Inherits: ^TechBuilding
+	Valued:
+		Cost: 0
+	Tooltip:
+		Name: Destroyed Private Security Barracks
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithBuildingBib:
+	Health:
+		HP: 20
+	RevealsShroud:
+		Range: 5c0
+	SelectionDecorations:
+	TransformOnCapture:
+		IntoActor: barr
+		ForceHealthPercentage: 10
+		SkipMakeAnims: True
+	RenderSprites:
+		PlayerPalette: playerRA
+	EditorOnlyTooltip:
+		Name: Use this
+	Selectable:
+		DecorationBounds: 48,42,0,-5
 
-T17:
-	Inherits: ^Tree
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T17.Husk
-T17.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		ExcludeTilesets: DESERT
+FIXN_DES:
+	Inherits: ^TechBuilding
+	Valued:
+		Cost: 0
+	Tooltip:
+		Name: Destroyed Machine Shop
+	Building:
+		Footprint: __x xxx x__
+		Dimensions: 3,3
+	Health:
+		HP: 20
+	RevealsShroud:
+		Range: 5c0
+	Power:
+		Amount: 0
+	SelectionDecorations:
+	TransformOnCapture:
+		IntoActor: fixn
+		ForceHealthPercentage: 10
+		SkipMakeAnims: True
+	Selectable:
+		Bounds: 48,42,0,-5
+		DecorationBounds: 48,42,0,-5
+	WithIdleOverlay@ROOF:
+		Sequence: idle-roof
+	WithBuildingBib:
 
-T18:
-	Inherits: ^Tree
-	MapEditorData:
-		RequireTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: T18.Husk
-T18.Husk:
-	Inherits: ^TreeHusk
-	MapEditorData:
-		RequireTilesets: DESERT
+#############
+#Sub-faction#
+#############
 
-TC01:
-	Inherits: ^Tree
-	Building:
-		Footprint: ___ xx_
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: TC01.Husk
-TC01.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: ___ xx_
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
 
-TC02:
-	Inherits: ^Tree
-	Building:
-		Footprint: _x_ xx_
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: TC02.Husk
-TC02.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: _x_ xx_
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-TC03:
-	Inherits: ^Tree
-	Building:
-		Footprint: _x_ xx_
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: TC03.Husk
-TC03.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: _x_ xx_
-		Dimensions: 3,2
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-TC04:
-	Inherits: ^Tree
-	Building:
-		Footprint: ____ xxx_ x___
-		Dimensions: 4,3
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: TC04.Husk
-TC04.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: ____ xxx_ x___
-		Dimensions: 4,3
-	MapEditorData:
-		ExcludeTilesets: DESERT
-
-TC05:
-	Inherits: ^Tree
-	Building:
-		Footprint: __x_ xxx_ _xx_
-		Dimensions: 4,3
-	MapEditorData:
-		ExcludeTilesets: DESERT
-	SpawnActorOnDeath:
-		Actor: TC05.Husk
-TC05.Husk:
-	Inherits: ^TreeHusk
-	Building:
-		Footprint: __x_ xxx_ _xx_
-		Dimensions: 4,3
-	MapEditorData:
-		ExcludeTilesets: DESERT
+#############################################################################################################
+#											Defences														#
+#############################################################################################################
+#All-Faction
 
 CITY_4:
 	Inherits: ^CivBuilding
@@ -1000,179 +975,16 @@ WOOD:
 	WithWallSpriteBody:
 		Type: woodfence
 
-BRIDGE1:
-	Inherits: ^Bridge
-	Bridge:
-		Template: 165
-		DestroyedTemplate: 166
-	Building:
-		Footprint: ____ ____ ____ ____
-		Dimensions: 4,4
-	FreeActor@north:
-		Actor: bridgehut
-		SpawnOffset: 2,0
-	FreeActor@south:
-		Actor: bridgehut
-		SpawnOffset: 0,2
-	Interactable:
-		Bounds: 96,96
-	ShakeOnDeath:
-		Duration: 15
-		Intensity: 6
+#############
+#Sub-faction#
+#############
 
-BRIDGE2:
-	Inherits: ^Bridge
-	Bridge:
-		Template: 167
-		DestroyedTemplate: 168
-	Building:
-		Footprint: _____ _____ _____ _____ _____
-		Dimensions: 5,5
-	FreeActor@north:
-		Actor: bridgehut
-		SpawnOffset: 0,0
-	FreeActor@south:
-		Actor: bridgehut
-		SpawnOffset: 2,2
-	Interactable:
-		Bounds: 120,120
-	ShakeOnDeath:
-		Duration: 15
-		Intensity: 6
 
-BRIDGE3:
-	Inherits: ^Bridge
-	Bridge:
-		Template: 169
-		DestroyedTemplate: 170
-	Building:
-		Footprint: ______ ______ ______ ______ ______
-		Dimensions: 6,5
-	FreeActor@north:
-		Actor: bridgehut
-		SpawnOffset: 3,0
-	FreeActor@south:
-		Actor: bridgehut
-		SpawnOffset: 1,2
-	Interactable:
-		Bounds: 144,120
-	ShakeOnDeath:
-		Duration: 15
-		Intensity: 6
 
-BRIDGE4:
-	Inherits: ^Bridge
-	Bridge:
-		Template: 171
-		DestroyedTemplate: 172
-	Building:
-		Footprint: ______ ______ ______ ______
-		Dimensions: 6,4
-	FreeActor@north:
-		Actor: bridgehut
-		SpawnOffset: 1,0
-	FreeActor@south:
-		Actor: bridgehut
-		SpawnOffset: 3,2
-	Interactable:
-		Bounds: 144,96
-	ShakeOnDeath:
-		Duration: 15
-		Intensity: 6
-
-BRIDGEHUT:
-	AlwaysVisible:
-	Building:
-		Footprint: __ __
-		Dimensions: 2,2
-	LegacyBridgeHut:
-	Targetable:
-		TargetTypes: BridgeHut, C4
-	Interactable:
-		Bounds: 48,48
-
-C1:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-
-C2:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-
-C3:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-	Voiced:
-		VoiceSet: CivilianFemaleVoice
-
-C4:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-	Voiced:
-		VoiceSet: CivilianFemaleVoice
-
-C5:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-	Voiced:
-		VoiceSet: CivilianFemaleVoice
-
-C6:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-
-C7:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-
-C8:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-
-C9:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-
-C10:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-
-DELPHI:
-	Inherits: ^CivInfantry
-	Inherits@armed: ^ArmedCivilian
-	-Wanders:
-	Tooltip:
-		Name: Agent Delphi
-
-CHAN:
-	Inherits: ^CivInfantry
-	Tooltip:
-		Name: Dr. Chan
-
-SCIENTIST:
-	Inherits: ^CivInfantry
-	Tooltip:
-		Name: Scientist
-	RenderSprites:
-		Image: chan
-	Valued:
-		Cost: 500
-# later this unit will be capturable and provide tech points(when the openra devs add an extra resource trait aside from money, probably never)
-
-MOEBIUS:
-	Inherits: ^CivInfantry
-	-Wanders:
-	Voiced:
-		VoiceSet: MoebiusVoice
-	Tooltip:
-		Name: Dr. Moebius
-
-VICE:
-	Inherits: ^Viceroid
-	AttackWander:
-		WanderMoveRadius: 2
-		MinMoveDelayInTicks: 25
-		MaxMoveDelayInTicks: 45
+#############################################################################################################
+#											Vehicles														#
+#############################################################################################################
+#All-Faction
 
 V20:
 	Inherits: ^CivBuilding
@@ -1550,3 +1362,166 @@ V37.Husk:
 		RequireTilesets: DESERT
 	Tooltip:
 		Name: The Studio (Destroyed)
+
+#############
+#Sub-faction#
+#############
+
+
+
+#############################################################################################################
+#											Infantry														#
+#############################################################################################################
+#All-Faction
+
+C1:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+
+C2:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+
+C3:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+	Voiced:
+		VoiceSet: CivilianFemaleVoice
+
+C4:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+	Voiced:
+		VoiceSet: CivilianFemaleVoice
+
+C5:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+	Voiced:
+		VoiceSet: CivilianFemaleVoice
+
+C6:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+
+C7:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+
+C8:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+
+C9:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+
+C10:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+
+DELPHI:
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+	-Wanders:
+	Tooltip:
+		Name: Agent Delphi
+
+CHAN:
+	Inherits: ^CivInfantry
+	Tooltip:
+		Name: Dr. Chan
+
+SCIENTIST:
+	Inherits: ^CivInfantry
+	Tooltip:
+		Name: Scientist
+	RenderSprites:
+		Image: chan
+	Valued:
+		Cost: 500
+# later this unit will be capturable and provide tech points(when the openra devs add an extra resource trait aside from money, probably never)
+
+MOEBIUS:
+	Inherits: ^CivInfantry
+	-Wanders:
+	Voiced:
+		VoiceSet: MoebiusVoice
+	Tooltip:
+		Name: Dr. Moebius
+
+#############
+#Sub-faction#
+#############
+
+
+
+#############################################################################################################
+#											 Navy															#
+#############################################################################################################
+#All-Faction
+
+
+
+#############
+#Sub-faction#
+#############
+
+
+
+#############################################################################################################
+#											Airforce														#
+#############################################################################################################
+
+C130:
+	Inherits: ^PlaneUnControled
+	Inherits@2: ^GainsExperience
+	ParaDrop:
+		DropRange: 4c0
+	Health:
+		HP: 120
+	Armor:
+		Type: Light
+	Aircraft:
+		CruiseAltitude: 4560
+		TurnSpeed: 5
+		Speed: 200
+		Repulsable: False
+		MaximumPitch: 56
+	Cargo:
+		MaxWeight: 10
+	SelectionDecorations:
+		RenderSelectionBars: False
+	Tooltip:
+		Name: C-130
+	SpawnActorOnDeath:
+		Actor: C130.Husk
+	SmokeTrailWhenDamaged@0:
+		Offset: -432,560,0
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -432,-560,0
+		Interval: 2
+	RejectsOrders:
+	Valued:
+		Cost: 100
+	RenderSprites:
+		PlayerPalette: playerRA
+C130.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: C-130
+	Aircraft:
+		TurnSpeed: 5
+		Speed: 149
+	SmokeTrailWhenDamaged@0:
+		Offset: -432,560,0
+		Interval: 2
+		MinDamage: Undamaged
+	SmokeTrailWhenDamaged@1:
+		Offset: -432,-560,0
+		Interval: 2
+		MinDamage: Undamaged
+	RenderSprites:
+		Image: c130
+		PlayerPalette: playerRA

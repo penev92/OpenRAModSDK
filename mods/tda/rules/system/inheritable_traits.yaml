@@ -48,6 +48,40 @@
 		CancelActivity: False
 		RequiresCondition: CapturableTransport
 
+^AcceptsRepair:
+	Targetable@DAMAGED:
+		RequiresCondition: !parachute && damaged
+		TargetTypes: Damaged
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	SelfHealing@MACHINE_SHOP:
+		Step: 1
+		Delay: 5
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: machine_shop_repair && damaged
+	GrantConditionOnPrerequisite@MACHINE_SHOP:
+		Condition: machine_shop_repair
+		Prerequisites: fixn
+
+^AcceptsHeal:
+	Targetable@WOUNDED:
+		RequiresCondition: !parachute && wounded
+		TargetTypes: Wounded
+	GrantConditionOnDamageState@WOUNDED:
+		Condition: wounded
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	SelfHealing@HOSPITAL:
+		Step: 5
+		Delay: 100
+		HealIfBelow: 100
+		DamageCooldown: 125
+		RequiresCondition: hospitalheal
+	GrantConditionOnPrerequisite@HOSPITAL:
+		Condition: hospitalheal
+		Prerequisites: hosp
+
 ^ConditionManager:
 	ConditionManager:
 
@@ -57,10 +91,10 @@
 		SourceCap: 0
 		TotalCap: 0
 
-^ArtilleryUnit
+^ArtilleryUnit:
 	RevealOnFire:
 		ArmamentNames: primary
-		RevealForStancesRelativeToTarget: Enemy
+		RevealForStancesRelativeToTarget: Ally
 		Duration: 75
 		Radius: 1c0
 	Targetable@AITAG:

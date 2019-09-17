@@ -58,52 +58,59 @@ MapFolders:
 	~^maps/tda/159: User
 
 Rules:
-	tda|rules/faction_all.yaml
-	tda|rules/faction_nod_all.yaml
-	tda|rules/faction_nod_gorilla_warfare.yaml
-	tda|rules/faction_nod_direct_assault.yaml
-	tda|rules/faction_gdi.yaml
-	tda|rules/faction_civilian.yaml
-	tda|rules/faction_lifeforms.yaml
-	tda|rules/faction_neutral.yaml
-
-	tda|rules/units_airforce.yaml
-	tda|rules/units_armor.yaml
-	tda|rules/units_troops.yaml
-	tda|rules/units_navy.yaml
-
-	tda|rules/system.yaml
-	tda|rules/player.yaml
-	tda|rules/world.yaml
-	tda|rules/palettes.yaml
-	tda|rules/defaults.yaml
+	tda|lobby_options.yaml
+	tda|rules/Faction_all.yaml
+	tda|rules/Faction_Nod.yaml
+	tda|rules/Faction_GDI.yaml
+	tda|rules/Faction_Civilians.yaml
+	tda|rules/Faction_LifeForms.yaml
+	tda|rules/Faction_Gea.yaml
 	tda|rules/research.yaml
-	tda|rules/map_options.yaml
-	tda|rules/inheritable_traits.yaml
+
+	tda|rules/system/system.yaml
+	tda|rules/system/player.yaml
+	tda|rules/system/world.yaml
+	tda|rules/system/palettes.yaml
+	tda|rules/system/defaults.yaml
+	tda|rules/system/inheritable_traits.yaml
 
 	tda|rules/bots/bot_profiles.yaml
 	tda|rules/bots/bot_shared.yaml
 	tda|rules/bots/bot_forces.yaml
 	tda|rules/bots/bot_support_powers.yaml
 
-Sequences:
-	tda|sequences/structures.yaml
-	tda|sequences/vehicles.yaml
-	tda|sequences/infantry.yaml
-	tda|sequences/aircraft.yaml
-	tda|sequences/decorations.yaml
-	tda|sequences/misc.yaml
-	tda|sequences/funpark.yaml
-	tda|sequences/civilian.yaml
-	tda|sequences/campaign.yaml
-	tda|sequences/ships.yaml
-	tda|sequences/destroyed.yaml
-	tda|sequences/research.yaml
-	tda|sequences/compatibility.yaml
-	tda|sequences/voxel_icons.yaml
+	tda|rules/experiments.yaml
 
+Weapons:
+	tda|rules/weapons/explosions.yaml
+	tda|rules/weapons/largecaliber.yaml
+	tda|rules/weapons/missiles.yaml
+	tda|rules/weapons/other.yaml
+	tda|rules/weapons/smallcaliber.yaml
+	tda|rules/weapons/superweapons.yaml
+	tda|rules/weapons/goodweapons.yaml
+	tda|rules/weapons/melee.yaml
+	tda|rules/weapons/inheritable_traits.yaml
+Missions:
+	tda|rules/missions.yaml
+
+Sequences:
+	tda|rules/sequences/structures.yaml
+	tda|rules/sequences/vehicles.yaml
+	tda|rules/sequences/infantry.yaml
+	tda|rules/sequences/aircraft.yaml
+	tda|rules/sequences/decorations.yaml
+	tda|rules/sequences/misc.yaml
+	tda|rules/sequences/funpark.yaml
+	tda|rules/sequences/civilian.yaml
+	tda|rules/sequences/campaign.yaml
+	tda|rules/sequences/ships.yaml
+	tda|rules/sequences/destroyed.yaml
+	tda|rules/sequences/research.yaml
+	tda|rules/sequences/compatibility.yaml
+	tda|rules/sequences/voxel_icons.yaml
 ModelSequences:
-	tda|sequences/voxels.yaml
+	tda|rules/sequences/voxels.yaml
 
 TileSets:
 	tda|tilesets/desert.yaml
@@ -111,16 +118,6 @@ TileSets:
 	tda|tilesets/snow.yaml
 	tda|tilesets/temperat.yaml
 	tda|tilesets/jungle.yaml
-
-Weapons:
-	tda|weapons/explosions.yaml
-	tda|weapons/largecaliber.yaml
-	tda|weapons/missiles.yaml
-	tda|weapons/other.yaml
-	tda|weapons/smallcaliber.yaml
-	tda|weapons/superweapons.yaml
-	tda|weapons/goodweapons.yaml
-	tda|weapons/default.yaml
 
 Cursors:
 	tda|cursors.yaml
@@ -240,9 +237,6 @@ Fonts:
 	CashSmall:
 		Font: tda|data/fonts/cash.ttf
 		Size:12
-
-Missions:
-	./mods/tda/missions.yaml
 
 MapGrid:
 	TileSize: 24,24
