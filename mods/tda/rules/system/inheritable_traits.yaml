@@ -99,4 +99,124 @@
 		Radius: 1c0
 	Targetable@AITAG:
 		TargetTypes: ArtyType
-		
+
+^SpriteActor:
+	BodyOrientation:
+	QuantizeFacingsFromSequence:
+	RenderSprites:
+
+^VoxelActor:
+	BodyOrientation:
+		QuantizedFacings: 0
+	#	CameraPitch: 
+	RenderVoxels:
+		Scale: 12
+		PlayerPalette: playerTS
+	#	Palette: player
+	WithVoxelBody:
+
+^PlayerRApaletteVehicle:
+	RenderSprites:
+		PlayerPalette: playerRA
+	WithDamageOverlay:
+		Image: smoke2_m
+		IdleSequence: idle
+		LoopSequence: loop
+		EndSequence: end
+		MinimumDamageState: Heavy
+		MaximumDamageState: Dead
+	WithDeathAnimation:
+		DeathSequence: idle
+		UseDeathTypeSuffix: false
+		DeathSequencePalette: playerRA
+		DeathPaletteIsPlayerPalette: True
+
+^PlayerRApaletteBuilding:
+	RenderSprites:
+		PlayerPalette: playerRA
+	WithDeathAnimation:
+		DeathSequence: dead
+		UseDeathTypeSuffix: false
+		DeathSequencePalette: playerRA
+		DeathPaletteIsPlayerPalette: True
+
+^CombatArmorOnParachute:
+	Armament:
+		PauseOnCondition: parachute
+	Targetable:
+		RequiresCondition: !parachute
+	WithParachute@Medium:
+		ShadowImage: parach-vshadow
+		ShadowSequence: idle
+		Image: parach
+		Palette: playerRA
+		Sequence: idle
+		OpeningSequence: open
+		Offset: 0,0,200
+		RequiresCondition: parachute && Vehicle
+	WithParachute@Large:
+		ShadowImage: parach-vshadow
+		ShadowSequence: idle
+		Image: parach
+		Palette: playerRA
+		Sequence: idle
+		OpeningSequence: open
+		Offset: 0,0,200
+		RequiresCondition: parachute && Tank
+	WithParachute@Small:
+		ShadowImage: parach-shadow
+		ShadowSequence: idle
+		Image: parach
+		Palette: playerRA
+		Sequence: idle
+		OpeningSequence: open
+		Offset: 0,0,427
+		RequiresCondition: parachute && Infantry
+
+^GlobalTraits:
+	Inherits@1: ^Basic
+
+^Basic:
+	Huntable:
+	GrantConditionOnPrerequisite@GLOBALBOUNTY:
+		Condition: global-bounty
+		Prerequisites: global-bounty
+	GivesBounty:
+		RequiresCondition: global-bounty
+	AppearsOnRadar:
+	UpdatesPlayerStatistics:
+	GivesExperience:
+		PlayerExperienceModifier: 1
+	ScriptTriggers:
+	ConditionManager:
+	RenderDebugState:
+	CombatDebugOverlay:
+	OwnerLostAction:
+		Action: Kill
+		Owner: Creeps
+	SelectionDecorations:
+	Guardable:
+	MustBeDestroyed:
+	WithSpriteControlGroupDecoration:
+		Palette: terrain
+
+^CombatUnit: 
+	Inherits@Basic: ^Basic
+	AttackMove:
+	DrawLineToTarget:
+	Guard:
+	HitShape:
+	AppearsOnRadar:
+		UseLocation: true
+	HiddenUnderFog:
+		AlwaysVisibleStances: Ally, Neutral
+		Type: CenterPosition
+
+^CombatBuilding:
+	Inherits@Basic: ^Basic
+	ShakeOnDeath:
+	Guardable:
+		Range: 5c0
+	Demolishable:
+		Condition: being-demolished
+	FrozenUnderFog:

@@ -78,6 +78,7 @@ Rules:
 	tda|rules/bots/bot_shared.yaml
 	tda|rules/bots/bot_forces.yaml
 	tda|rules/bots/bot_support_powers.yaml
+	tda|rules/bots/bot_cheats.yaml
 
 	tda|rules/experiments.yaml
 
@@ -277,8 +278,12 @@ GameSpeeds:
 		OrderLatency: 4
 	fastest:
 		Name: Fastest +3
-		Timestep: 20
+		Timestep: 25
 		OrderLatency: 6
+	ftl:
+		Name: FTL +4
+		Timestep: 20
+		OrderLatency: 7
 
 ColorValidator:
 	TeamColorPresets: f70606, ff7a22, f8d3b3, f8e947, b6f706, f335a0, a64d6c, ce08f9, f5b2db, 12b572, 380135, 1d06f7, 328dff, 78dbf8, cef6b1, 000000

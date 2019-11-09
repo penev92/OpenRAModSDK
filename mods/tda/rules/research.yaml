@@ -1,19 +1,31 @@
-RESEARCH_ADV_NUKE:
-	Tooltip:
-		Name: Advance Reactors
-	EditorOnlyTooltip:
-		Name: (unlock tech adv power)
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
+^ResearchBasic:
 	Buildable:
 		Queue: Research.Nod, Research.Nodda, Research.GDI
 		BuildPaletteOrder: 1
 		Prerequisites: anyhq
-		Description: Type:Research\nSubject:Power\nDescription: Allows the construction of advance power plants
+		Description: Description unavailable
 		BuildLimit: 1
 		IconPalette: ra2foricamos
+	Immobile:
+		OccupiesSpace: false
+	BodyOrientation:
+		QuantizedFacings: 1
+	AlwaysVisible:
+	Interactable:
+	OwnerLostAction:
+		Action: Dispose
+		Owner: Neutral
+
+RESEARCH_ADV_NUKE:
+	Inherits: ^ResearchBasic
+	Tooltip:
+		Name: Advance Reactors
+	EditorOnlyTooltip:
+		Name: (unlock tech adv power)
+	Buildable:
+		Queue: Research.Nod, Research.Nodda, Research.GDI
+		Prerequisites: anyhq
+		Description: Type:Research\nSubject:Power\nDescription: Allows the construction of advance power plants
 	Valued:
 		Cost: 500
 	RenderSprites:
@@ -22,44 +34,18 @@ RESEARCH_ADV_NUKE:
 			nod: re_advpower_icon_nod
 			nodda: re_advpower_icon_nod
 			gdi: re_advpower_icon_gdi
-	AlwaysVisible:
-	Interactable:
 	ProvidesPrerequisite@research_adv_nuke:
-	#camoUpgrade:
-	#	Inherits@1: ^ExistsInWorld
-	#	Inherits@2: ^UpgradesGlobal
-	#	Tooltip:
-	#		Name: Upgrade Camo
-	#		Description: Upgrade: Camo Net.\nAdd a camouflage net to this pillbox to hide it from enemy vision.
-	#	Buildable:
-	#		Queue: pillbox
-	#		BuildPaletteOrder: 40
-	#		Prerequisites: pbox
-	#	RenderSprites:
-	#		Image: ltnk
-	#SHarvrUpgrade:
-	#HardrHarvrUpgrade:
-	#AdvPowerUpgrade:
-	#IonCanUpgrade:
-	#TowMslHomveUpgrade:
-
 
 RESEARCH_STL_HARV:
+	Inherits: ^ResearchBasic
 	Tooltip:
 		Name: Stealth Generators
 	EditorOnlyTooltip:
 		Name: (unlock tech stealth harversters)
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
 	Buildable:
 		Queue: Research.Nod
-		BuildPaletteOrder: 1
 		Prerequisites: anyhq, !HarvesterTruce
 		Description: Type: Research.\nSubject: Stealth\nDescription: Allows the construction of stealth harversters\n Stealth harversters carry less tiberium
-		BuildLimit: 1
-		IconPalette: ra2foricamos
 	Valued:
 		Cost: 3000
 	RenderSprites:
@@ -68,26 +54,18 @@ RESEARCH_STL_HARV:
 			nod: re_stlhharver_icon_nod
 			nodda: re_stlhharver_icon_nod
 			gdi: re_stlhharver_icon_nod
-	AlwaysVisible:
-	Interactable:
 	ProvidesPrerequisite@research_stl_harv:
 
 RESEARCH_ARM_HARV:
+	Inherits: ^ResearchBasic
 	Tooltip:
 		Name: Tiberium Armor
 	EditorOnlyTooltip:
 		Name: (unlock tech armor harversters)
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
 	Buildable:
 		Queue: Research.GDI
-		BuildPaletteOrder: 1
 		Prerequisites: anyhq, !HarvesterTruce
 		Description: Type: Research.\nSubject: Armor\nDescription: A reactive armor powered by tiberium\nThat Allows the construction of heavy harversters\n Armored harversters move slower
-		BuildLimit: 1
-		IconPalette: ra2foricamos
 	Valued:
 		Cost: 2000
 	RenderSprites:
@@ -96,26 +74,18 @@ RESEARCH_ARM_HARV:
 			nod: re_armorharver_icon_gdi
 			nodda: re_armorharver_icon_gdi
 			gdi: re_armorharver_icon_gdi
-	AlwaysVisible:
-	Interactable:
 	ProvidesPrerequisite@research_arm_harv:
 
 RESEARCH_HUMVEE_TOW:
+	Inherits: ^ResearchBasic
 	Tooltip:
 		Name: TOW Missile System
 	EditorOnlyTooltip:
 		Name: (upgrade homve tow missile)
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
 	Buildable:
 		Queue: Research.GDI
-		BuildPaletteOrder: 1
 		Prerequisites: anyhq
 		Description: Type: Upgrade.\nSubject: Weapon System\nDescription: Equips humvees with tow missile system\nThat Allows humvees to fire missiles against tanks and vehicles
-		BuildLimit: 1
-		IconPalette: ra2foricamos
 	Valued:
 		Cost: 500
 	RenderSprites:
@@ -124,82 +94,18 @@ RESEARCH_HUMVEE_TOW:
 			nod: re_tow_icon_gdi
 			nodda: re_tow_icon_gdi
 			gdi: re_tow_icon_gdi
-	AlwaysVisible:
-	Interactable:
 	ProvidesPrerequisite@research_humvee_tow:
-	#RESEARCH_HEAVY_WEAPONS_NOD:
-	#	Tooltip:
-	#		Name: Direct Assault
-	#	EditorOnlyTooltip:
-	#		Name: (upgrade nod heavy weapons)
-	#	Immobile:
-	#		OccupiesSpace: false
-	#	BodyOrientation:
-	#		QuantizedFacings: 1
-	#	Buildable:
-	#		Queue: Research.Nod
-	#		BuildPaletteOrder: 1
-	#		Prerequisites: anyhq, ~!research_stlh_weapons_nod
-	#		Description:Type: Doctrine.\nSubject: Weapons\nDescription: Select this doctrine to authorize the use of\nHeavy Tanks, Demo Trucks and Artilery Strike.\n\nWARNING this will disable spies, vehicle airdrop and stealth technology!
-	#		BuildLimit: 1
-	#		IconPalette: ra2foricamos
-	#	Valued:
-	#		Cost: 1500
-	#	RenderSprites:
-	#		Image: re_mil_doctrine1_icon_nod
-	#		FactionImages:
-	#			nod: re_mil_doctrine1_icon_nod
-	#			nodda: re_mil_doctrine1_icon_nod
-	#			gdi: re_mil_doctrine1_icon_nod
-	#	AlwaysVisible:
-	#	Interactable:
-	#	ProvidesPrerequisite@research_heavy_weapons_nod:
-	#RESEARCH_STLH_WEAPONS_NOD:
-	#	Tooltip:
-	#		Name: Guerrilla Warfare
-	#	EditorOnlyTooltip:
-	#		Name: (upgrade nod stealth weapons)
-	#	Immobile:
-	#		OccupiesSpace: false
-	#	BodyOrientation:
-	#		QuantizedFacings: 1
-	#	Buildable:
-	#		Queue: Research.Nod
-	#		BuildPaletteOrder: 1
-	#		Prerequisites: anyhq, ~!research_heavy_weapons_nod
-	#		Description:Type: Doctrine.\nSubject: Weapons\nDescription: Select this doctrine to authorize the use of\nStealth Tanks, Spies, Stealth harversters and vehicle airdrop.\n\nWARNING this will disable Heavy Tanks, Demo Trucks and Artilery Strike!
-	#		BuildLimit: 1
-	#		IconPalette: ra2foricamos
-	#	Valued:
-	#		Cost: 1500
-	#	RenderSprites:
-	#		Image: re_mil_doctrine2_icon_nod
-	#		FactionImages:
-	#			nod: re_mil_doctrine2_icon_nod
-	#			nodda: re_mil_doctrine2_icon_nod
-	#			gdi: re_mil_doctrine2_icon_nod
-	#	AlwaysVisible:
-	#	Interactable:
-	#	ProvidesPrerequisite@research_stlh_weapons_nod:
-
-
 
 RESEARCH_BIO_NOD:
+	Inherits: ^ResearchBasic
 	Tooltip:
 		Name: Biohazard Weaponry
 	EditorOnlyTooltip:
 		Name: (upgrade nod Biohazard weaponry)
-	Immobile:
-		OccupiesSpace: false
-	BodyOrientation:
-		QuantizedFacings: 1
 	Buildable:
 		Queue: Research.Nod, Research.Nodda
-		BuildPaletteOrder: 1
 		Prerequisites: anyhq
 		Description: Type: Doctrine.\nSubject: Weapons\nDescription: Select this doctrine to authorize the use of\nChem Tanks, Chem troopers, Chem Tower .\n\nWARNING Chem Tower upgrade will only work with "Direct Assault" doctrine.
-		BuildLimit: 1
-		IconPalette: ra2foricamos
 	Valued:
 		Cost: 2000
 	RenderSprites:
@@ -208,6 +114,12 @@ RESEARCH_BIO_NOD:
 			nod: re_bio_icon_nod
 			nodda: re_bio_icon_nod
 			gdi: re_bio_icon_nod
-	AlwaysVisible:
-	Interactable:
 	ProvidesPrerequisite@research_bio_nod:
+
+
+#ToDo
+#SHarvrUpgrade:
+#HardrHarvrUpgrade:
+#AdvPowerUpgrade:
+#IonCanUpgrade:
+#TowMslHomveUpgrade:

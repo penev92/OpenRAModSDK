@@ -89,7 +89,7 @@
 
 
 ^Viceroid:
-	Inherits@1: ^ExistsInWorld
+	Inherits@1: ^CombatUnit
 	Inherits@2: ^SpriteActor
 	Huntable:
 	ConditionManager:
@@ -106,7 +106,6 @@
 		Locomotor: chem
 		Speed: 71
 	SelectionDecorations:
-	WithSpriteControlGroupDecoration:
 	Selectable:
 		Bounds: 24,24
 	Targetable:

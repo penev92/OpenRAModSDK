@@ -184,6 +184,7 @@ WEAP:
 	WithBuildingBib:
 	WithProductionDoorOverlay:
 		Sequence: build-top
+		RequiresCondition: !build-incomplete
 	RallyPoint:
 		Offset: 0,2
 	Exit@1:
@@ -222,6 +223,30 @@ WEAP:
 		ReferencePoint: Right, Top
 		RequiresCondition: machine_shop_repair
 		RequiresSelection: True
+
+SHIPYARD_GDI:
+	Inherits: ^WaterBuilding
+	Tooltip:
+		Name: GDI Naval Yard
+	Buildable:
+		BuildPaletteOrder: 40
+		Queue: Building.GDI
+		Prerequisites: ~anyhq, ~techlevel.high
+		Description: Produces and repairs\nNeval units.
+	ProductionQueue@GDIShip:
+		Type: Ship.GDI
+		Factions: gdi
+		Group: Ship
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@ShipGDI:
+		ProductionType: Ship.GDI
+	ProvidesPrerequisite@buildingname:
 
 HQ_GDI:
 	Inherits@radar: HQ
@@ -487,6 +512,7 @@ ATWR:
 		LocalOffset: 256,128,0, 256,-128,0
 		LocalYaw: -100,100
 	AttackTurreted:
+		RequiresCondition: !build-incomplete
 		PauseOnCondition: disabled
 	BodyOrientation:
 		QuantizedFacings: 8
@@ -850,50 +876,6 @@ MNLYGDI:
 	Explodes:
 		Weapon: APMine
 
-MRJ:
-	Inherits: ^VehicleWithoutVeterancy
-	Inherits@CLOAK: ^AcceptsCloakCrate
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Mobile Radar Jammer
-	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~miss_gdi, ~techlevel.high
-		Queue: Vehicle.GDI
-		BuildDurationModifier: 40
-		Description: Jams nearby enemy radar\nand deflects incoming missiles.\nCan detect cloaked units.\n  Unarmed
-	Health:
-		HP: 220
-	Armor:
-		Type: Heavy
-	Mobile:
-		Speed: 85
-	RevealsShroud:
-		Range: 7c0
-	WithIdleOverlay@SPINNER:
-		Sequence: spinner
-		Offset: -256,0,256
-	ProximityExternalCondition@JAMMER:
-		Range: 18c0
-		ValidStances: Enemy, Neutral
-		Condition: jammed
-	WithRangeCircle@JAMMER:
-		Type: jammer
-		Range: 18c0
-		Color: 0000FF80
-	JamsMissiles:
-		Range: 5c0
-		DeflectionStances: Neutral, Enemy
-	RenderJammerCircle:
-	DetectCloaked:
-		Range: 7c0
-	RenderSprites:
-		Image: mhq
-	-ProducibleWithLevel:
-	#Guard:
-	#reserved for fake weapon
-
 #############
 #Sub-faction#
 #############
@@ -995,6 +977,91 @@ E2:
 		FireDelay: 15
 	SoundOnDamageTransition:
 		DamagedSounds: inftakingfire1.wav, inftakingfire2.wav, inftakingfire3.wav, inftakingfire4.wav
+
+MEDI:
+	Inherits@1: ^Infantry
+	Inherits@2: ^Doctor
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry.GDI
+		BuildPaletteOrder: 40
+		Description: Heals nearby infantry.\n  Unarmed
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Medic
+	Health:
+		HP: 25
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		PipType: Blue
+		Voice: Action
+	Armament:
+		Weapon: Heal
+		Cursor: heal
+		OutsideRangeCursor: heal
+		TargetStances: Ally
+		ForceTargetStances: Ally
+	AutoTarget:
+	AttackFrontal:
+	WithInfantryBody:
+		DefaultAttackSequence: heal
+		StandSequences: stand
+	Voiced:
+		VoiceSet: MedicVoice
+	TakeCover:
+		DamageModifiers:
+			Prone50Percent: 50
+		DamageTriggers: TriggerProne
+	Mobile:
+		Speed: 56
+	Guard:
+		Voice: Action
+
+MECH:
+	Inherits: ^Infantry
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@CapMan: ^CaptureManager
+	GrantCondition@CapturesHusk:
+		Condition: CapturesHusk
+	Buildable:
+		Queue: Infantry.GDI
+		BuildPaletteOrder: 40
+		Prerequisites: ~anyfix, ~techlevel.medium
+		Description: Repairs nearby vehicles and restores\nhusks to working condition by capturing them.\n  Unarmed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Mechanic
+	Health:
+		HP: 25
+	Mobile:
+		Voice: Move
+		Speed: 56
+	RevealsShroud:
+		Range: 3c0
+	Passenger:
+		PipType: Blue
+		Voice: Move
+	AutoTarget:
+	Armament:
+		Weapon: Repair
+		Cursor: repair
+		OutsideRangeCursor: repair
+		TargetStances: Ally
+		ForceTargetStances: None
+	AttackFrontal:
+		Voice: Move
+	WithInfantryBody:
+		DefaultAttackSequence: repair
+		StandSequences: stand
+	Voiced:
+		VoiceSet: MechanicVoice
+	ProducibleWithLevel:
+		Prerequisites: vehicles.upgraded
+	MustBeDestroyed:
+		RequiredForShortGame: true
 
 #############
 #Sub-faction#

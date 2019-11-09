@@ -119,7 +119,7 @@ CRATE.plain:
 	ScriptTriggers:
 
 TibShimmering:
-	Inherits@1: ^ExistsInWorld
+	Inherits@1: ^CombatUnit
 	Inherits@2: ^SpriteActor
 	ConditionManager:
 	Interactable:

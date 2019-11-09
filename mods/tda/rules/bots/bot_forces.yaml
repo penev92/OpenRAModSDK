@@ -1013,3 +1013,187 @@ Player:
 	#=====================================================================================================================================
 	#[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 	#=====================================================================================================================================
+
+	BaseBuilderBotModule@8:
+		RequiresCondition: enable-8-bot
+		BuildingQueues: Building.Nod,Building.Nodda,Building.GDI
+		DefenseQueues: Defence.Nod,Defence.Nodda,Defence.GDI
+		MinimumExcessPower: 1
+		MaximumExcessPower: 5
+		ExcessPowerIncrement: 10
+		ExcessPowerIncreaseThreshold: 1
+		MaxResourceCellsToCheck: 10
+		NewProductionCashThreshold: 3500
+		MaximumFailedPlacementAttempts: 1
+		MaxBaseRadius: 20
+		ConstructionYardTypes: fact,pylesole,handsole,outpost,fact.nod
+		RefineryTypes: proc, ref_turbo_on, ref_turbo_off
+		PowerTypes: nuke,nuk2,nuke_nod,nuk2_nod,nuke_gdi,nuk2_gdi
+		BarracksTypes: pyle,hand,pylesole,handsole
+		VehiclesFactoryTypes: weap,afld
+		ProductionTypes: pyle,hand,weap,afld,hpad,afldra,pylesole,handsole,hq,hq_gdi,hq_nod_gw,hq_nod_da
+		SiloTypes: silo
+		BuildingFractions:
+			proc: 100
+			ref_turbo_on: 100
+			ref_turbo_off: 100
+			silo: 10
+			tgd: 1
+			nuke: 10
+			nuk2: 10
+			nuke_nod: 10
+			nuk2_nod: 10
+			nuke_gdi: 10
+			nuk2_gdi: 10
+			pyle: 20
+			hand: 20
+			weap: 30
+			afld: 30
+			fix: 20
+			fix_nod: 20
+			hq: 40
+			hq_gdi:40
+			hq_nod_gw: 40
+			hq_nod_da: 40
+			hpad: 25
+			afldra: 25
+			miss_gdi: 50
+			miss_nod: 50
+			gun: 10
+			gtwr: 10
+			atwr: 50
+			obli: 50
+			pbox: 10
+			ftur: 10
+			ctur: 10
+			sam: 30
+			eye: 100
+			tmpl: 100
+			brik.bot: 900
+			vgate.bot: 900
+			hgate.bot: 900
+		BuildingLimits:
+			proc: 3
+			ref_turbo_on: 3
+			ref_turbo_off: 3
+			silo: 5
+			tgd: 1
+			nuke: 100
+			nuk2: 100
+			nuke_nod: 100
+			nuk2_nod: 100
+			nuke_gdi: 100
+			nuk2_gdi: 100
+			pyle: 1
+			hand: 1
+			weap: 5
+			afld: 5
+			fix: 1
+			fix_nod: 1
+			hq: 1
+			hq_gdi:1
+			hq_nod_gw: 1
+			hq_nod_da: 1
+			hpad: 6
+			afldra: 6
+			miss_gdi: 2
+			miss_nod: 2
+			gun: 3
+			gtwr: 5
+			atwr: 10
+			obli: 5
+			pbox: 5
+			ftur: 5
+			ctur: 5
+			sam: 5
+			eye: 1
+			tmpl: 1
+			brik.bot: 1000
+			vgate.bot: 1000
+			hgate.bot: 1000
+		BuildingDelays:
+			tgd: 1500
+    UnitBuilderBotModule@8:
+        RequiresCondition: enable-8-bot
+        UnitQueues: Vehicle.Nod,Vehicle.Nodda,Vehicle.GDI,Infantry.Nod,Infantry.Nodda,Infantry.GDI,Aircraft.Nod, Aircraft.GDI,Aircraft.Nodda,Research.Nod,Research.GDI
+		IdleBaseUnitsMaximum: 10
+        UnitsToBuild:
+			harv: 100
+			harv_boost_on: 100
+			harv_boost_off: 100
+			research_adv_nuke: 90
+			research_stl_harv: 90
+			research_arm_harv: 20
+			research_humvee_tow: 80
+			research_bio_nod: 50
+			mcv: 1
+			mov: 1
+			e1: 1
+			e2: 1
+			e3: 1
+			e4: 1
+			e5: 1
+			e6: 1
+			medi: 1
+			mech: 1
+			sniper: 1
+			rmbo: 1
+			mrj: 1
+			bggy: 0
+			bike: 0
+			apc: 0
+			ltnk: 0
+			ftnk: 1
+			ctnk: 60
+			arty: 10
+			stnk: 0
+			jeep: 0
+			mtnk: 0
+			3tnk: 20
+			msam: 10
+			htnk: 60
+			heli: 1
+			orca: 1
+			f22: 1
+        UnitLimits:
+			harv: 5
+			harv_boost_on: 5
+			harv_boost_off: 5
+			research_adv_nuke: 1
+			research_stl_harv: 1
+			research_arm_harv: 1
+			research_humvee_tow: 1
+			research_bio_nod: 1
+			mcv: 1
+			mov: 1
+			e1: 1
+			e2: 1
+			e3: 10
+			e4: 10
+			e5: 10
+			e6: 1
+			medi: 5
+			mech: 5
+			sniper: 3
+			rmbo: 1
+			mrj: 1
+			bggy: 0
+			bike: 0
+			apc: 0
+			ltnk: 0
+			ftnk: 5
+			ctnk: 10
+			stnk: 2
+			jeep: 0
+			mtnk: 5
+			3tnk: 10
+			msam: 5
+			arty: 5
+			htnk: 10
+			heli: 6
+			f22: 6
+			orca: 6
+	SquadManagerBotModule@8:
+		RequiresCondition: enable-8-bot
+		ExcludeFromSquadsTypes: mcv, harv, harv_boost_on, harv_boost_off, mov, e6, mech, medi, specops, truk, mrj
+		SquadSize: 30

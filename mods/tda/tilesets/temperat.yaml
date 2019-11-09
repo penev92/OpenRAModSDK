@@ -81,6 +81,17 @@ Terrain:
 		Color: 5DA5CE
 		RestrictPlayerColor: true
 
+	TerrainType@BotBase_Wall:
+		Type: BotBase_Wall
+		TargetTypes: Ground
+		Color: FFFFFF
+		RestrictPlayerColor: true
+	TerrainType@BotBase_Gate:
+		Type: BotBase_Gate
+		TargetTypes: Ground
+		Color: FFFFFF
+		RestrictPlayerColor: true
+
 Templates:
 	Template@255:
 		Id: 255
@@ -2309,3 +2320,50 @@ Templates:
 		Tiles:
 			0: RedTibTreeTerrain
 			1: RedTibTreeTerrain
+
+	Template@BotBase_Wall:
+		Id: 6000
+		Images: clear1.tem
+		Size: 1,1
+		PickAny: True
+		Categories: Bot Base Plan
+		Tiles:
+			0: BotBase_Wall
+			1: BotBase_Wall
+			2: BotBase_Wall
+			3: BotBase_Wall
+			4: BotBase_Wall
+			5: BotBase_Wall
+			6: BotBase_Wall
+			7: BotBase_Wall
+			8: BotBase_Wall
+			9: BotBase_Wall
+			10: BotBase_Wall
+			11: BotBase_Wall
+			12: BotBase_Wall
+			13: BotBase_Wall
+			14: BotBase_Wall
+			15: BotBase_Wall
+	Template@BotBase_Gate:
+		Id: 6001
+		Images: clear1.tem
+		Size: 1,1
+		PickAny: True
+		Categories: Bot Base Plan
+		Tiles:
+			0: BotBase_Gate
+			1: BotBase_Gate
+			2: BotBase_Gate
+			3: BotBase_Gate
+			4: BotBase_Gate
+			5: BotBase_Gate
+			6: BotBase_Gate
+			7: BotBase_Gate
+			8: BotBase_Gate
+			9: BotBase_Gate
+			10: BotBase_Gate
+			11: BotBase_Gate
+			12: BotBase_Gate
+			13: BotBase_Gate
+			14: BotBase_Gate
+			15: BotBase_Gate

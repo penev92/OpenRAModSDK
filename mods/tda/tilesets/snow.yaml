@@ -1,7 +1,7 @@
 General:
 	Name: Snow
 	Id: SNOW
-	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Beach, River, Bridge, System (do Not Use)
+	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Water Cliffs, Beach, River, Bridge, System (do Not Use)
 	HeightDebugColors: 880000
 
 Terrain:
@@ -14,24 +14,6 @@ Terrain:
 		TargetTypes: Ground, Bridge
 		AcceptsSmudgeType: Crater, Scorch
 		Color: 606060
-	TerrainType@Tiberium:
-		Type: Tiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: A1E21C
-		RestrictPlayerColor: true
-	TerrainType@BlueTiberium:
-		Type: BlueTiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: 54FCFC
-		RestrictPlayerColor: true
-	TerrainType@RedTiberium:
-		Type: RedTiberium
-		TargetTypes: Ground
-		AcceptsSmudgeType: Crater, Scorch
-		Color: f43b26
-		RestrictPlayerColor: true
 	TerrainType@Clear:
 		Type: Clear
 		TargetTypes: Ground
@@ -69,6 +51,24 @@ Terrain:
 		Type: Water
 		TargetTypes: Water
 		Color: 5C74A4
+		RestrictPlayerColor: true
+	TerrainType@Tiberium:
+		Type: Tiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: A1E21C
+		RestrictPlayerColor: true
+	TerrainType@BlueTiberium:
+		Type: BlueTiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: 54FCFC
+		RestrictPlayerColor: true
+	TerrainType@RedTiberium:
+		Type: RedTiberium
+		TargetTypes: Ground
+		AcceptsSmudgeType: Crater, Scorch
+		Color: f43b26
 		RestrictPlayerColor: true
 	TerrainType@GreenTibTreeTerrain:
 		Type: GreenTibTreeTerrain
@@ -3507,9 +3507,10 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+
 	Template@GreenTibTreeTerrain:
-		Palette: snowRA
 		Id: 5001
+		Palette: snowRA
 		Images: clear1.sno
 		Size: 1,1
 		PickAny: True
@@ -3518,8 +3519,8 @@ Templates:
 			0: GreenTibTreeTerrain
 			1: GreenTibTreeTerrain
 	Template@BlueTibTreeTerrain:
-		Palette: snowRA
 		Id: 5002
+		Palette: snowRA
 		Images: clear1.sno
 		Size: 1,1
 		PickAny: True
@@ -3528,8 +3529,8 @@ Templates:
 			0: BlueTibTreeTerrain
 			1: BlueTibTreeTerrain
 	Template@RedTibTreeTerrain:
-		Palette: snowRA
 		Id: 5003
+		Palette: snowRA
 		Images: clear1.sno
 		Size: 1,1
 		PickAny: True

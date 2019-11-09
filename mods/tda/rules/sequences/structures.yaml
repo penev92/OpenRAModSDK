@@ -619,6 +619,9 @@ tmpl:
 	damaged-active:
 		Start: 5
 		Length: 5
+	smoke: atomdoor
+		Length: *
+		Offset: -1,-47
 	dead:
 		Start: 10
 		Tick: 800

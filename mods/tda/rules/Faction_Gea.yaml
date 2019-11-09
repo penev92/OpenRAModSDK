@@ -533,6 +533,7 @@ VICE:
 #											Airforce														#
 #############################################################################################################
 #ToDo: again bridges do not fly...OR DO THEY!?!? oO
+#Note: RA snow terrain uses the TD templetes as bridge, therefor RAsnow maps will use cliffs as TD bridge logic. This needs fix.
 BRIDGE1:
 	Inherits: ^Bridge
 	Bridge:
@@ -618,8 +619,21 @@ BRIDGEHUT:
 	Building:
 		Footprint: __ __
 		Dimensions: 2,2
+	Selectable:
+		Bounds: 48,48
+		Priority: 2
 	LegacyBridgeHut:
 	Targetable:
 		TargetTypes: BridgeHut, C4
-	Interactable:
-		Bounds: 48,48
+
+BRIDGEHUT.small:
+	AlwaysVisible:
+	Building:
+		Footprint: _
+		Dimensions: 1,1
+	Selectable:
+		Bounds: 24,24
+		Priority: 2
+	LegacyBridgeHut:
+	Targetable:
+		TargetTypes: BridgeHut, C4

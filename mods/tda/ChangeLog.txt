@@ -1,3 +1,4 @@
+159:
 Balance: Units under attacked by flame or chem weapons won't go in to prone any more (if a flamethrower is firing at you, going in to prone wont help you, because you will be dead by then, and the same thing with bio weapons).
 Visual: Removed ammo pip from sam site.
 Balance: Seperated power plants for each faction.
@@ -21,7 +22,7 @@ Added: 8 new dificulties for bots. Tutor, Very Easy, Easy, Normal, Hard, Very Ha
 Added: 6 Missing Ford (crossing) tiles in temperat tileset, After painfully converting, cuting, color changing them one by one :'(
 Added: A new Category for tiles that are being used as dummy tiles. The new Category name is: System (do Not Use).
 Fixed: The following don't use terrain palette any more: Crates, ^TibTree, ^Wall, ^TechBuilding, ^DINO
-Added: Imported the full snow tileset from RA, you will ask why not do that for the rest of the tilesets? well have you ever notice why RA terrain color is so.. lets say cold? well if you take a look at the palettes, RA uses less colors for terrain, but TD uses more colors for terrain and that means TD terrain is more colorfull. Since snow comes from RA palette, even if you replace the palette with the TD one(using a program), you will still get an approximation with the same "less" colors, so its the same thing. Not sure if people know about this, I call this the ELoyrianTDcolorPalette Effect!
+Added: Imported the full snow tileset from RA, you will ask why not do that for the rest of the tilesets? well have you ever notice why RA terrain color is so.. lets say cold? well if you take a look at the palettes, RA uses less colors for terrain, but TD uses more colors for terrain and that means TD terrain is more colorfull. Since snow comes from RA palette, even if you replace the palette with the TD one(using a program), you will still get an approximation with the same "less" colors, so its the same thing. Not sure how many people know about this.
 Added: Power down hotkey.
 Balance: Oil Derrick no longer can be repaired after they are destroyed.
 Balance: Oil Derrick now gives $500 and only to the first player who captures it.
@@ -33,4 +34,5 @@ Fixed: spec ops unit's spreed damage, now the damage area of effect is 0c1.
 Balance: Defences or Defenses are no longer capturable.
 Added: You can sent supply trucks to enemy players by using ctrl and click.
 Engine: Updated repair\healing logic to a working contidion again.
-
+Added: AI units are trained with Rank based on thier dificulty, starting from AI Level 5
+Added: New Speed option called FTL

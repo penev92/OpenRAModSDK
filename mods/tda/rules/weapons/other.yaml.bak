@@ -1,0 +1,147 @@
+FlameLauncher:
+	Inherits@DefaultWeapon: ^FireWeaponRA
+	Burst: 2
+	BurstDelays: 20
+	Projectile: Bullet
+		Speed: 250
+		TrailImage: rafb2
+		Image: RAFB1
+
+ChemLauncher:
+	Inherits@DefaultWeapon: ^ChemWeaponRA
+	Inherits@Chem: ^GrantExternalConditionWarhead
+	Burst: 2
+	BurstDelays: 20
+	Projectile: Bullet
+		Speed: 250
+		TrailImage: racb2
+		Image: RACB1
+
+FlamethrowerL:
+	ValidTargets: Ground, Trees
+	ReloadDelay: 50
+	Range: 3c512
+	InvalidTargets: Wall
+	Report: flamer2.aud
+	Projectile: Bullet
+		Speed: 341
+	Burst: 2
+	BurstDelay: 25
+	Warhead@1Dam: SpreadDamage
+		Spread: 400
+		Damage: 75
+		InvalidTargets: Wall
+		ValidTargets: Ground, Trees
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 25
+		DamageTypes: FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: med_napalm
+		ImpactSounds: flamer2.aud
+
+Flamethrower:
+	ValidTargets: Ground, Trees
+	ReloadDelay: 55
+	Range: 2c512
+	InvalidTargets: Wall
+	Report: flamer2.aud
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 40
+		ValidTargets: Ground, Trees
+		InvalidTargets: Wall
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 20
+		DamageTypes: FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: small_napalm
+		ImpactSounds: flamer2.aud
+
+ChemsprayL:
+	Inherits@Chem: ^GrantExternalConditionWarhead
+	ReloadDelay: 50
+	Range: 3c512
+	Report: flamer2.aud
+	Projectile: Bullet
+		Speed: 1c682
+	ValidTargets: Ground
+	InvalidTargets: Wall
+	Burst: 2
+	BurstDelay: 25
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 95
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 100
+		DamageTypes: TiberiumDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: chemball
+		ImpactSounds: xplos.aud
+
+Chemspray:
+	Inherits@Chem: ^GrantExternalConditionWarhead
+	ReloadDelay: 65
+	Range: 3c0
+	Report: flamer2.aud
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 80
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 100
+		DamageTypes: TiberiumDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+	Warhead@3Eff: CreateEffect
+		Explosions: chemball
+		ImpactSounds: xplos.aud
+
+Laser:
+	ReloadDelay: 1
+	Range: 10c0
+	Report: obelray1.aud
+	Projectile: LaserZap
+		Width: 43
+		ZOffset: 2048
+		Color: FF0000A0
+		Duration: 15
+		SecondaryBeamWidth: 213
+		SecondaryBeamColor: FF000048
+		SecondaryBeamZOffset: 2048
+		HitAnim: explosion
+		HitAnimSequence: flash3
+		HitAnimPalette: alpha
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 380
+		Versus:
+			Wood: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep

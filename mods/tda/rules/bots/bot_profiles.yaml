@@ -41,7 +41,7 @@ Player:
 	GrantConditionOnBotOwner@7:
 		Condition: enable-7-bot
 		Bots: 7
-	ModularBot@87:
+	ModularBot@8:
 		Name: (8) Nightmare
 		Type: 8
 	GrantConditionOnBotOwner@8:
