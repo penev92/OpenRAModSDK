@@ -1873,7 +1873,6 @@ OSPREY.delivery:
 		CruiseAltitude: 2160
 		CanHover: true
 		AirborneCondition: airborne
-	FlyAwayOnIdle:
 	RenderSprites:
 		PlayerPalette: playerRA
 		Image: osprey

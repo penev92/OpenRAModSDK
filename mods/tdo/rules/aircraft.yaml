@@ -83,13 +83,7 @@ HELI:
 		Range: 0c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: HeliAGGun
-		LocalOffset: 128,-213,-85, 128,213,-85
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: HeliAAGun
+		Weapon: Chaingun
 		LocalOffset: 128,-213,-85, 128,213,-85
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo
@@ -144,12 +138,12 @@ ORCA:
 		Range: 0c0
 		Type: GroundPosition
 	Armament@PRIMARY:
-		Weapon: OrcaAGMissiles
+		Weapon: Rocket
 		LocalOffset: 427,-171,-213, 427,171,-213
 		PauseOnCondition: !ammo
 		RequiresCondition: !PUTSUXEnabled
 	Armament@SECONDARY:
-		Weapon: OrcaAAMissiles
+		Weapon: Rocket
 		LocalOffset: 427,-171,-213, 427,171,-213
 		PauseOnCondition: !ammo
 		RequiresCondition: !PUTSUXEnabled

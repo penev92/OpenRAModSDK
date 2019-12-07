@@ -15,6 +15,63 @@ PVICE:
 		AddToArmyValue: true
 	ActorLostNotification:
 
+^Viceroid:
+	Inherits@1: ^ExistsInWorld
+	Inherits@2: ^SpriteActor
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Huntable:
+	Health:
+		HP: 1500
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Mobile:
+		Voice: Move
+		Speed: 90
+		Locomotor: critter
+	SelectionDecorations:
+	WithSpriteControlGroupDecoration:
+	Selectable:
+		Bounds: 24,24
+	Targetable:
+		TargetTypes: Ground, Creep
+	AutoTarget:
+		ScanRadius: 3
+	AttackMove:
+		Voice: Attack
+	DrawLineToTarget:
+	HiddenUnderFog:
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Visceroid
+	Armament:
+		Weapon: ChemSpray
+		LocalOffset: 384,0,0
+		MuzzleSequence: muzzle
+	AttackFrontal:
+		Voice: Attack
+	BodyOrientation:
+		QuantizedFacings: 8
+	WithSpriteBody:
+	WithMuzzleOverlay:
+	Guard:
+		Voice: Move
+	Guardable:
+	DamagedByTerrain:
+		Damage: -100
+		DamageInterval: 4
+		DamageTypes: TiberiumDeath
+		Terrain: Tiberium, BlueTiberium
+	Voiced:
+		VoiceSet: DinoVoice
+	HitShape:
+		Type: Circle
+			Radius: 427
+	MapEditorData:
+		Categories: Critter
+
 FTNK:
 	Inherits: ^Tank
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -45,7 +102,7 @@ FTNK:
 	RevealsShroud:
 		Range: 4c0
 	Armament:
-		Weapon: BigFlamer
+		Weapon: TankFlamer
 		LocalOffset: 512,128,42, 512,-128,42
 		MuzzleSequence: muzzle
 	AttackFrontal:
@@ -96,7 +153,7 @@ STNK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
 	Armament:
-		Weapon: 227mm.stnk
+		Weapon: Rocket
 		LocalOffset: 213,43,128, 213,-43,128
 	AttackFrontal:
 	AutoTarget:
@@ -141,7 +198,7 @@ LTNK:
 	Turreted:
 		TurnSpeed: 7
 	Armament:
-		Weapon: 70mm
+		Weapon: LightCannon
 		Recoil: 85
 		RecoilRecovery: 17
 		LocalOffset: 720,0,90
@@ -185,7 +242,7 @@ MTNK:
 	Turreted:
 		TurnSpeed: 5
 	Armament:
-		Weapon: 120mm
+		Weapon: MediumCannon
 		Recoil: 128
 		RecoilRecovery: 26
 		LocalOffset: 768,0,90
@@ -234,14 +291,14 @@ HTNK:
 	Turreted:
 		TurnSpeed: 3
 	Armament@PRIMARY:
-		Weapon: 120mmDual
+		Weapon: HeavyCannon
 		LocalOffset: 900,180,340, 900,-180,340
 		Recoil: 170
 		RecoilRecovery: 42
 		MuzzleSequence: muzzle
 	Armament@SECONDARY:
 		Name: secondary
-		Weapon: MammothMissiles
+		Weapon: MammothTusk
 		LocalOffset: -85,384,340, -85,-384,340
 		LocalYaw: -100, 100
 		Recoil: 10
@@ -321,7 +378,7 @@ MLRS:
 		Offset: -128,0,128
 		RealignDelay: 0
 	Armament:
-		Weapon: Patriot
+		Weapon: HonestJohn
 		LocalOffset: 0,-171,0, 0,171,0
 	AmmoPool:
 		Ammo: 2
@@ -547,7 +604,7 @@ JEEP:
 		TurnSpeed: 10
 		Offset: -85,0,128
 	Armament:
-		Weapon: MachineGunH
+		Weapon: Machinegun
 		LocalOffset: 171,0,85
 		MuzzleSequence: muzzle
 	AttackTurreted:
@@ -590,7 +647,7 @@ BGGY:
 		TurnSpeed: 10
 		Offset: -43,0,128
 	Armament:
-		Weapon: MachineGun
+		Weapon: Machinegun
 		LocalOffset: 171,0,43
 		MuzzleSequence: muzzle
 	AttackTurreted:
@@ -631,7 +688,7 @@ BIKE:
 	RevealsShroud:
 		Range: 2c0
 	Armament:
-		Weapon: BikeRockets
+		Weapon: Rocket
 		LocalOffset: -128, -170, 170, -128, 170, 170
 		LocalYaw: 100, -100
 	AttackFrontal:
@@ -672,11 +729,11 @@ MSAM:
 		TurnSpeed: 255
 		Offset: -256,0,128
 	Armament@PRIMARY:
-		Weapon: 227mm
+		Weapon: MLRSMissile
 		LocalOffset: 213,128,0, 213,-128,0
 	Armament@SECONDARY:
 		Name: secondary
-		Weapon: 227mm
+		Weapon: MLRSMissile
 		LocalOffset: 213,-128,0, 213,128,0
 	AttackFrontal:
 		TargetFrozenActors: True
@@ -732,7 +789,7 @@ APC:
 	RevealsShroud:
 		Range: 4c0
 	Armament:
-		Weapon: MachineGun
+		Weapon: Machinegun
 		LocalOffset: 85,0,171
 		MuzzleSequence: muzzle
 	AttackFrontal:

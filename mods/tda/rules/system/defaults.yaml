@@ -228,7 +228,7 @@
 	Targetable:
 		TargetTypes: Ground, Vehicle, Repair
 	Repairable:
-		RepairBuildings: fix_gdi, fix_nod
+		RepairActors: fix_gdi, fix_nod
 	Passenger:
 		CargoType: Vehicle
 		Weight: 5
@@ -326,7 +326,6 @@
 		RequiresCondition: airborne
 	Voiced:
 		VoiceSet: VehicleVoice
-	ReturnOnIdle:
 	AutoTarget:
 		InitialStance: HoldFire
 		InitialStanceAI: HoldFire
@@ -345,7 +344,6 @@
 		Offset: 43, 128, 0
 		ZOffset: -129
 	WithFacingSpriteBody:
-	FlyAwayOnIdle:
 	RejectsOrders:
 	Aircraft:
 		CruiseAltitude: 2560

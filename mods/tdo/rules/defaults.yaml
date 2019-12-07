@@ -263,6 +263,7 @@
 	Targetable:
 		TargetTypes: Ground, Vehicle
 	Repairable:
+		RepairActors: fix
 	Passenger:
 		CargoType: Vehicle
 	ActorLostNotification:
@@ -317,7 +318,7 @@
 	Selectable:
 		Bounds: 24,24
 	Repairable:
-		RepairBuildings: hpad
+		RepairActors: hpad
 	Aircraft:
 		LandWhenIdle: true
 		AirborneCondition: airborne
@@ -582,63 +583,6 @@
 	MapEditorData:
 		Categories: Critter
 
-^Viceroid:
-	Inherits@1: ^ExistsInWorld
-	Inherits@2: ^SpriteActor
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Huntable:
-	Health:
-		HP: 1500
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		Range: 4c0
-	Mobile:
-		Voice: Move
-		Speed: 90
-		Locomotor: critter
-	SelectionDecorations:
-	WithSpriteControlGroupDecoration:
-	Selectable:
-		Bounds: 24,24
-	Targetable:
-		TargetTypes: Ground, Creep
-	AutoTarget:
-		ScanRadius: 3
-	AttackMove:
-		Voice: Attack
-	DrawLineToTarget:
-	HiddenUnderFog:
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Visceroid
-	Armament:
-		Weapon: Chemspray
-		LocalOffset: 384,0,0
-		MuzzleSequence: muzzle
-	AttackFrontal:
-		Voice: Attack
-	BodyOrientation:
-		QuantizedFacings: 8
-	WithSpriteBody:
-	WithMuzzleOverlay:
-	Guard:
-		Voice: Move
-	Guardable:
-	DamagedByTerrain:
-		Damage: -100
-		DamageInterval: 4
-		DamageTypes: TiberiumDeath
-		Terrain: Tiberium, BlueTiberium
-	Voiced:
-		VoiceSet: DinoVoice
-	HitShape:
-		Type: Circle
-			Radius: 427
-	MapEditorData:
-		Categories: Critter
-
 ^Plane:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
@@ -656,7 +600,6 @@
 		Offset: 43, 128, 0
 		ZOffset: -129
 	WithFacingSpriteBody:
-	FlyAwayOnIdle:
 	RejectsOrders:
 	Aircraft:
 		CruiseAltitude: 2560

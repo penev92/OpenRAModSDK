@@ -149,6 +149,8 @@ ChromeLayout:
 	tda|chrome/color-picker.yaml
 	tda|chrome/mapchooser.yaml
 	tda|chrome/replaybrowser.yaml
+	tda|chrome/gamesave-browser.yaml
+	tda|chrome/gamesave-loading.yaml
 	tda|chrome/ingame.yaml
 	tda|chrome/ingame-chat.yaml
 	tda|chrome/ingame-menu.yaml
@@ -160,6 +162,7 @@ ChromeLayout:
 	tda|chrome/ingame-infoobjectives.yaml
 	tda|chrome/ingame-infostats.yaml
 	tda|chrome/ingame-observerstats.yaml
+	tda|chrome/ingame-debuginfo.yaml
 	tda|chrome/music.yaml
 	tda|chrome/settings.yaml
 	tda|chrome/credits.yaml

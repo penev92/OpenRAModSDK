@@ -74,12 +74,13 @@ TileSets:
 	tdo|tilesets/jungle.yaml
 
 Weapons:
-	tdo|weapons/explosions.yaml
-	tdo|weapons/ballistics.yaml
-	tdo|weapons/missiles.yaml
-	tdo|weapons/other.yaml
-	tdo|weapons/smallcaliber.yaml
-	tdo|weapons/superweapons.yaml
+	tdo|weapons/weapons.yaml
+	# tdo|weapons/explosions.yaml
+	# tdo|weapons/ballistics.yaml
+	# tdo|weapons/missiles.yaml
+	# tdo|weapons/other.yaml
+	# tdo|weapons/smallcaliber.yaml
+	# tdo|weapons/superweapons.yaml
 
 Cursors:
 	tdo|cursors.yaml
