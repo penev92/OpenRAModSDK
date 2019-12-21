@@ -563,13 +563,13 @@ FaultyFailSafe:
 	ValidTargets: Ground, Trees, Water, Underwater, Air
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 2c0
-		Damage: 150
+		Damage: 1500
 		Versus:
-			None: 50
+			None: 100
 			Wood: 25
 			Light: 30
 			Heavy: 35
-			Concrete: 20
+			Concrete: 50
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Res_impact: DestroyResource

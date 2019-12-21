@@ -96,7 +96,7 @@ BIO:
 	ProductionQueue:
 		Type: Biolab
 		Group: Infantry
-		LowPowerModifier: 300
+		LowPowerModifier: 30000
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
 		LimitedAudio: BuildingInProgress

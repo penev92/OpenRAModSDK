@@ -7,24 +7,106 @@ NUKE_NOD:
 	Inherits@powerplant: NUKE
 	RenderSprites:
 		Image: NUKE
+	Production:
+		Produces: PowerPlantUpgrade.Nod, PowerPlantUpgrade.Nodda, PowerPlantUpgrade.GDI
+		RequiresCondition: !PowerPlantUpgrade.proximity
+	Sellable:
+		RequiresCondition: !PowerPlantUpgrade.proximity || PowerPlantUpgrade.proximity
+	Exit:
+	ProductionQueue@Nod:
+		Type: PowerPlantUpgrade.Nod
+		Group: Research.Nod
+		LowPowerModifier: 300
+		Factions: nod
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionQueue@Nodda:
+		Type: PowerPlantUpgrade.Nodda
+		Group: Research.Nodda
+		LowPowerModifier: 300
+		Factions: nodda
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionQueue@GDI:
+		Type: PowerPlantUpgrade.GDI
+		Group: Research.GDI
+		LowPowerModifier: 300
+		Factions: gdi
+		QueuedAudio: Building
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
 	Power:
 		Amount: 15
+		RequiresCondition: !PowerPlantUpgrade.proximity
+	Power@UPGRADED_ON:
+		Amount: 45
+		RequiresCondition: PowerPlantUpgrade.proximity
 	Valued:
 		Cost: 500
 	Tooltip:
 		Name: Nod Nuclear Power Plant
-	Replaceable:
-		Types: PowerNod
-	Pluggable:
-		Conditions:
-			PowerNod: PowerNod
-		Requirements:
-			PowerNod: !build-incomplete
+		RequiresCondition: !PowerPlantUpgrade.proximity
+	Tooltip@UPGRADED_ON:
+		Name: Nod Advanced Nuclear Power Plant
+		RequiresCondition: PowerPlantUpgrade.proximity
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: fact
 		Queue: Building.Nod, Building.Nodda
-		Description: Generates nuclear power.\nChance for fail-safe failure 15%
+		Description: Generates nuclear power.\nChance for fail-safe failure 5%
+	GrantConditionOnDamageState@UPGRADED_ON:
+		ValidDamageStates: Heavy, Critical
+		Condition: Damaged
+	WithDeathAnimation:
+		UseDeathTypeSuffix: False
+		DeathSequence: dead
+		FallbackSequence: dead
+		RequiresCondition: !PowerPlantUpgrade.proximity
+	WithDeathAnimation@UPGRADED_ON:
+		UseDeathTypeSuffix: False
+		DeathSequence: upgraded_dead
+		FallbackSequence: upgraded_dead
+		RequiresCondition: PowerPlantUpgrade.proximity
+	ExternalCondition@Upgrade:
+		Condition: PowerPlantUpgrade.proximity
+	ProximityExternalCondition@PowerPlantEXIST:
+		Condition: PowerPlantEXIST.proximity
+		Range: 1c256
+	WithSpriteBody:
+		StartSequence: make
+		Sequence: idle
+		RequiresCondition: !PowerPlantUpgrade.proximity
+	WithSpriteBody@UPGRADED_ON:
+		StartSequence: upgraded_make
+		Sequence: upgraded_idle
+		RequiresCondition: PowerPlantUpgrade.proximity && !Damaged
+	WithIdleOverlay@DAMAGED_UPGRADED_ON:
+		Sequence: upgraded_damaged-idle
+		StartSequence: upgraded_make
+		RequiresCondition: PowerPlantUpgrade.proximity && Damaged
+	ProductionBar@Nod:
+		ProductionType: PowerPlantUpgrade.Nod
+		RequiresCondition: !PowerPlantUpgrade.proximity
+		Color: 8c00ff
+	ProductionBar@Nodda:
+		ProductionType: PowerPlantUpgrade.Nodda
+		RequiresCondition: !PowerPlantUpgrade.proximity
+		Color: 8c00ff
+	ProductionBar@GDI:
+		ProductionType: PowerPlantUpgrade.GDI
+		RequiresCondition: !PowerPlantUpgrade.proximity
+		Color: 8c00ff
 
 NUK2_NOD:
 	Inherits@powerplant2: NUK2
@@ -36,16 +118,11 @@ NUK2_NOD:
 		Cost: 500
 	Tooltip:
 		Name: Nod Advanced Nuclear Power Plant
-	Plug:
-		Type: PowerNod
 	Buildable:
 		BuildPaletteOrder: 15
 		Prerequisites: ~anyhq, ~research_adv_nuke, ~techlevel.medium
 		Queue: Building.Nod, Building.Nodda
-		Description: Provides extra nuclear power\nthan its predecessor model.\nChance for fail-safe failure 30%
-	Interactable:
-	KillsSelf:
-		RemoveInstead: true
+		Description: Provides extra nuclear power\nthan its predecessor model.\nChance for fail-safe failure 10%
 
 HAND:
 	Inherits: ^BaseBuilding
@@ -85,7 +162,7 @@ HAND:
 		Type: Infantry.Nod
 		Group: Infantry
 		RequireOwner: false
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		Factions: nod
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
@@ -97,7 +174,7 @@ HAND:
 		Type: Infantry.Nodda
 		Group: Infantry
 		RequireOwner: false
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		Factions: nodda
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
@@ -202,7 +279,7 @@ AFLD:
 		Type: Vehicle.Nod
 		Group: Vehicle
 		RequireOwner: false
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -214,7 +291,7 @@ AFLD:
 		Type: Vehicle.Nodda
 		Group: Vehicle
 		RequireOwner: false
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -262,7 +339,7 @@ SHIPYARD_NOD:
 		Type: Ship.Nod
 		Factions: nod
 		Group: Ship
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -273,7 +350,7 @@ SHIPYARD_NOD:
 		Type: Ship.Nodda
 		Factions: nodda
 		Group: Ship
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -504,7 +581,7 @@ AFLDRA:
 		Type: Aircraft.GDI
 		Factions: gdi
 		Group: Aircraft
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -515,7 +592,7 @@ AFLDRA:
 		Type: Aircraft.Nod
 		Factions: nod
 		Group: Aircraft
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -526,7 +603,7 @@ AFLDRA:
 		Type: Aircraft.Nodda
 		Factions: nodda
 		Group: Aircraft
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -593,7 +670,7 @@ HQ_NOD_DA:
 		Type: Research.Nodda
 		Factions: nodda
 		Group: Research
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		ReadyAudio: ResearchC
 		BlockedAudio: ResearchW
 		QueuedAudio: ResearchST
@@ -670,7 +747,7 @@ HQ_NOD_GW:
 		Type: Research.Nod
 		Factions: nod
 		Group: Research
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		ReadyAudio: ResearchC
 		BlockedAudio: ResearchW
 		QueuedAudio: ResearchST

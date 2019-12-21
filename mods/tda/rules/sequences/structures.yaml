@@ -164,6 +164,9 @@ ctur:
 		Tick: 800
 
 nuke:
+	make: nukemake
+		Length: *
+		Tick: 80
 	idle:
 		Length: 4
 		Tick: 1000
@@ -174,13 +177,45 @@ nuke:
 	dead:
 		Start: 8
 		Tick: 800
-	make: nukemake
+		ZOffset: -1023
+	upgraded_make:nuk2make
+		Length: *
+		Tick: 80
+	upgraded_idle:nuk2
+		Length: 4
+		Tick: 1000
+	upgraded_damaged-idle:nuk2
+		Start: 4
+		Length: 4
+		Tick: 1000
+	upgraded_dead:nuk2
+		Start: 8
+		Tick: 800
+		ZOffset: -1023
+	bib: bib3
+		UseTilesetExtension: true
+		Length: *
+	icon: nukeicnh.tem
+		AddExtension: False
+
+nuk2:
+	idle:
+		Length: 4
+		Tick: 1000
+	damaged-idle:
+		Start: 4
+		Length: 4
+		Tick: 1000
+	dead:
+		Start: 8
+		Tick: 800
+	make: nuk2make
 		Length: *
 		Tick: 80
 	bib: bib3
 		UseTilesetExtension: true
 		Length: *
-	icon: nukeicnh.tem
+	icon: nuk2icnh.tem
 		AddExtension: False
 
 afldra:
@@ -442,26 +477,6 @@ hqnod:
 		UseTilesetExtension: true
 		Length: *
 	icon: hqicnh.tem
-		AddExtension: False
-
-nuk2:
-	idle:
-		Length: 4
-		Tick: 1000
-	damaged-idle:
-		Start: 4
-		Length: 4
-		Tick: 1000
-	dead:
-		Start: 8
-		Tick: 800
-	make: nuk2make
-		Length: *
-		Tick: 80
-	bib: bib3
-		UseTilesetExtension: true
-		Length: *
-	icon: nuk2icnh.tem
 		AddExtension: False
 
 hpad:
@@ -1043,3 +1058,6 @@ basicflag:
 			WINTER: TEMPERAT
 		Length: *
 		UseTilesetExtension: true
+
+# ZOffset: 1c0
+# ZOffset: -1023

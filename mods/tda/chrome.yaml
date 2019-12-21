@@ -32,33 +32,51 @@ panel-buildmenu: buildmenu.png
 panel-emptybuild: chrome2.png
 	background: 0,464,64,48
 
-production-icons: chrome.png
-	building: 384,0,16,16
-	building-disabled: 384,16,16,16
-	building-alert: 384,32,16,16
-	defence: 400,0,16,16
-	defence-disabled: 400,16,16,16
-	defence-alert: 400,32,16,16
-	infantry: 416,0,16,16
-	infantry-disabled: 416,16,16,16
-	infantry-alert: 416,32,16,16
-	vehicle: 432,0,16,16
-	vehicle-disabled: 432,16,16,16
-	vehicle-alert: 432,32,16,16
-	aircraft: 448,0,16,16
-	aircraft-disabled: 448,16,16,16
-	aircraft-alert: 448,32,16,16
-	support: 464,0,16,16
-	support-disabled: 464,16,16,16
-	support-alert: 464,32,16,16
+production-icons: buildmenu.png
 
-production-icons2: chrome2.png
-	ship: 496,48,16,16
-	ship-disabled: 496,64,16,16
-	ship-alert: 496,80,16,16
-	research: 496,144,16,16
-	research-disabled: 496,159,16,16
-	research-alert: 496,174,16,16
+	repair: 448,762,64,48
+	repair-disabled: 448,810,64,48
+	repair-active: 448,858,64,48
+
+	sell: 512,762,64,48
+	sell-disabled: 512,810,64,48
+	sell-active: 512,858,64,48
+
+	power: 576,762,64,48
+	power-disabled: 576,810,64,48
+	power-active: 576,858,64,48
+
+	beacon: 640,762,64,48
+	beacon-disabled: 640,810,64,48
+	beacon-active: 640,858,64,48
+
+	building: 0,762,64,48
+	building-disabled: 0,810,64,48
+	building-alert: 0,858,64,48
+
+	defence: 64,762,64,48
+	defence-disabled: 64,810,64,48
+	defence-alert: 64,858,64,48
+
+	infantry: 128,762,64,48
+	infantry-disabled: 128,810,64,48
+	infantry-alert: 128,858,64,48
+
+	vehicle: 192,762,64,48
+	vehicle-disabled: 192,810,64,48
+	vehicle-alert: 192,858,64,48
+
+	aircraft: 256,762,64,48
+	aircraft-disabled: 256,810,64,48
+	aircraft-alert: 256,858,64,48
+
+	ship: 320,762,64,48
+	ship-disabled: 320,810,64,48
+	ship-alert: 320,858,64,48
+
+	research: 384,762,64,48
+	research-disabled: 384,810,64,48
+	research-alert: 384,858,64,48
 
 panel-black: oldbackground.png
 	background: 1,1,510,510
@@ -70,7 +88,13 @@ panel-black: oldbackground.png
 	corner-tr: 1,0,1,1
 	corner-bl: 0,511,1,1
 	corner-br: 1,511,1,1
+
+power-icons: chrome.png
+	power-normal: 480,48,16,16
+	power-critical: 480,64,16,16
+
 #TDA Edits Above
+
 shellmap: reticle.png
 	reticle: 0,0,512,512
 
@@ -552,18 +576,6 @@ order-icons: chrome.png
 	options: 467,0,31,16
 	options-disabled: 480,16,16,16
 	options-active: 480,32,16,16
-	sell: 497,0,16,16
-	sell-disabled: 496,16,16,16
-	sell-active: 496,32,16,16
-	power: 480,48,16,16
-	power-disabled: 480,64,16,16
-	power-active: 480,80,16,16
-	repair: 384,48,16,16
-	repair-disabled: 384,64,16,16
-	repair-active: 384,80,16,16
-	beacon: 400,48,16,16
-	beacon-disabled: 400,64,16,16
-	beacon-active: 400,80,16,16
 	stats: 464,96,16,16
 	stats-disabled: 480,96,16,16
 	stats-active: 496,96,16,16

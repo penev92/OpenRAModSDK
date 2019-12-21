@@ -175,7 +175,7 @@ BARR:
 	ProductionQueue@nullfornow:
 		Type: Mercs
 		Group: Infantry
-		LowPowerSlowdown: 0
+		LowPowerModifier: 0
 	ProductionBar:
 		ProductionType: Mercs
 	Power:
@@ -238,17 +238,17 @@ PORT:
 		Type: Ship.Nod
 		Factions: nod
 		Group: Ship
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 	ProductionQueue@NoddaShip:
 		Type: Ship.Nodda
 		Factions: nodda
 		Group: Ship
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 	ProductionQueue@GDIShip:
 		Type: Ship.GDI
 		Factions: gdi
 		Group: Ship
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 	ProductionBar@ShipGDI:
 		ProductionType: Ship.GDI
 	ProductionBar@ShipNod:

@@ -24,7 +24,7 @@ RESEARCH_ADV_NUKE:
 		Name: (unlock tech adv power)
 	Buildable:
 		Queue: Research.Nod, Research.Nodda, Research.GDI
-		Prerequisites: anyhq
+		Prerequisites: anyhq, ~disabled
 		Description: Type:Research\nSubject:Power\nDescription: Allows the construction of advance power plants
 	Valued:
 		Cost: 500

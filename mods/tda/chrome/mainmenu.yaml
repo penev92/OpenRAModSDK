@@ -114,42 +114,46 @@ Container@MENU_BACKGROUND:
 							Font: Bold
 				Container@SINGLEPLAYER_MENU:
 					Width: PARENT_RIGHT
+					Height: PARENT_BOTTOM
 					Visible: False
 					Children:
 						Label@SINGLEPLAYER_MENU_TITLE:
 							X: 0
-							Y: 0 - 28
-							Width: PARENT_RIGHT
-							Height: 20
+							Y: 20
+							Width: 200
+							Height: 30
 							Text: Singleplayer
 							Align: Center
 							Font: Bold
 							Contrast: True
 						Button@SKIRMISH_BUTTON:
-							X: 0
-							Y: 0
+							X: PARENT_RIGHT/2-WIDTH/2
+							Y: 60
 							Width: 140
-							Height: 35
+							Height: 30
 							Text: Skirmish
+							Font: Bold
 						Button@MISSIONS_BUTTON:
-							X: 150
-							Y: 0
+							X: PARENT_RIGHT/2-WIDTH/2
+							Y: 100
 							Width: 140
-							Height: 35
+							Height: 30
 							Text: Missions
+							Font: Bold
 						Button@LOAD_BUTTON:
-							X: 300
-							Y: 0
+							X: PARENT_RIGHT/2-WIDTH/2
+							Y: 140
 							Width: 140
-							Height: 35
+							Height: 30
 							Text: Load
 						Button@BACK_BUTTON:
+							X: PARENT_RIGHT/2-WIDTH/2
 							Key: escape
-							X: 450
-							Y: 0
+							Y: 260
 							Width: 140
-							Height: 35
+							Height: 30
 							Text: Back
+							Font: Bold
 				Container@EXTRAS_MENU:
 					Width: PARENT_RIGHT
 					Height: PARENT_BOTTOM

@@ -1,12 +1,12 @@
 Metadata:
 	Title: Tiberian Dawn Apolyton
-	Version: 159
+	Version: 160
 	Website: https://www.moddb.com/mods/tiberian-dawn-apolyton
 	WebIcon32: https://raw.githubusercontent.com/KOYK/OpenRA-Tiberian-Dawn-Apolyton/master/mods/tda/icon.png
 
 ModCredits:
-	ModTabTitle: tda
-	ModCreditsFile: tda|Credits
+	ModTabTitle: TDA
+	ModCreditsFile: tda|Credits.txt
 
 PackageFormats: Mix
 
@@ -55,7 +55,11 @@ Packages:
 
 MapFolders:
 	tda|maps: System
-	~^maps/tda/159: User
+	~^maps/tda/Downloaded/160: User
+	tda|maps/Multiplayer: System
+	tda|maps/SingleplayerAndCoop: System
+	tda|maps/RedAlert: System
+	tda|maps/tests: System
 
 Rules:
 	tda|lobby_options.yaml
@@ -65,7 +69,8 @@ Rules:
 	tda|rules/Faction_Civilians.yaml
 	tda|rules/Faction_LifeForms.yaml
 	tda|rules/Faction_Gea.yaml
-	tda|rules/research.yaml
+	tda|rules/Research.yaml
+	tda|rules/Upgrades.yaml
 
 	tda|rules/system/system.yaml
 	tda|rules/system/player.yaml
@@ -161,7 +166,6 @@ ChromeLayout:
 	tda|chrome/ingame-infoscripterror.yaml
 	tda|chrome/ingame-infoobjectives.yaml
 	tda|chrome/ingame-infostats.yaml
-	tda|chrome/ingame-observerstats.yaml
 	tda|chrome/ingame-debuginfo.yaml
 	tda|chrome/music.yaml
 	tda|chrome/settings.yaml
@@ -211,36 +215,47 @@ Fonts:
 	Small:
 		Font: tda|data/fonts/smallfont.ttf
 		Size:16
+		Ascender: 8
 	Regular:
 		Font: tda|data/fonts/smallfont.ttf
 		Size:17
+		Ascender: 8
 	Bold:
 		Font: tda|data/fonts/army.ttf
 		Size:12
+		Ascender: 8
 	Title:
 		Font: tda|data/fonts/army.ttf
 		Size:20
+		Ascender: 8
 	MediumBold:
 		Font: tda|data/fonts/army.ttf
 		Size:14
+		Ascender: 8
 	BigBold:
 		Font: tda|data/fonts/army.ttf
 		Size:17
+		Ascender: 8
 	Tiny:
 		Font: tda|data/fonts/smallfont.ttf
 		Size:14
+		Ascender: 8
 	TinyBold:
 		Font: tda|data/fonts/smallfont.ttf
 		Size:15
+		Ascender: 8
 	Timer:
 		Font: tda|data/fonts/army.ttf
 		Size:14
+		Ascender: 8
 	BigTimer:
 		Font: tda|data/fonts/army.ttf
 		Size:17
+		Ascender: 8
 	CashSmall:
 		Font: tda|data/fonts/cash.ttf
 		Size:12
+		Ascender: 8
 
 MapGrid:
 	TileSize: 24,24

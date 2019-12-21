@@ -1,4 +1,5 @@
 #This file houses all of my new experiments for easy edit, stuff here come and go, as I delete and add all the time.
+#NOTE: delete all <RequireOwner: false> ProductionQueue traits from all rules files
 
 FTNKV:
 	Inherits: ^Tank

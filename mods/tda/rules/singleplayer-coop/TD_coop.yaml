@@ -206,28 +206,28 @@ MHQCOOP:
 		Type: Building.GDI
 		Factions: gdi
 		Group: Building
-		LowPowerSlowdown: 2
+		LowPowerModifier: 200
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 	ProductionQueue@NodBuilding:
 		Type: Building.Nod
 		Factions: nod, nodda
 		Group: Building
-		LowPowerSlowdown: 2
+		LowPowerModifier: 200
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 	ProductionQueue@GDIDefense:
 		Type: Defence.GDI
 		Factions: gdi
 		Group: Defence
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 	ProductionQueue@NodDefense:
 		Type: Defence.Nod
 		Factions: nod, nodda
 		Group: Defence
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 	BaseBuilding:

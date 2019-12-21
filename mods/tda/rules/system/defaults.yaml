@@ -658,6 +658,7 @@
 	Inherits@ConMan: ^ConditionManager
 	Inherits@CapMan: ^CaptureManager
 	Inherits@ExternalCondition: ^ExternalCondition
+	ActorPreviewPlaceBuildingPreview:
 	DamagedByTerrain@UnderTiberiumEffect:
 		Damage: 25
 		DamageInterval: 25
@@ -695,6 +696,10 @@
 		Categories: Building
 	GrantCondition@UnitType:
 		Condition: Building
+	WithDeathAnimation:
+		UseDeathTypeSuffix: False
+		DeathSequence: dead
+		FallbackSequence: dead
 
 ^BaseBuilding:
 	Inherits: ^Building
@@ -716,9 +721,6 @@
 		RepairPercent: 40
 		RepairStep: 14
 		PlayerExperience: 15
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
 	GivesBuildableArea:
 		AreaTypes: building
 	SpawnActorsOnSell:
@@ -830,6 +832,7 @@
 	Inherits@ConMan: ^ConditionManager
 	CombatDebugOverlay:
 	AppearsOnRadar:
+	ActorPreviewPlaceBuildingPreview:
 	Building:
 		Dimensions: 1,1
 		Footprint: x

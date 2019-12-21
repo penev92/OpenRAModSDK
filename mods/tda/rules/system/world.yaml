@@ -71,6 +71,7 @@
 
 World:
 	Inherits: ^BaseWorld
+	TimeLimitManager
 	ActorSpawnManager@SHIM:
 		Minimum: 1
 		Maximum: 10000000

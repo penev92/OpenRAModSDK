@@ -25,13 +25,11 @@ NUKE_GDI:
 		Cost: 700
 	Tooltip:
 		Name: GDI Nuclear Power Plant
-	Replaceable:
-		Types: PowerGDI
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: fact
 		Queue: Building.GDI
-		Description: Generates nuclear power.\nChance for fail-safe failure 15%
+		Description: Generates nuclear power.\nChance for fail-safe failure 5%
 
 NUK2_GDI:
 	Inherits@powerplant2: NUK2
@@ -43,13 +41,11 @@ NUK2_GDI:
 		Cost: 300
 	Tooltip:
 		Name: GDI Advanced Nuclear Power Plant
-	Replacement:
-		ReplaceableTypes: PowerGDI
 	Buildable:
 		BuildPaletteOrder: 15
 		Prerequisites: ~anyhq, ~research_adv_nuke, ~techlevel.medium
 		Queue: Building.GDI
-		Description: Provides extra nuclear power\nthan its predecessor model.\nChance for fail-safe failure 30%
+		Description: Provides extra nuclear power\nthan its predecessor model.\nChance for fail-safe failure 10%
 
 PYLE:
 	Inherits: ^BaseBuilding
@@ -92,7 +88,7 @@ PYLE:
 		Type: Infantry.GDI
 		Group: Infantry
 		RequireOwner: false
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		Factions: gdi
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
@@ -197,7 +193,7 @@ WEAP:
 		Type: Vehicle.GDI
 		RequireOwner: false
 		Group: Vehicle
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		Factions: gdi
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
@@ -237,7 +233,7 @@ SHIPYARD_GDI:
 		Type: Ship.GDI
 		Factions: gdi
 		Group: Ship
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: UnitReady
 		BlockedAudio: NoBuild
@@ -297,7 +293,7 @@ HQ_GDI:
 		Type: Research.GDI
 		Factions: gdi
 		Group: Research
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		ReadyAudio: ResearchC
 		BlockedAudio: ResearchW
 		QueuedAudio: ResearchST

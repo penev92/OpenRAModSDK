@@ -38,7 +38,7 @@ FACT:
 		Type: Building.GDI
 		Factions: gdi
 		Group: Building
-		LowPowerSlowdown: 2
+		LowPowerModifier: 200
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -49,7 +49,7 @@ FACT:
 		Type: Building.Nod
 		Factions: nod
 		Group: Building
-		LowPowerSlowdown: 2
+		LowPowerModifier: 200
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -60,7 +60,7 @@ FACT:
 		Type: Building.Nodda
 		Factions: nodda
 		Group: Building
-		LowPowerSlowdown: 2
+		LowPowerModifier: 200
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -71,7 +71,7 @@ FACT:
 		Type: Defence.GDI
 		Factions: gdi
 		Group: Defence
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -82,7 +82,7 @@ FACT:
 		Type: Defence.Nod
 		Factions: nod
 		Group: Defence
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -93,7 +93,7 @@ FACT:
 		Type: Defence.Nodda
 		Factions: nodda
 		Group: Defence
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -173,17 +173,20 @@ NUKE:
 	ScalePowerWithHealth:
 	Targetable:
 		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagPP
-	Explodes:
+	Explodes@Faulty:
+		Sequences: building, building_napalm, med_frag, poof, small_building
+		LoadedChance: 100
+		Chance: 5
+		Delay: 1
+		Type: CenterPosition
+		Weapon: FaultyFailSafe
+		EmptyWeapon: UnitExplodeSmall
+	Explodes@NormalAlways:
 		Sequences: building, building_napalm, med_frag, poof, small_building
 		Chance: 100
-		Weapon: FaultyFailSafe
-		Type: CenterPosition
-		EmptyWeapon: UnitExplodeSmall
-		LoadedChance: 15
-	AmmoPool:
-		Name: FaultyFailSafe
-		Ammo: 1
-		PipCount: 0
+		Delay: 1
+		Type: Footprint
+		Weapon: UnitExplodeSmall
 	Selectable:
 		Bounds: 48,48
 	#too mutch sounds blocking other sounds. i need ambient sounds with range
@@ -198,8 +201,8 @@ NUK2:
 	ProvidesPrerequisite:
 		Prerequisite: anypower
 	Building:
-		Footprint: x
-		Dimensions: 1,1
+		Footprint: xX xx ==
+		Dimensions: 2,3
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 4000
@@ -210,17 +213,20 @@ NUK2:
 	ScalePowerWithHealth:
 	Targetable:
 		TargetTypes: Ground, C4, Structure, SpyInfiltrate, DetonateAttack, AItagPP
-	Explodes:
+	Explodes@Faulty:
+		Sequences: building, building_napalm, med_frag, poof, small_building
+		LoadedChance: 100
+		Chance: 10
+		Delay: 1
+		Type: CenterPosition
+		Weapon: FaultyFailSafe
+		EmptyWeapon: UnitExplodeSmall
+	Explodes@NormalAlways:
 		Sequences: building, building_napalm, med_frag, poof, small_building
 		Chance: 100
-		Weapon: FaultyFailSafe
-		Type: CenterPosition
-		EmptyWeapon: UnitExplodeSmall
-		LoadedChance: 30
-	AmmoPool:
-		Name: FaultyFailSafe
-		Ammo: 1
-		PipCount: 0
+		Delay: 1
+		Type: Footprint
+		Weapon: UnitExplodeSmall
 	Selectable:
 		Bounds: 48,48
 	#too mutch sounds blocking other sounds. i need ambient sounds with range
@@ -420,7 +426,7 @@ HPAD:
 		Type: Aircraft.GDI
 		Factions: gdi
 		Group: Aircraft
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -431,7 +437,7 @@ HPAD:
 		Type: Aircraft.Nod
 		Factions: nod
 		Group: Aircraft
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -442,7 +448,7 @@ HPAD:
 		Type: Aircraft.Nodda
 		Factions: nodda
 		Group: Aircraft
-		LowPowerSlowdown: 3
+		LowPowerModifier: 300
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		BlockedAudio: NoBuild
@@ -1144,6 +1150,7 @@ HARV:
 		Actor: HARV.Husk
 		OwnerType: InternalName
 		EffectiveOwnerFromOwner: true
+
 HARV.Husk:
 	Inherits: ^Husk
 	Tooltip:
