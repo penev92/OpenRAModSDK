@@ -633,7 +633,7 @@
 		Locomotor: naval
 	Selectable:
 	Targetable:
-		TargetTypes: Ground, Water
+		TargetTypes: Ground, Water, Ship
 	HiddenUnderFog:
 	ActorLostNotification:
 	WithDamageOverlay:
@@ -650,6 +650,8 @@
 		Categories: Naval
 	GrantCondition@UnitType:
 		Condition: Ship
+	RepairableNear:
+		RepairActors: shipyard_nod, shipyard_gdi
 
 ^Building:
 	Inherits@1: ^CombatBuilding
@@ -700,6 +702,9 @@
 		UseDeathTypeSuffix: False
 		DeathSequence: dead
 		FallbackSequence: dead
+	Voiced:
+		VoiceSet: Buildings
+		Volume: 2
 
 ^BaseBuilding:
 	Inherits: ^Building

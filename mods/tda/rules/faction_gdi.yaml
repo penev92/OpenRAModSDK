@@ -101,8 +101,12 @@ PYLE:
 	Power:
 		Amount: -5
 	ProvidesPrerequisite@buildingname:
+	Voiced:
+		VoiceSet: Buildings
+		Volume: 2
 	Selectable:
 		Bounds: 48,42,0,-5
+		Voice: Barracks
 	InfiltrateForSupportPower:
 		Proxy: barracks.upgraded
 	Targetable:

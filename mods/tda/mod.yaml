@@ -44,6 +44,7 @@ Packages:
 	tda|data/sounds/ambient
 	tda|data/sounds/interface
 	tda|data/sounds/interface/eva/eva.mix
+	tda|data/sounds/interface/selection
 	tda|data/sounds/death
 	tda|data/music
 	tda|tilesets/desert
@@ -97,6 +98,7 @@ Weapons:
 	tda|rules/weapons/goodweapons.yaml
 	tda|rules/weapons/melee.yaml
 	tda|rules/weapons/inheritable_traits.yaml
+	tda|rules/weapons/experimental.yaml
 Missions:
 	tda|rules/missions.yaml
 

@@ -187,8 +187,12 @@ NUKE:
 		Delay: 1
 		Type: Footprint
 		Weapon: UnitExplodeSmall
+	Voiced:
+		VoiceSet: Buildings
+		Volume: 2
 	Selectable:
 		Bounds: 48,48
+		Voice: PowerPlant
 	#too mutch sounds blocking other sounds. i need ambient sounds with range
 	#	AmbientSound:
 	#		SoundFiles: power.aud
@@ -487,9 +491,13 @@ HQ:
 		Footprint: X_ xx ==
 		Dimensions: 2,3
 		LocalCenterOffset: 0,-512,0
+	Voiced:
+		VoiceSet: Buildings
+		Volume: 2
 	Selectable:
 		Bounds: 48,40,0,9
 		DecorationBounds: 48,53,0,-4
+		Voice: Radar
 	SelectionDecorations:
 	WithSpriteBody:
 		PauseOnCondition: disabled

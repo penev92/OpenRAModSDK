@@ -1,3 +1,9 @@
+Buildings:
+	Voices:
+		PowerPlant: select_power
+		Barracks: select_barracks
+		Radar: select_radar
+
 SpecOpsVoice:
 	Voices:
 		Select: syeah1,swhat1
