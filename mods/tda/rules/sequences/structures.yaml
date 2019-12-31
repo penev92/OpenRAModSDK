@@ -47,6 +47,15 @@ civ_church:
 	icon: churchicon.shp
 		AddExtension: False
 
+oilrig:
+	idle:
+		Start: 0
+	damaged-idle:
+		Start: 1
+	dead:
+		Start: 2
+		Tick: 800
+
 outpost:
 	idle:
 		Length: 8

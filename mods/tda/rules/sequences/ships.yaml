@@ -25,7 +25,9 @@ ca:
 dd:
 	idle:
 		Facings: 16
-	turret: ssam
+	primary: ssam
+		Facings: 32
+	secondary: mgun
 		Facings: 32
 	icon: ddicon
 

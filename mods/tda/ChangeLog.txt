@@ -149,3 +149,14 @@ that new faction will have to be unique and focused on tech or something intrest
 add ability to destroy trees with force fire, like RA2.
 
 also when tiberium gets close to a claster of trees they should transform into something else other than tib tree, maybe a TS vainhole.
+
+Navy composition should be the following:
+
+light 
+medium
+heavy
+area lock down
+stealth
+defenive platforms
+mines
+oil rigs

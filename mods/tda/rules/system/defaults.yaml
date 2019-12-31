@@ -652,6 +652,7 @@
 		Condition: Ship
 	RepairableNear:
 		RepairActors: shipyard_nod, shipyard_gdi
+	WithFacingSpriteBody:
 
 ^Building:
 	Inherits@1: ^CombatBuilding

@@ -78,6 +78,12 @@
 		Filename: snowRA.pal
 		ShadowIndex: 3
 		AllowModifiers: True
+	PaletteFromRGBA@submerged:
+		Name: submerged
+		R: 0
+		G: 0
+		B: 0
+		A: 140
 	PaletteFromRGBA@shadow:
 		Name: shadow
 		R: 0

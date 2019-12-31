@@ -437,11 +437,6 @@ TMPL:
 		CameraStances: Ally
 		CameraSpawnAdvance: 25
 		RevealGeneratedShroud: True
-	ProduceActorPower:
-		Actors: e1
-		Type: Infantry
-		ChargeInterval: 200
-		Icon: abomb
 	RevealsShroud:
 		Range: 4c0
 		ValidStances: Ally, Enemy
@@ -1856,7 +1851,7 @@ SS:
 	Inherits: ^Ship
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
-		Queue: Ship
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
 		BuildAtProductionType: Submarine
 		BuildPaletteOrder: 30
 		Prerequisites: ~shipyard_nod, ~shipyard_gdi, ~techlevel.low
@@ -1922,7 +1917,7 @@ MSUB:
 	Inherits: ^Ship
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
-		Queue: Ship
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
 		BuildAtProductionType: Submarine
 		BuildPaletteOrder: 60
 		Prerequisites: ~shipyard_nod, ~shipyard_gdi, ~techlevel.high
@@ -1990,7 +1985,7 @@ DD:
 	Inherits: ^Ship
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
-		Queue: Ship
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 40
 		Prerequisites: ~shipyard_nod, ~shipyard_gdi, ~techlevel.medium
@@ -2013,9 +2008,14 @@ DD:
 		RevealGeneratedShroud: False
 	RevealsShroud@GAPGEN:
 		Range: 5c0
-	Turreted:
+	Turreted@PRIMARY:
+		Turret: primary
 		TurnSpeed: 7
-		Offset: 469,0,128
+		Offset: -900,0,128
+	Turreted@SECONDARY:
+		Turret: secondary
+		TurnSpeed: 7
+		Offset: 900,0,128
 	Armament@PRIMARY:
 		Weapon: Stinger
 		LocalOffset: 0,-100,0, 0,100,0
@@ -2030,7 +2030,12 @@ DD:
 		LocalYaw: 64, -64
 	AttackTurreted:
 	SelectionDecorations:
-	WithSpriteTurret:
+	WithSpriteTurret@PRIMARY:
+		Turret: primary
+		Sequence: primary
+	WithSpriteTurret@SECONDARY:
+		Turret: secondary
+		Sequence: secondary
 	DetectCloaked:
 		CloakTypes: Underwater
 		Range: 4c0
@@ -2042,7 +2047,7 @@ CA:
 	Inherits: ^Ship
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
-		Queue: Ship
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 50
 		Prerequisites: ~shipyard_nod, ~shipyard_gdi, ~techlevel.high
@@ -2104,7 +2109,7 @@ CA:
 LSTRA:
 	Inherits: ^Ship
 	Buildable:
-		Queue: Ship
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
 		BuildPaletteOrder: 10
 		Prerequisites: ~techlevel.low
 		Description: General-purpose naval transport.\nCan carry infantry and tanks.\n  Unarmed
@@ -2143,7 +2148,7 @@ PT:
 	Inherits: ^Ship
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
-		Queue: Ship
+		Queue: Ship, Ship.Nod, Ship.Nodda, Ship.GDI
 		BuildAtProductionType: Boat
 		BuildPaletteOrder: 20
 		Prerequisites: ~shipyard_nod, ~shipyard_gdi, ~techlevel.low

@@ -83,6 +83,25 @@ V19.Captured:
 		InitialDelay: 25
 	-GivesCashOnCapture:
 
+OILRIG:
+	Inherits: ^TechBuilding
+	CashTricklerBar:
+		DisplayStances: Ally
+		Color: c5c5c5
+	CashTrickler:
+		Amount: 10
+		Interval: 25
+		InitialDelay: 25
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 1000
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Oilrig
+
 HOSP:
 	Inherits: ^TechBuilding
 	Selectable:
