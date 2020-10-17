@@ -1416,7 +1416,7 @@ BIO.Husk:
 #===================================
 #Start of: RA maps compatibility
 #===================================
-GMINE:
+MINE:
 	Inherits: ^TibTree
 	RenderSprites:
 		Image: split2
@@ -1433,7 +1433,7 @@ GMINE:
 		TerrainTypes: Clear, BlueTibTreeTerrain, GreenTibTreeTerrain, RedTibTreeTerrain
 		Template: 5001
 
-MINE:
+GMINE:
 	Inherits: ^TibTree
 	RenderSprites:
 		Image: split3
