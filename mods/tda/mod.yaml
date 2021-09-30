@@ -1,6 +1,6 @@
 Metadata:
 	Title: Tiberian Dawn Apolyton
-	Version: 160
+	Version: 159
 	Website: https://www.moddb.com/mods/tiberian-dawn-apolyton
 	WebIcon32: https://raw.githubusercontent.com/KOYK/OpenRA-Tiberian-Dawn-Apolyton/master/mods/tda/icon.png
 
@@ -27,6 +27,7 @@ Packages:
 	~scores2.mix
 	~scores-covertops.mix
 	~transit.mix
+	tda|data/apolyton.mix #have fun trying to unlock this
 	tda|uibits
 	tda|data
 	tda|data/civ
@@ -48,77 +49,62 @@ Packages:
 	tda|data/sounds/death
 	tda|data/music
 	tda|tilesets/desert
+	tda|tilesets/desert/desert.mix
 	tda|tilesets/winter
+	tda|tilesets/winter/winter.mix
 	tda|tilesets/snow
 	tda|tilesets/temperat
 	tda|tilesets/jungle
-	tda|tilesets/desert/desert.mix
+
 
 MapFolders:
 	tda|maps: System
-	~^maps/tda/Downloaded/160: User
-	tda|maps/Multiplayer: System
-	tda|maps/SingleplayerAndCoop: System
-	tda|maps/RedAlert: System
-	tda|maps/tests: System
+	~^maps/tda/all versions: User
 
 Rules:
 	tda|lobby_options.yaml
-	tda|rules/Faction_all.yaml
-	tda|rules/Faction_Nod.yaml
-	tda|rules/Faction_GDI.yaml
-	tda|rules/Faction_Civilians.yaml
-	tda|rules/Faction_LifeForms.yaml
-	tda|rules/Faction_Gea.yaml
-	tda|rules/Research.yaml
-	tda|rules/Upgrades.yaml
 
-	tda|rules/system/system.yaml
-	tda|rules/system/player.yaml
-	tda|rules/system/world.yaml
-	tda|rules/system/palettes.yaml
-	tda|rules/system/defaults.yaml
-	tda|rules/system/inheritable_traits.yaml
+	tda|rules.yaml
 
-	tda|rules/bots/bot_profiles.yaml
-	tda|rules/bots/bot_shared.yaml
-	tda|rules/bots/bot_forces.yaml
-	tda|rules/bots/bot_support_powers.yaml
-	tda|rules/bots/bot_cheats.yaml
+	tda|bots/bot_profiles.yaml
+	tda|bots/bot_shared.yaml
+	tda|bots/bot_forces.yaml
+	tda|bots/bot_support_powers.yaml
+	tda|bots/bot_cheats.yaml
 
-	tda|rules/experiments.yaml
+	#tda|rules/experiments.yaml
 
 Weapons:
-	tda|rules/weapons/explosions.yaml
-	tda|rules/weapons/largecaliber.yaml
-	tda|rules/weapons/missiles.yaml
-	tda|rules/weapons/other.yaml
-	tda|rules/weapons/smallcaliber.yaml
-	tda|rules/weapons/superweapons.yaml
-	tda|rules/weapons/goodweapons.yaml
-	tda|rules/weapons/melee.yaml
-	tda|rules/weapons/inheritable_traits.yaml
-	tda|rules/weapons/experimental.yaml
+	tda|weapons/explosions.yaml
+	tda|weapons/largecaliber.yaml
+	tda|weapons/missiles.yaml
+	tda|weapons/other.yaml
+	tda|weapons/smallcaliber.yaml
+	tda|weapons/superweapons.yaml
+	tda|weapons/goodweapons.yaml
+	tda|weapons/melee.yaml
+	tda|weapons/inheritable_traits.yaml
+	tda|weapons/experimental.yaml
 Missions:
-	tda|rules/missions.yaml
+	tda|missions.yaml
 
 Sequences:
-	tda|rules/sequences/structures.yaml
-	tda|rules/sequences/vehicles.yaml
-	tda|rules/sequences/infantry.yaml
-	tda|rules/sequences/aircraft.yaml
-	tda|rules/sequences/decorations.yaml
-	tda|rules/sequences/misc.yaml
-	tda|rules/sequences/funpark.yaml
-	tda|rules/sequences/civilian.yaml
-	tda|rules/sequences/campaign.yaml
-	tda|rules/sequences/ships.yaml
-	tda|rules/sequences/destroyed.yaml
-	tda|rules/sequences/research.yaml
-	tda|rules/sequences/compatibility.yaml
-	tda|rules/sequences/voxel_icons.yaml
+	tda|sequences/structures.yaml
+	tda|sequences/vehicles.yaml
+	tda|sequences/infantry.yaml
+	tda|sequences/aircraft.yaml
+	tda|sequences/decorations.yaml
+	tda|sequences/misc.yaml
+	tda|sequences/funpark.yaml
+	tda|sequences/civilian.yaml
+	tda|sequences/campaign.yaml
+	tda|sequences/ships.yaml
+	tda|sequences/destroyed.yaml
+	tda|sequences/research.yaml
+	tda|sequences/compatibility.yaml
+	tda|sequences/voxel_icons.yaml
 ModelSequences:
-	tda|rules/sequences/voxels.yaml
+	tda|sequences/voxels.yaml
 
 TileSets:
 	tda|tilesets/desert.yaml
@@ -140,6 +126,7 @@ Assemblies:
 
 ChromeLayout:
 	tda|chrome/mainmenu.yaml
+	tda|chrome/mainmenu-prompts.yaml
 	tda|chrome/playerprofile.yaml
 	tda|chrome/multiplayer-browser.yaml
 	tda|chrome/multiplayer-browserpanels.yaml
@@ -201,7 +188,7 @@ Hotkeys:
 
 LoadScreen: CncLoadScreen
 	Image: tda|uibits/chrome.png
-	Text: This Is Hard!
+	Text: STOP STEALING FROM MY MOD!
 
 ServerTraits:
 	LobbyCommands
@@ -262,8 +249,10 @@ Fonts:
 MapGrid:
 	TileSize: 24,24
 	Type: Rectangular
+SupportsMapsFrom: cnc, tda, tdo, ra
 
-SupportsMapsFrom: cnc, tda
+AssetBrowser:
+	SupportedExtensions: .shp, .tem, .des, .sno, .jun, .vqa
 
 SoundFormats: Aud, Wav
 
@@ -282,15 +271,15 @@ ModelSequenceFormat: VoxelModelSequence
 GameSpeeds:
 	slower:
 		Name: Slower -1
-		Timestep: 50
+		Timestep: 60
 		OrderLatency: 3
 	default:
 		Name: Normal 0
-		Timestep: 40
+		Timestep: 50
 		OrderLatency: 3
 	fast:
 		Name: Fast +1
-		Timestep: 35
+		Timestep: 40
 		OrderLatency: 4
 	faster:
 		Name: Faster +2
@@ -298,11 +287,11 @@ GameSpeeds:
 		OrderLatency: 4
 	fastest:
 		Name: Fastest +3
-		Timestep: 25
-		OrderLatency: 6
+		Timestep: 20
+		OrderLatency: 7
 	ftl:
 		Name: FTL +4
-		Timestep: 20
+		Timestep: 10
 		OrderLatency: 7
 
 ColorValidator:

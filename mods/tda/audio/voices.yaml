@@ -3,6 +3,9 @@ Buildings:
 		PowerPlant: select_power
 		Barracks: select_barracks
 		Radar: select_radar
+		Action: null
+		Move: null
+		Select: null
 
 SpecOpsVoice:
 	Voices:
@@ -41,6 +44,7 @@ GenericVoice:
 	Voices:
 		Select: await1,ready,report1,yessir1
 		Action: ackno,affirm1,noprob,ritaway,roger,ugotit
+		Move: ackno,affirm1,noprob,ritaway,roger,ugotit
 		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman7,dedman8,nuyell1,nuyell4,nuyell5,nuyell6
 		Burned: yell1,dedman10
 		Zapped: nuyell3
@@ -55,6 +59,7 @@ VehicleVoice:
 	Voices:
 		Select: vehic1,yessir1,report1,await1,unit1
 		Action: ackno,affirm1,movout1
+		Move: ackno,affirm1,movout1
 		Unload: movout1
 
 CivilianMaleVoice:
@@ -104,6 +109,7 @@ DinoVoice:
 		Select: dinoyes
 		Move: dinomout
 		Attack: dinoatk1
+		Action: dinoatk1
 		Die: dinodie1
 		Burned: dinodie1
 		Zapped: dinodie1

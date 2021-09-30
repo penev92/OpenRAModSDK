@@ -12,12 +12,12 @@ VIP:
 
     * MustaphaTR: 
 	Helped me with github and also spoted 
-	a lot of bugs, donated code for turning off\on 
+	bugs, donated code for turning off\on 
 	weather effects.
 
     * Reaperrr: 
 	with out him this mod would have been dead! He 
-	updated my 	mod to the latest 	OpenRa engine 
+	updated my 	mod to the latest OpenRa engine 
 	Version, and because of that this mod has a future!
 
     * SoScared: 

@@ -117,6 +117,7 @@ Player:
 			GDI: 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191
 			Nod: 127, 126, 125, 124, 122, 46, 120, 47, 125, 124, 123, 122, 42, 121, 120, 120
 			Neutral: 192, 164, 132, 155, 133, 197, 112, 12, 163, 132, 155, 133, 134, 197, 154, 198
+			#I made a coop palette, i need to add that here
 	IndexedPlayerPalette@units:
 		BasePalette: terrain
 		BaseName: player-units

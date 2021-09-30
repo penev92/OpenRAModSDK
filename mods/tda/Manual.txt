@@ -31,11 +31,6 @@ Other Notes:
 The delay in the A-10 fire sound is intented, like in reality when the A-10 fires its guns there is a delay in 
 the sound to any one who is far from the plane. Check videos in youtube for better understanding.
 
-There is a bug that I tried to fix countless times, the shimmering effect its actualy a unit, in order to 
-avoid blocking with other units, I made it so it will get crushed by every unit in the game, that unfortunaly 
-has the unknown side effect of showing an infantry corpse bellow of every infantry unit that walks in tiberium. 
-I am sorry for this, I know it looks unprofesional and ugly.
-
 I am looking forward for when the openra engine introduse the ablity to add new custom resources that are 
 seperate from money, an example will be stone, wood ect. So in my case ill be able to add "Research Points" 
 or RP as a resource, so in order to get new tech you will have to invest in getting RP points.

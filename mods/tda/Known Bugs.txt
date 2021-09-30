@@ -1,4 +1,2 @@
 Selling the adv.power plant will show the original power plant animation.
 
-Infantry walking on tiberium will play the corpse animation below them.
-

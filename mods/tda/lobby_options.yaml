@@ -5,6 +5,8 @@ Player:
 		Label: Redeployable MCVs
 		Description: Allow undeploying Construction Yard.
 		Enabled: True
+		Visible: False
+		Locked: True
 		DisplayOrder: 7
 		Prerequisites: global-factundeploy
 	LobbyPrerequisiteCheckbox@GLOBALBOUNTY:
@@ -16,12 +18,15 @@ Player:
 		Prerequisites: global-bounty
 	PlayerResources:
 		SelectableCash: 0, 500, 1000, 1500, 2000, 2500, 5000, 10000, 20000, 50000, 1000000
+		DefaultCash: 10000
 		DefaultCashDropdownDisplayOrder: 0
 	DeveloperMode:
 		CheckboxDisplayOrder: 8
+		CheckboxLabel: Cheats
+		Cash: 50000
 	Shroud:
-		FogCheckboxEnabled: False
-		ExploredMapCheckboxEnabled: False
+		FogCheckboxEnabled: True
+		ExploredMapCheckboxEnabled: True
 		FogCheckboxDisplayOrder: 4
 		ExploredMapCheckboxDisplayOrder: 0
 	LobbyPrerequisiteCheckbox@HarvesterTruce:
@@ -42,14 +47,15 @@ Player:
 		ID: outpost
 		Label: Outpost
 		Description: Enables the Outpost unit, best used with "Limit Build Area" ON
-		Enabled: False
+		Enabled: True
+		Visible: False
 		DisplayOrder: 10
 		Prerequisites: outpost_on
 	LobbyPrerequisiteCheckbox@TURBO_TIBERIUM:
 		ID: turbo_tiberium
 		Label: Turbo Tiberium
 		Description: Boost tiberium growth and also enables the Tiberium Growth Decelerator building
-		Enabled: True
+		Enabled: False
 		Visible: True
 		Locked: False
 		DisplayOrder: 10
@@ -63,12 +69,16 @@ Player:
 		Prerequisites: original_rules_or_coop
 		Visible: False
 		Locked: True
-
 World:
 	MapBuildRadius:
+		AllyBuildRadiusCheckboxVisible: False
+		AllyBuildRadiusCheckboxLocked: True
+		AllyBuildRadiusCheckboxEnabled: True
 		AllyBuildRadiusCheckboxDisplayOrder: 4
 		BuildRadiusCheckboxDisplayOrder: 5
-		BuildRadiusCheckboxEnabled: False
+		BuildRadiusCheckboxEnabled: True
+		BuildRadiusCheckboxLocked: True
+		BuildRadiusCheckboxVisible: False
 	MapOptions:
 		ShortGameCheckboxDisplayOrder: 3
 		TechLevelDropdownDisplayOrder: 2
@@ -79,6 +89,7 @@ World:
 		CheckboxDisplayOrder: 9
 		CheckboxVisible: False
 	CrateSpawner:
+		CheckboxEnabled: False
 		DeliveryAircraft: c130
 		Minimum: 1
 		Maximum: 1
