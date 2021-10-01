@@ -3657,6 +3657,7 @@ NUKE_NOD:
 		Prerequisites: fact
 		Queue: Building.Nod, Building.Nodda
 		Description: Generates nuclear power.\nChance for fail-safe failure 5%
+		BuildDuration: 150
 
 NUK2_NOD:
 	Inherits@powerplant2: NUK2
@@ -3697,6 +3698,7 @@ NUKE_GDI:
 		Prerequisites: fact
 		Queue: Building.GDI
 		Description: Generates nuclear power.\nChance for fail-safe failure 5%
+		BuildDuration: 150
 
 NUK2_GDI:
 	Inherits@powerplant2: NUK2
@@ -3772,8 +3774,7 @@ PROC:
 		Prerequisites: ~anypower, ~original_rules_or_coop
 		Queue: Building.GDI, Building.Nod, Building.Nodda
 		Description: Processes raw Tiberium\ninto useable resources
-		BuildDuration: 850
-		BuildDurationModifier: 100
+		BuildDuration: 900
 	FreeActorWithDelivery:
 		Actor: HARV
 		DeliveryOffset: 1,2
@@ -3788,8 +3789,6 @@ REF_TURBO_ON:
 		Prerequisites: ~anypower, ~turbo_tiberium
 		Queue: Building.GDI, Building.Nod, Building.Nodda
 		Description: Processes raw Tiberium\ninto useable resources
-		BuildDuration: 850
-		BuildDurationModifier: 100
 	FreeActorWithDelivery:
 		Actor: HARV_BOOST_ON
 		DeliveryOffset: 1,2
@@ -3806,8 +3805,6 @@ REF_TURBO_OFF:
 		Prerequisites: ~anypower, ~!turbo_tiberium
 		Queue: Building.GDI, Building.Nod, Building.Nodda
 		Description: Processes raw Tiberium\ninto useable resources
-		BuildDuration: 850
-		BuildDurationModifier: 100
 	FreeActorWithDelivery:
 		Actor: HARV_BOOST_OFF
 		DeliveryOffset: 1,2
@@ -3828,6 +3825,7 @@ SILO:
 		Prerequisites: ~proc
 		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
 		Description: Stores processed Tiberium
+		BuildDuration: 150
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
@@ -3876,6 +3874,7 @@ PYLE:
 		Prerequisites: ~anypower
 		Queue: Building.GDI
 		Description: Trains infantry
+		BuildDuration: 150
 	Building:
 		Footprint: xx xx ==
 		Dimensions: 2,3
@@ -3976,6 +3975,7 @@ HAND:
 		Prerequisites: ~anypower
 		Queue: Building.Nod, Building.Nodda
 		Description: Trains infantry
+		BuildDuration: 150
 	Building:
 		Footprint: xx xx ==
 		Dimensions: 2,3
@@ -4093,8 +4093,7 @@ WEAP:
 		Prerequisites: ~proc, ~anypower
 		Queue: Building.GDI
 		Description: Produces vehicles
-		BuildDuration: 750
-		BuildDurationModifier: 100
+		BuildDuration: 600
 	Building:
 		Footprint: xxx === ===
 		Dimensions: 3,3
@@ -4169,8 +4168,7 @@ AFLD:
 		Prerequisites: ~proc, ~anypower
 		Queue: Building.Nod, Building.Nodda
 		Description: Provides a dropzone\nfor vehicle reinforcements
-		BuildDuration: 750
-		BuildDurationModifier: 100
+		BuildDuration: 600
 	Building:
 		Footprint: XXX_ xxxx ====
 		Dimensions: 4,3
@@ -4254,7 +4252,7 @@ SHIPYARD_GDI:
 		Queue: Building.GDI
 		Prerequisites: ~proc, ~anypower, ~techlevel.high
 		Description: Produces and repairs\nNeval units.
-		BuildDuration: 750
+		BuildDuration: 300
 	ProductionQueue@GDIShip:
 		Type: Ship.GDI
 		Factions: gdi
@@ -4279,7 +4277,7 @@ SHIPYARD_NOD:
 		Queue: Building.Nod, Building.Nodda
 		Prerequisites: ~proc, ~anypower, ~techlevel.high
 		Description: Produces and repairs\nNeval units.
-		BuildDuration: 750
+		BuildDuration: 300
 	ProductionQueue@NodShip:
 		Type: Ship.Nod
 		Factions: nod
@@ -4378,6 +4376,7 @@ HQ_GDI:
 		Queue: Building.GDI
 		Description: Provides radar and Air Strike support power.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
 		BuildLimit: 1
+		BuildDuration: 450
 	AirstrikePower:
 		PauseOnCondition: disabled
 		Prerequisites: ~techlevel.superweapons
@@ -4434,6 +4433,7 @@ HQ_NOD_DA:
 		Queue: Building.Nodda
 		Description: Provides radar and Artilery Strike support power.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
 		BuildLimit: 1
+		BuildDuration: 450
 	AirstrikePower@ArtileryStrike:
 		PauseOnCondition: disabled
 		OrderName: ArtileryBarrageInfoOrder
@@ -4494,6 +4494,7 @@ HQ_NOD_GW:
 		Queue: Building.Nod
 		Description: Provides radar and AirDrop support power.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
 		BuildLimit: 1
+		BuildDuration: 450
 	ParatroopersPower@paratroopers:
 		PauseOnCondition: disabled
 		OrderName: AirdropInfoOrder
@@ -4600,6 +4601,7 @@ FIX_GDI:
 		Prerequisites: ~vehicleproduction
 		Queue: Building.GDI
 		Description: Repairs vehicles
+		BuildDuration: 150
 	WithRepairOverlay@LIGHTS:
 		Sequence: active-lights
 		Palette: PlayerColorLights
@@ -4616,6 +4618,7 @@ FIX_NOD:
 		Prerequisites: ~vehicleproduction
 		Queue: Building.Nod, Building.Nodda
 		Description: Repairs vehicles
+		BuildDuration: 150
 	WithRepairOverlay@LIGHTS:
 		Sequence: active-lights
 		Palette: PlayerColorLights
@@ -4639,6 +4642,7 @@ MISS_GDI:
 		Prerequisites: ~anyhq, ~techlevel.high
 		Description: Provides GDI advanced technologies.
 		BuildLimit: 1
+		BuildDuration: 1200
 	Valued:
 		Cost: 4000
 	WithBuildingBib:
@@ -4695,6 +4699,7 @@ MISS_NOD:
 		Prerequisites: ~anyhq, ~techlevel.high
 		Description: Provides Nod advanced technologies.
 		BuildLimit: 1
+		BuildDuration: 1200
 	Valued:
 		Cost: 4000
 	WithBuildingBib:
@@ -4749,13 +4754,14 @@ HPAD:
 		Prerequisites: ~anyhq
 		Queue: Building.GDI, Building.Nod
 		Description: Produces, rearms and\nrepairs helicopters
+		BuildDuration: 300
 	Building:
 		Footprint: xx xx ==
 		Dimensions: 2,3
 		LocalCenterOffset: 0,-512,0
 	WithBuildingBib:
 	Health:
-		HP: 1000
+		HP: 750
 	RevealsShroud:
 		Range: 5c0
 	ProductionFromMapEdge:
@@ -4841,17 +4847,18 @@ AFLDRA:
 		Prerequisites: ~proc, ~anypower, ~techlevel.high
 		Queue: Building.Nodda
 		Description: Produces and reloads aircraft.
+		BuildDuration: 300
 	ProvidesPrerequisite@buildingname:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
-		HP: 750
+		HP: 1000
 	RevealsShroud:
 		Range: 4c0
 	WithBuildingBib:
 	Power:
-		Amount: -5
+		Amount: -8
 	Targetable:
 		TargetTypes: Ground, C4, Structure, DetonateAttack, SpyInfiltrate
 	Exit@1:
@@ -4929,6 +4936,7 @@ EYE:
 		Queue: Defence.GDI
 		Description: Provides radar and Orbital Ion Cannon support power.\nRequires power to operate.
 		BuildLimit: 1
+		BuildDuration: 1500
 	Building:
 		Footprint: X_ xx ==
 		Dimensions: 2,3
@@ -5019,6 +5027,7 @@ TMPL:
 		Queue: Defence.Nod, Defence.Nodda
 		Description: Provides Nuclear Strike support power.\nRequires power to operate.
 		BuildLimit: 1
+		BuildDuration: 1500
 	Building:
 		Footprint: Xx_ xxx ===
 		Dimensions: 3,3
@@ -5115,9 +5124,8 @@ ATWR:
 		BuildPaletteOrder: 60
 		Prerequisites: ~anyhq, ~techlevel.medium
 		Queue: Defence.GDI
-		BuildDuration: 2880
-		BuildDurationModifier: 40
 		Description: All-purpose defensive structure.\n  Strong vs Aircraft, Tanks\n  Weak vs Infantry
+		BuildDuration: 600
 	Selectable:
 		Bounds: 24,24
 		DecorationBounds: 22,48,0,-12
@@ -5166,9 +5174,8 @@ OBLI:
 		BuildPaletteOrder: 60
 		Prerequisites: ~miss_nod, ~techlevel.high
 		Queue: Defence.Nod, Defence.Nodda
-		BuildDuration: 3120
-		BuildDurationModifier: 40
 		Description: Advanced base defense.\nRequires power to operate.\n  Strong vs all Ground units\n  Cannot target Aircraft
+		BuildDuration: 600
 	Selectable:
 		Bounds: 24,24
 		DecorationBounds: 22,44,0,-10
@@ -5218,9 +5225,8 @@ GTWR:
 		BuildPaletteOrder: 55
 		Prerequisites: ~barracks
 		Queue: Defence.GDI
-		BuildDuration: 1440
-		BuildDurationModifier: 40
 		Description: Basic defensive structure.\nDetects Spies by scanning for biochip IDs.\n  Strong vs Infantry\n  Weak vs Tanks
+		BuildDuration: 180
 	Building:
 	Health:
 		HP: 2400
@@ -5264,9 +5270,8 @@ GUN:
 		BuildPaletteOrder: 55
 		Prerequisites: ~barracks
 		Queue: Defence.Nod, Defence.Nodda
-		BuildDuration: 1440
-		BuildDurationModifier: 40
 		Description: Basic Anti-Tank base defense.\n  Strong vs Tanks, vehicles\n  Weak vs Infantry
+		BuildDuration: 360
 	Building:
 	Health:
 		HP: 5000
@@ -5308,21 +5313,20 @@ SAM:
 			TopLeft: -768,-512
 			BottomRight: 768,512
 	Valued:
-		Cost: 800
+		Cost: 200
 	Tooltip:
 		Name: SAM Site
 	Buildable:
 		BuildPaletteOrder: 56
 		Prerequisites: ~anyhq
 		Queue: Defence.Nod, Defence.Nodda
-		BuildDuration: 1700
-		BuildDurationModifier: 40
 		Description: Anti-Aircraft base defense.\n  Strong vs Aircraft\n  Cannot target Ground units.
+		BuildDuration: 60
 	Building:
 		Footprint: xx
 		Dimensions: 2,1
 	Health:
-		HP: 8000
+		HP: 2750
 	Armor:
 		Type: Heavy
 	RevealsShroud:
@@ -5337,8 +5341,10 @@ SAM:
 		Weapon: SAMMissile
 		MuzzleSequence: muzzle
 	AmmoPool:
-		Ammo: 6
+		Ammo: 1
 		PipCount: 0
+	ReloadAmmoPool@1:
+		Delay: 60
 	AttackPopupTurreted:
 		RequiresCondition: !build-incomplete
 		ClosedDamageMultiplier: 40
@@ -5346,14 +5352,11 @@ SAM:
 	WithMuzzleOverlay:
 	-RenderDetectionCircle:
 	Power:
-		Amount: -6
+		Amount: -2
 	BodyOrientation:
 		UseClassicFacingFudge: True
 	Targetable:
 		TargetTypes: Ground, C4, Structure, DetonateAttack, Defense, AItagAvoid
-	ReloadAmmoPool@1:
-		Delay: 75
-		Count: 2
 	Selectable:
 		Bounds: 48,24
 
@@ -5364,11 +5367,10 @@ FTUR:
 		BuildPaletteOrder: 50
 		Prerequisites: ~barracks, ~!research_bio_nod
 		Queue: Defence.Nodda
-		BuildDuration: 1440
-		BuildDurationModifier: 40
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		BuildDuration: 180
 	Valued:
-		Cost: 800
+		Cost: 600
 	Tooltip@CHEM:
 		Name: Chem Tower
 		RequiresCondition: bio_nod
@@ -5433,11 +5435,10 @@ CTUR:
 		BuildPaletteOrder: 50
 		Prerequisites: ~barracks, ~research_bio_nod
 		Queue: Defence.Nodda
-		BuildDuration: 1440
-		BuildDurationModifier: 40
 		Description: Anti-Infantry base defense.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		BuildDuration: 360
 	Valued:
-		Cost: 800
+		Cost: 1200
 	Tooltip:
 		Name: Chem Tower
 	Building:
@@ -5479,13 +5480,12 @@ PBOX:
 		BuildPaletteOrder: 50
 		Prerequisites: ~barracks
 		Queue: Defence.Nod
-		BuildDuration: 1440
-		BuildDurationModifier: 40
 		Description: Static defense with a fireport for a\ngarrisoned soldier.\nCan detect cloaked units.\nDetects Spies by scanning for biochip IDs.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+		BuildDuration: 180
 	Valued:
 		Cost: 600
 	Health:
-		HP: 4600
+		HP: 2400
 	Armor:
 		Type: Heavy
 	RevealsShroud:
@@ -5657,9 +5657,8 @@ TGD:
 		BuildPaletteOrder: 50
 		Prerequisites: ~proc, ~turbo_tiberium
 		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
-		BuildDuration: 1440
-		BuildDurationModifier: 40
 		Description: Large chamber made for housing a\nsingle tiberium tree.\nDecelerates tiberium growth.\nCollects the surplus tiberium inside the chamber and\ngives a small percentage to the owner.\n Can't be sold
+		BuildDuration: 150
 	RequiresBuildableArea:
 		AreaTypes: building
 		Adjacent: 8

@@ -337,12 +337,11 @@ TowerMissle:
 
 SAMMissile:
 	Inherits@2: ^Rocket
-	ReloadDelay: 25
 	Range: 10c0
 	Report: rocketnewfire4.aud
 	ValidTargets: Air
 	Burst: 3
-	BurstDelays: 6
+	BurstDelays: 26
 	Projectile: Missile
 		Arm: 0
 		Blockable: false
@@ -355,7 +354,7 @@ SAMMissile:
 	Warhead@1Dam: SpreadDamage
 		Spread: 682
 		ValidTargets: Air
-		Damage: 125
+		Damage: 41
 		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
 		Explosions: small_building
