@@ -73,7 +73,7 @@
 		Crushes: crate, TibShimmeringEffect, mine
 		TerrainSpeeds:
 			Bridge: 100
-			Clear: 80
+			Clear: 100
 			Rough: 35
 			Road: 100
 			Tiberium: 35
@@ -85,7 +85,7 @@
 		Crushes: crate, TibShimmeringEffect, mine
 		TerrainSpeeds:
 			Bridge: 100
-			Clear: 80
+			Clear: 100
 			Rough: 50
 			Road: 100
 			Tiberium: 50
@@ -97,7 +97,7 @@
 		Crushes: wall, crate, infantry, mine, lightwall, TibShimmeringEffect
 		TerrainSpeeds:
 			Bridge: 100
-			Clear: 80
+			Clear: 100
 			Rough: 50
 			Road: 100
 			Tiberium: 50
@@ -108,7 +108,7 @@
 		Name: tracked
 		Crushes: wall, crate, infantry, TibShimmeringEffect, mine
 		TerrainSpeeds:
-			Clear: 80
+			Clear: 100
 			Rough: 70
 			Road: 100
 			Bridge: 100
@@ -120,7 +120,7 @@
 		Name: heavytracked
 		Crushes: wall, heavywall, lightwall, crate, infantry, TibShimmeringEffect, mine
 		TerrainSpeeds:
-			Clear: 80
+			Clear: 100
 			Rough: 70
 			Road: 100
 			Bridge: 100
@@ -1629,11 +1629,11 @@ Player:
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Defense
+		ValidTargets: Infantry, Vehicle, Tank, Creep, Water, Defense
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Tank, Creep, Water, Structure, Defense
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetGroundAssaultMove:
@@ -1656,11 +1656,11 @@ Player:
 		AttackAnythingCondition: stance-attackanything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Defense
+		ValidTargets: Infantry, Vehicle, Tank, Creep, Water, Air, Defense
 		InvalidTargets: NoAutoTarget
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: stance-attackanything
-		ValidTargets: Infantry, Vehicle, Creep, Water, Air, Structure, Defense
+		ValidTargets: Infantry, Vehicle, Tank, Creep, Water, Air, Structure, Defense
 		InvalidTargets: NoAutoTarget
 
 ^AutoTargetAllAssaultMove:
@@ -4093,7 +4093,7 @@ WEAP:
 		Prerequisites: ~proc, ~anypower
 		Queue: Building.GDI
 		Description: Produces vehicles
-		BuildDuration: 600
+		BuildDuration: 660
 	Building:
 		Footprint: xxx === ===
 		Dimensions: 3,3
@@ -4168,7 +4168,7 @@ AFLD:
 		Prerequisites: ~proc, ~anypower
 		Queue: Building.Nod, Building.Nodda
 		Description: Provides a dropzone\nfor vehicle reinforcements
-		BuildDuration: 600
+		BuildDuration: 660
 	Building:
 		Footprint: XXX_ xxxx ====
 		Dimensions: 4,3
@@ -4376,7 +4376,7 @@ HQ_GDI:
 		Queue: Building.GDI
 		Description: Provides radar and Air Strike support power.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
 		BuildLimit: 1
-		BuildDuration: 450
+		BuildDuration: 480
 	AirstrikePower:
 		PauseOnCondition: disabled
 		Prerequisites: ~techlevel.superweapons
@@ -4433,7 +4433,7 @@ HQ_NOD_DA:
 		Queue: Building.Nodda
 		Description: Provides radar and Artilery Strike support power.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
 		BuildLimit: 1
-		BuildDuration: 450
+		BuildDuration: 480
 	AirstrikePower@ArtileryStrike:
 		PauseOnCondition: disabled
 		OrderName: ArtileryBarrageInfoOrder
@@ -4494,7 +4494,7 @@ HQ_NOD_GW:
 		Queue: Building.Nod
 		Description: Provides radar and AirDrop support power.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
 		BuildLimit: 1
-		BuildDuration: 450
+		BuildDuration: 480
 	ParatroopersPower@paratroopers:
 		PauseOnCondition: disabled
 		OrderName: AirdropInfoOrder
@@ -4642,7 +4642,7 @@ MISS_GDI:
 		Prerequisites: ~anyhq, ~techlevel.high
 		Description: Provides GDI advanced technologies.
 		BuildLimit: 1
-		BuildDuration: 1200
+		BuildDuration: 1320
 	Valued:
 		Cost: 4000
 	WithBuildingBib:
@@ -4699,7 +4699,7 @@ MISS_NOD:
 		Prerequisites: ~anyhq, ~techlevel.high
 		Description: Provides Nod advanced technologies.
 		BuildLimit: 1
-		BuildDuration: 1200
+		BuildDuration: 1320
 	Valued:
 		Cost: 4000
 	WithBuildingBib:
@@ -4754,7 +4754,7 @@ HPAD:
 		Prerequisites: ~anyhq
 		Queue: Building.GDI, Building.Nod
 		Description: Produces, rearms and\nrepairs helicopters
-		BuildDuration: 300
+		BuildDuration: 330
 	Building:
 		Footprint: xx xx ==
 		Dimensions: 2,3
@@ -4847,7 +4847,7 @@ AFLDRA:
 		Prerequisites: ~proc, ~anypower, ~techlevel.high
 		Queue: Building.Nodda
 		Description: Produces and reloads aircraft.
-		BuildDuration: 300
+		BuildDuration: 330
 	ProvidesPrerequisite@buildingname:
 	Building:
 		Footprint: xxx xxx
