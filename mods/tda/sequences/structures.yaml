@@ -913,6 +913,8 @@ v19:
 		Start: 14
 		Length: 14
 		Tick: 120
+	dead: v19_des
+		Start: 0
 
 hosp:
 	idle:
@@ -933,6 +935,8 @@ hosp:
 		UseTilesetExtension: true
 		Length: *
 		Offset: 0,1
+	dead: hosp_des
+		Start: 0
 
 bio:
 	idle:
@@ -941,6 +945,8 @@ bio:
 	make: biomake
 		Length: *
 		Tick: 80
+	dead: bio_des
+		Start: 0
 
 bio.husk:
 	idle: bio
@@ -962,6 +968,8 @@ miss:
 		UseTilesetExtension: true
 		Length: *
 		Offset: 0,-6
+	dead: miss_des
+		Start: 0
 	icon: missicnh
 
 miss_nod:

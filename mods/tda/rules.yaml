@@ -9495,6 +9495,8 @@ HOSP_DES:
 		SkipMakeAnims: True
 	EditorOnlyTooltip:
 		Name: Use this
+	DamageMultiplier:
+		Modifier: 0
 
 BIO_DES:
 	Inherits: ^TechBuilding
@@ -9513,6 +9515,8 @@ BIO_DES:
 		SkipMakeAnims: True
 	EditorOnlyTooltip:
 		Name: Use this
+	DamageMultiplier:
+		Modifier: 0
 
 MISS_DES:
 	Inherits: ^TechBuilding
@@ -9533,6 +9537,8 @@ MISS_DES:
 		SkipMakeAnims: True
 	EditorOnlyTooltip:
 		Name: Use this
+	DamageMultiplier:
+		Modifier: 0
 
 BARR_DES:
 	Inherits: ^TechBuilding
