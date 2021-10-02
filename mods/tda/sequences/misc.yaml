@@ -308,6 +308,7 @@ explosion:
 	nuke_explosion: atomsfx
 	nuke_explosion_light: atomslightsfx
 	atmine_explosion: at_mine_smoke
+	apmine_explosion: ap_mine_smoke
 	piff: piff
 	piffs: piffpiff
 	water_piff: wpiff

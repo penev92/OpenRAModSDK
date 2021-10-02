@@ -6484,6 +6484,7 @@ MNLYGDI:
 		Mine: MINP
 		AmmoPoolName: primary
 		MinefieldDepth: 1c512
+		TileUnknownName: build-invalid
 	MineImmune:
 	AmmoPool:
 		Ammo: 5
@@ -6494,6 +6495,45 @@ MNLYGDI:
 	RenderDetectionCircle:
 	Explodes:
 		Weapon: APMine
+
+MNLYNOD:
+	Inherits: ^Tank
+	Inherits@RA: ^PlayerRApaletteVehicle
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~anyfix, ~techlevel.medium
+		Queue: Vehicle.Nod, Vehicle.Nodda
+		Description: Lays mines to destroy\nunwary enemy tanks.\nCan detect mines.\n  Unarmed
+		BuildDuration: 210
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Minelayer AT
+	Health:
+		HP: 2800
+	Armor:
+		Type: AT-3
+	Mobile:
+		Speed: 72
+	RevealsShroud:
+		Range: 5c0
+	Rearmable:
+		RearmActors: fix_gdi, fix_nod
+		AmmoPools: primary
+	Minelayer:
+		Mine: MINV
+		MinefieldDepth: 1c512
+		TileUnknownName: build-invalid
+	MineImmune:
+	AmmoPool:
+		Ammo: 5
+		RearmSound: minelay1.aud
+	DetectCloaked:
+		Range: 5c0
+		CloakTypes: Mine
+	RenderDetectionCircle:
+	Explodes:
+		Weapon: ATMine
 
 BGGY:
 	Inherits: ^Vehicle
@@ -6686,44 +6726,6 @@ MLRS.Husk:
 		IntoActor: mlrs
 	RenderSprites:
 		Image: mlrs.destroyed
-
-MNLYNOD:
-	Inherits: ^Tank
-	Inherits@RA: ^PlayerRApaletteVehicle
-	Buildable:
-		BuildPaletteOrder: 100
-		Prerequisites: ~anyfix, ~techlevel.medium
-		Queue: Vehicle.Nod, Vehicle.Nodda
-		Description: Lays mines to destroy\nunwary enemy tanks.\nCan detect mines.\n  Unarmed
-		BuildDuration: 210
-	Valued:
-		Cost: 700
-	Tooltip:
-		Name: Minelayer AT
-	Health:
-		HP: 2800
-	Armor:
-		Type: AT-3
-	Mobile:
-		Speed: 72
-	RevealsShroud:
-		Range: 5c0
-	Rearmable:
-		RearmActors: fix_gdi, fix_nod
-		AmmoPools: primary
-	Minelayer:
-		Mine: MINV
-		MinefieldDepth: 1c512
-	MineImmune:
-	AmmoPool:
-		Ammo: 5
-		RearmSound: minelay1.aud
-	DetectCloaked:
-		Range: 5c0
-		CloakTypes: Mine
-	RenderDetectionCircle:
-	Explodes:
-		Weapon: ATMine
 
 ARTY: #specter
 	Inherits: ^Tank

@@ -268,7 +268,7 @@ APMine:
 		AffectsParent: true
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
-		Explosions: poof
+		Explosions: apmine_explosion
 		ExplosionPalette: flashyeffect
 		ImpactSounds: mine1.aud
 	Warhead@Smu: LeaveSmudge
