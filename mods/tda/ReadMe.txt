@@ -9,6 +9,9 @@ NoDerivatives — If you remix, transform, or build upon the material, you may n
 
 No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
+The above license refers to this file types: .shp .aud .tem .png .bmp .wav .ico .yaml .lua .tem .jun .sno .des .ttf .exe .pall
+And not for the OpenRa engine code, the OpenRa engine code uses its own Licence.
+
 ===============================================================
 Tiberium Dawn Apolyton (v1.5.9) Credits:
 ===============================================================
