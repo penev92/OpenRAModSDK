@@ -2,7 +2,7 @@
 
 @echo on
 
-set Name="Ignore (Dev Testing)"
+set Name="Dedicated Server"
 set ListenPort=1234
 set AdvertiseOnline=True
 set Password=""
@@ -13,8 +13,8 @@ set ProfileIDWhitelist=""
 
 set EnableSingleplayer=False
 set EnableSyncReports=False
-set EnableGeoIP=False
-set ShareAnonymizedIPs=False
+set EnableGeoIP=True
+set ShareAnonymizedIPs=True
 
 @echo off
 setlocal EnableDelayedExpansion
