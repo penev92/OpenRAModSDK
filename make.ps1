@@ -173,7 +173,7 @@ function Docs-Command
 	Invoke-Expression "$utilityPath $modID --docs | Out-File -Encoding 'UTF8' DOCUMENTATION.md"
 	Invoke-Expression "$utilityPath $modID --weapon-docs | Out-File -Encoding "UTF8" WEAPONS.md"
 	Invoke-Expression "$utilityPath $modID --lua-docs | Out-File -Encoding 'UTF8' Lua-API.md"
-	echo "Docs generated." -ForegroundColor Green
+	Write-Host "Docs generated." -ForegroundColor Green
 }
 
 function CheckForUtility
@@ -288,6 +288,10 @@ else
 	$command = $args
 }
 
+# Set the working directory for our IO methods
+$templateDir = $pwd.Path
+[System.IO.Directory]::SetCurrentDirectory($templateDir)
+
 # Load the environment variables from the config file
 # and get the mod ID from the local environment variable
 ParseConfigFile "mod.config"
@@ -304,7 +308,6 @@ $env:MOD_SEARCH_PATHS = (Get-Item -Path ".\" -Verbose).FullName + "\mods,./mods"
 # Run the same command on the engine's make file
 if ($command -eq "all" -or $command -eq "clean")
 {
-	$templateDir = $pwd.Path
 	$versionFile = $env:ENGINE_DIRECTORY + "/VERSION"
 	$currentEngine = ""
 	if (Test-Path $versionFile)
