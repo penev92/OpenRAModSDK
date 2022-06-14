@@ -4,6 +4,21 @@ mov:
 		UseClassicFacingFudge: True
 	icon: outposticon
 
+harty:
+	idle:
+		Facings: 32
+		UseClassicFacingFudge: True
+	muzzle: gunfire2
+		Length: *
+	icon: harty.tem
+		AddExtension: False
+
+harty.destroyed:
+	idle: harty
+		Facings: 32
+		UseClassicFacingFudge: True
+		ZOffset: -512
+
 mnlynod:
 	idle:
 		Facings: 32

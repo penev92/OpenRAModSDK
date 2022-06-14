@@ -3280,8 +3280,6 @@ FACT:
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 20000
-	Armor:
-		Type: Wood
 	Power:
 		Amount: 10
 	RevealsShroud:
@@ -3445,8 +3443,6 @@ OUTPOST:
 		LocalCenterOffset: 0,0,0
 	Health:
 		HP: 2300
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 10c0
 	BaseBuilding:
@@ -4191,6 +4187,7 @@ AFLD:
 	ProductionAirdrop:
 		Produces: Vehicle.Nod, Vehicle.Nodda
 		ActorType: c17
+		BaselineSpawn: true
 	ProductionQueue@NodVehicle:
 		Type: Vehicle.Nod
 		Group: Vehicle
@@ -4250,7 +4247,7 @@ SHIPYARD_GDI:
 	Buildable:
 		BuildPaletteOrder: 40
 		Queue: Building.GDI
-		Prerequisites: ~proc, ~anypower, ~techlevel.high
+		Prerequisites: ~proc, ~anypower, ~techlevel.high, ~disabledfornow
 		Description: Produces and repairs\nNeval units.
 		BuildDuration: 300
 	ProductionQueue@GDIShip:
@@ -4275,7 +4272,7 @@ SHIPYARD_NOD:
 	Buildable:
 		BuildPaletteOrder: 50
 		Queue: Building.Nod, Building.Nodda
-		Prerequisites: ~proc, ~anypower, ~techlevel.high
+		Prerequisites: ~proc, ~anypower, ~techlevel.high, ~disabledfornow
 		Description: Produces and repairs\nNeval units.
 		BuildDuration: 300
 	ProductionQueue@NodShip:
@@ -5132,8 +5129,6 @@ ATWR:
 	SelectionDecorations:
 	Health:
 		HP: 7000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 8c0
 	WithBuildingBib:
@@ -5182,8 +5177,6 @@ OBLI:
 	SelectionDecorations:
 	Health:
 		HP: 7500
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 8c0
 	WithBuildingBib:
@@ -5275,8 +5268,6 @@ GUN:
 	Building:
 	Health:
 		HP: 5000
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	WithBuildingBib:
@@ -5327,8 +5318,6 @@ SAM:
 		Dimensions: 2,1
 	Health:
 		HP: 2750
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 8c0
 	Turreted:
@@ -5380,8 +5369,6 @@ FTUR:
 	Building:
 	Health:
 		HP: 4600
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	WithBuildingBib:
@@ -5444,8 +5431,6 @@ CTUR:
 	Building:
 	Health:
 		HP: 4600
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	WithBuildingBib:
@@ -5486,8 +5471,6 @@ PBOX:
 		Cost: 600
 	Health:
 		HP: 2400
-	Armor:
-		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	WithBuildingBib:
@@ -5529,8 +5512,6 @@ SBAG:
 		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
 		Description: Stops infantry and light vehicles.\nCan be crushed by tanks.
 		BuildDurationModifier: 200
-	Armor:
-		Type: Light
 	LineBuild:
 		Range: 28
 		NodeTypes: sandbag
@@ -5557,8 +5538,6 @@ CYCL:
 		Queue: Defence.GDI, Defence.Nod, Defence.Nodda
 		Description: Stops infantry.\nCan be crushed by vehicles and tanks.
 		BuildDurationModifier: 200
-	Armor:
-		Type: Light
 	Crushable:
 		CrushClasses: lightwall
 	LineBuild:
@@ -5588,8 +5567,6 @@ BRIK:
 		BuildDurationModifier: 200
 	Health:
 		HP: 8000
-	Armor:
-		Type: Heavy
 	BlocksProjectiles:
 	Crushable:
 		CrushClasses: heavywall
@@ -6406,6 +6383,66 @@ HTNK.Husk:
 	RenderSprites:
 		Image: htnk.destroyed
 
+HARTY:
+	Inherits: ^Tank
+	Inherits@CLOAK: ^AcceptsCloakCrate
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@ARTILLERY: ^ArtilleryUnit
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Mammoth Arty
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~anyhq, ~aprilfools, ~techlevel.medium
+		Queue: Vehicle.Nod, Vehicle.Nodda
+		Description: Long-range artillery.\n  Strong vs Infantry, Vehicles and Buildings
+		BuildDuration: 450
+	Mobile:
+		Speed: 45
+		TurnSpeed: 3
+		-RequiresCondition:
+	Health:
+		HP: 11500
+	Armor:
+		Type: AT-1
+	RevealsShroud:
+		Range: 6c0
+	Armament:
+		Weapon: ArtilleryShell
+		LocalOffset: 624,0,208
+		MuzzleSequence: muzzle
+	AttackSounds:
+		Sounds: artyfire2.aud, artyfire3.aud
+		Delay: 0
+		DelayRelativeTo: Preparation
+	AttackFrontal:
+	WithMuzzleOverlay:
+	Explodes:
+		Weapon: ArtilleryShellExplode
+		EmptyWeapon: UnitExplode
+		LoadedChance: 75
+	SelfHealing:
+		Delay: 10
+		HealIfBelow: 50
+		DamageCooldown: 200
+	SpawnActorOnDeath:
+		Actor: HARTY.Husk
+	SelectionDecorations:
+	-Carryable:
+	Selectable:
+		DecorationBounds: 34,34,0,-3
+HARTY.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Mammoth Arty (Destroyed)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture:
+		IntoActor: harty
+	RenderSprites:
+		Image: harty.destroyed
+
 MSAM: #spectere
 	Inherits: ^Tank
 	Inherits@CLOAK: ^AcceptsCloakCrate
@@ -6922,7 +6959,7 @@ DTRK:
 	Armor:
 		Type: AT-1
 	Mobile:
-		Speed: 40
+		Speed: 50
 	RevealsShroud:
 		Range: 4c0
 	Explodes:
@@ -7048,11 +7085,12 @@ C17:
 	Valued:
 		Cost: 2000
 	Aircraft:
-		TurnSpeed: 5
-		Speed: 326
+		TurnSpeed: 10
+		Speed: 400
 		Repulsable: False
 		MaximumPitch: 36
 		CruiseAltitude: 4560
+		AltitudeVelocity: 1c120
 	Health:
 		HP: 25
 	Armor:

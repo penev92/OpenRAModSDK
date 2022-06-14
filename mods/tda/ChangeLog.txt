@@ -23,7 +23,8 @@ Changed: lobby options
 Changed: MOV to be always available from the con yard.
 Changed: walls to disallow placement outside building radius.
 Changed: BRIK walls build time to 12 seconds, SBAG 8 and CYCL to 4.
-
+Changed: Nod C17 will now come from the player starting position into the map, also changed speed to be faster.
+Visual: Added new explosion effects.
 
 159-A:
 Balance: Units under attacked by flame or chem weapons won't go in to prone any more (if a flamethrower is firing at you, going in to prone wont help you, because you will be dead by then, and the same thing with bio weapons).

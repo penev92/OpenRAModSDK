@@ -69,6 +69,15 @@ Player:
 		Prerequisites: original_rules_or_coop
 		Visible: False
 		Locked: True
+	LobbyPrerequisiteCheckbox@APRILFOOLS:
+		ID: aprilfools
+		Label: April Fools?
+		Description: Enable April Fools Units
+		Enabled: False
+		DisplayOrder: 10
+		Prerequisites: aprilfools
+		Visible: False
+		Locked: True
 World:
 	MapBuildRadius:
 		AllyBuildRadiusCheckboxVisible: False

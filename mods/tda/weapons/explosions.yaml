@@ -425,7 +425,7 @@ MiniNukeDemo:
 	Warhead@1Dam_impact: SpreadDamage
 		Spread: 1c0
 		Damage: 3000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Falloff: 100, 0, 0, 0, 0, 0, 0
 		ValidTargets: Ground, Trees, Water, Air
 		Versus:
 			AT-25: 25
@@ -434,12 +434,12 @@ MiniNukeDemo:
 	Warhead@2Res_impact: DestroyResource
 		Size: 1
 	Warhead@3Eff_impact: CreateEffect
-		Explosions: nuke_explosion
+		Explosions: tnt_explosion
 		ImpactSounds: kaboom1.aud
 	Warhead@4Dam_areanuke1: SpreadDamage
 		Spread: 2c0
 		Damage: 2500
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Falloff: 100, 0, 0, 0, 0, 0, 0
 		Delay: 5
 		ValidTargets: Ground, Trees, Water, Underwater, Air
 		Versus:
@@ -455,7 +455,7 @@ MiniNukeDemo:
 	Warhead@7Dam_areanuke2: SpreadDamage
 		Spread: 3c0
 		Damage: 2000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Falloff: 100, 0, 0, 0, 0, 0, 0
 		Delay: 10
 		ValidTargets: Ground, Trees, Water, Underwater, Air
 		Versus:
@@ -468,7 +468,7 @@ MiniNukeDemo:
 	Warhead@9Dam_areanuke3: SpreadDamage
 		Spread: 4c0
 		Damage: 1500
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		Falloff: 100, 0, 0, 0, 0, 0, 0
 		Delay: 15
 		ValidTargets: Ground, Trees, Water, Underwater
 		Versus:

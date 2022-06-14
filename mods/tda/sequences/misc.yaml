@@ -307,6 +307,9 @@ explosion:
 		ZOffset: 511
 	nuke_explosion: atomsfx
 	nuke_explosion_light: atomslightsfx
+	tnt_explosion: tda_explo1
+		BlendMode: Additive
+		Tick: 25
 	atmine_explosion: at_mine_smoke
 	apmine_explosion: ap_mine_smoke
 	piff: piff
@@ -324,6 +327,9 @@ explosion:
 		BlendMode: Additive
 	chemball: chemball
 		BlendMode: Additive
+	toxic_barrel: tda_toxic_explo1
+		BlendMode: Additive
+		Tick: 5
 	small_napalm: napalm1
 		BlendMode: Additive
 	med_napalm: napalm2
