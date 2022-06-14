@@ -17,7 +17,7 @@ lobby-bits:
 		authentication: 418,97,12,13
 		authentication-disabled: 418,113,12,13
 
-panel-logotransparent: 
+panel-logotransparent:
 	Image: observer.png
 	Regions:
 		background: 0,0,1024,512
@@ -40,7 +40,7 @@ panel-buildmenu:
 	Regions:
 		background: 0,0,296,709
 
-panel-emptybuild: 
+panel-emptybuild:
 	Image: chrome2.png
 	Regions:
 		background: 0,464,64,48
@@ -51,50 +51,50 @@ production-icons:
 		repair: 448,762,64,48
 		repair-disabled: 448,810,64,48
 		repair-active: 448,858,64,48
-
 		sell: 512,762,64,48
 		sell-disabled: 512,810,64,48
 		sell-active: 512,858,64,48
-
 		power: 576,762,64,48
 		power-disabled: 576,810,64,48
 		power-active: 576,858,64,48
-
 		beacon: 640,762,64,48
 		beacon-disabled: 640,810,64,48
 		beacon-active: 640,858,64,48
-
 		building: 0,762,64,48
 		building-disabled: 0,810,64,48
 		building-alert: 0,858,64,48
-
 		defence: 64,762,64,48
 		defence-disabled: 64,810,64,48
 		defence-alert: 64,858,64,48
-
 		infantry: 128,762,64,48
 		infantry-disabled: 128,810,64,48
 		infantry-alert: 128,858,64,48
-
 		vehicle: 192,762,64,48
 		vehicle-disabled: 192,810,64,48
 		vehicle-alert: 192,858,64,48
-
 		aircraft: 256,762,64,48
 		aircraft-disabled: 256,810,64,48
 		aircraft-alert: 256,858,64,48
-
 		ship: 320,762,64,48
 		ship-disabled: 320,810,64,48
 		ship-alert: 320,858,64,48
-
 		research: 384,762,64,48
 		research-disabled: 384,810,64,48
 		research-alert: 384,858,64,48
 
+
+
+
+
+
+
+
+
+
+
 panel-black:
 	Image: oldbackground.png
-	Regions:	
+	Regions:
 		background: 1,1,510,510
 		border-r: 0,1,1,511
 		border-l: 0,1,1,511
